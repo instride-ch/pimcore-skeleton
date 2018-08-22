@@ -1,0 +1,8 @@
+{% if searchSuggestions is not empty %}
+
+    {{ 'lucene.suggestion'|trans }}:
+    {% for suggestion in searchSuggestions %}
+        <a href="?{{ lucene_search_pagination_url(suggestion) }}" class="uk-label">{{ suggestion }}</a>
+    {% endfor %}
+
+{% endif %}

@@ -1,0 +1,5 @@
+{% set mode = mode is defined ? mode : 'uk-search-navbar' %}
+
+<form class="uk-search {{ mode }} uk-width-1-1" action="{{ path('app_search') }}">
+    <input class="uk-search-input" type="search" name="q" placeholder="{{ 'app.fulltext_search.placeholder'|trans }}" autofocus>
+</form>

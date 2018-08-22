@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- Copyright
+                          _      _
+     _      __     _   __(_)____(_)___  ____
+    | | /| / /____| | / / / ___/ / __ \/ __ \
+    | |/ |/ /_____/ |/ / (__  ) / /_/ / / / /
+    |__/|__/      |___/_/____/_/\____/_/ /_/
+
+    Web development by
+    w-vision AG, Sandgruebestrasse 4, 6210 Sursee, Switzerland
+    https://www.w-vision.ch, support@w-vision.ch
+    Copyright © {{ 'now'|date('Y') }} w-vision AG. All rights reserved.
+    Pimcore - Own the Digital World | Digital Enterprise Content Platform
+-->
+<html lang="{{ app.request.locale|slice(0, 2) }}">
+<head>{% include 'Layout/html-head.html.twig' %}</head>
+<body>
+
+    <div class="uk-offcanvas-content">
+
+        {# page header #}
+        {% include 'Layout/header.html.twig' %}
+
+        <main class="main-content" data-uk-height-viewport="expand: true">
+            {# page content #}
+            {% block content %}{% endblock %}
+        </main>
+
+        {# page footer #}
+        {% include 'Layout/footer.html.twig' %}
+
+    </div>
+
+    {# output scripts added before #}
+    {% block scripts deferred %}
+        {{ pimcore_head_script() }}
+    {% endblock %}
+
+</body>
+</html>

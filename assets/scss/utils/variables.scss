@@ -1,0 +1,32 @@
+//
+// Breakpoints
+//
+
+$sm: 640px !default;                                                            // default breakpoints
+$md: 960px !default;
+$lg: 1200px !default;
+$xl: 1600px !default;
+
+$max-xs: max-width ($sm - 1) !default;                                          // max-width breakpoints
+$max-sm: max-width ($md - 1) !default;
+$max-md: max-width ($lg - 1) !default;
+$max-lg: max-width ($xl - 1) !default;
+
+
+//
+// Colors
+//
+
+$color-primary:        #6428b4 !default;                                        // CI
+$color-secondary:      #222 !default;
+
+$color-black:          #000 !default;                                           // Black and white
+$color-emphasis:       #333 !default;
+$color-global:         #666 !default;
+$color-mute:           #999 !default;
+$color-border:         #e5e5e5 !default;
+$color-white:          #fff !default;
+
+$color-success:        #32d296 !default;                                        // Success, warning and danger
+$color-warning:        #faa05a !default;
+$color-danger:         #f0506e !default;

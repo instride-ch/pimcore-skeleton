@@ -1,0 +1,12 @@
+// 1. Variable overwrites.
+@import 'uikit/uikit-variables';
+
+// 2. Import default variables and available mixins.
+@import 'variables-theme';
+@import 'mixins-theme';
+
+// 3. Mixin overwrites.
+@import 'uikit/uikit-hooks';
+
+// 4. Import UIkit.
+@import 'uikit/uikit-import';

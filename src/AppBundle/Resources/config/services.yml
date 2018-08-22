@@ -1,0 +1,24 @@
+services:
+
+    # auto-register all controllers as services
+    AppBundle\Controller\:
+        resource: '../../Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    # Templating
+    AppBundle\Templating\LanguageSwitcher:
+        class: AppBundle\Templating\LanguageSwitcher
+        arguments:
+            - '@pimcore.document_service'
+
+    # Twig Extensions
+    AppBundle\Twig\Extension\AssetExtension:
+        class: AppBundle\Twig\Extension\AssetExtension
+        tags:
+            - { name: twig.extension }
+
+    AppBundle\Twig\Extension\StringExtension:
+        class: AppBundle\Twig\Extension\StringExtension
+        tags:
+            - { name: twig.extension }

@@ -1,0 +1,47 @@
+<div class="uk-section uk-section-secondary">
+    <div class="uk-container">
+
+        <div class="uk-flex-middle uk-grid-margin uk-grid uk-grid-stack" data-uk-grid>
+            <div class="uk-width-1-1@m uk-first-column">
+                <div class="uk-margin-small uk-text-center ">
+                    <img width="100" height="25" src="{{ asset('build/images/logo.svg') }}" alt="{{ pimcore_website_config('name') }}">
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-flex-middle uk-margin uk-grid" data-uk-grid>
+            <div class="uk-width-expand@s uk-first-column">
+                <h3 class="uk-text-center">Visit Us</h3>
+                <div class="uk-margin uk-text-center">
+                    <a href="https://google.com/maps?q={{ pimcore_website_config('google-maps-query') }}"
+                       class="uk-link-reset" target="_blank" rel="noopener nofollow">
+                        {{ pimcore_website_config('address') }}<br />
+                        {{ pimcore_website_config('zipCity') }}
+                    </a>
+                </div>
+            </div>
+            <div class="uk-width-expand@s">
+                <h3 class="uk-margin-remove-top uk-text-center">Contact</h3>
+                <div class="uk-margin uk-text-center">
+                    <a class="uk-link-reset" href="mailto:{{ pimcore_website_config('email')|obfuscateEmail }}">
+                        {{ pimcore_website_config('email')|obfuscateEmail }}
+                    </a><br />
+                    <a class="uk-link-reset" href="tel:{{ pimcore_website_config('phone')|replace({ ' ': '' }) }}">
+                        {{ pimcore_website_config('phone') }}
+                    </a>
+                </div>
+            </div>
+            {% if document.getProperty('imprintPage') is instanceof('\\Pimcore\\Model\\Document\\Page') %}
+                {% set imprint = document.getProperty('imprintPage') %}
+
+                <div class="uk-width-expand@s">
+                    <h3 class="uk-text-center">Legals</h3>
+                    <div class="uk-margin uk-text-center">
+                        <a href="{{ imprint.getFullPath() }}">{{ imprint.getProperty('navigation_name') }}</a><br/>
+                        &copy; {{ pimcore_website_config('name') }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+{
+  "name": "pimcore-skeleton",
+  "version": "5.4.0",
+  "description": "Pimcore Skeleton with Docker and Webpack",
+  "author": "w-vision AG <support@w-vision.ch>",
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://www.w-vision.ch",
+  "repository": "https://github.com/w-vision/pimcore-skeleton",
+  "scripts": {
+    "build": "./node_modules/.bin/encore production",
+    "deploy": "php vendor/bin/dep deploy",
+    "deploy:dev": "php vendor/bin/dep deploy dev",
+    "deploy:prod": "php vendor/bin/dep deploy production",
+    "dev": "./node_modules/.bin/encore dev",
+    "dev:server": "./node_modules/.bin/encore dev-server --hot",
+    "icons:custom": "cd node_modules/uikit && yarn icons -- --custom ../../assets/custom/icons",
+    "install": "cd node_modules/uikit && yarn && yarn compile",
+    "ssh": "php vendor/bin/dep ssh",
+    "watch": "./node_modules/.bin/encore dev --watch"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.20.1",
+    "autoprefixer": "^8.3.0",
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "imagemin-webpack-plugin": "^2.1.1",
+    "node-sass": "^4.8.3",
+    "postcss-loader": "^2.1.4",
+    "sass-loader": "^7.0.1",
+    "stylelint": "^9.2.0",
+    "stylelint-webpack-plugin": "^0.10.4"
+  },
+  "dependencies": {
+    "foundation-emails": "^2.2.1",
+    "imagesloaded": "^4.1.4",
+    "uikit": "^3.0.0-rc.11",
+    "webfontloader": "^1.6.28"
+  },
+  "browserslist": [
+    ">0.25%",
+    "not ie <= 10",
+    "not op_mini all"
+  ],
+  "eslintIgnore": [
+    "assets/js/vendor/**/*"
+  ]
+}

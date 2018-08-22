@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <div class="uk-section uk-section-default uk-height-1-1">
+        <div class="uk-container">
+            <h1>{{ document.action|capitalize }} template</h1>
+            <p>This page is being displayed by the <kbd>{{ document.action }}Action</kbd> of the <kbd>{{ document.controller|capitalize }}</kbd>.</p>
+        </div>
+    </div>
+
+{% endblock %}

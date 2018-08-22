@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+
+{% set errorHeadline = pimcore_input('errorHeadline') %}
+{% set errorText = pimcore_textarea('errorText', { nl2br: true }) %}
+{% set errorLink = pimcore_link('errorLink') %}
+{% set glitchImage = pimcore_href('glitchImage',{
+    types: ['asset'],
+    subtypes: {
+        assets: ['image'],
+    },
+    reload: true
+}) %}
+
+{% block content %}
+
+    <div class="glitch uk-section uk-section-secondary uk-height-1-1 uk-cover-container">
+        {% if not glitchImage.isEmpty() and glitchImage.getElement() is instanceof('\\Pimcore\\Model\\Asset\\Image') %}
+            <div class="glitch-image uk-background-cover uk-background-norepeat"
+                 style="background-image: url({{ glitchImage.getElement().getThumbnail('fullsize-background') }});"></div>
+            <div class="glitch-image uk-background-cover uk-background-norepeat"
+                 style="background-image: url({{ glitchImage.getElement().getThumbnail('fullsize-background') }});"></div>
+            <div class="glitch-image uk-background-cover uk-background-norepeat"
+                 style="background-image: url({{ glitchImage.getElement().getThumbnail('fullsize-background') }});"></div>
+            <div class="glitch-image uk-background-cover uk-background-norepeat uk-background-blend-overlay uk-background-default"
+                 style="background-image: url({{ glitchImage.getElement().getThumbnail('fullsize-background') }});"></div>
+            <div class="glitch-image uk-background-cover uk-background-norepeat uk-background-blend-overlay uk-background-secondary"
+                 style="background-image: url({{ glitchImage.getElement().getThumbnail('fullsize-background') }});"></div>
+        {% endif %}
+
+        {% if editmode or not errorHeadline.isEmpty() %}
+            <div class="uk-container uk-container-expand uk-height-1-1 uk-flex uk-flex-bottom">
+                <div class="uk-overlay uk-position-relative uk-width-1-1">
+                    <h1 class="glitch-title uk-heading-hero uk-text-left@s uk-text-center">{{ errorHeadline|raw }}</h1>
+                    <p class="uk-text-lead uk-text-left@s uk-text-center">{{ errorText|raw }}</p>
+
+                    {% if editmode or not errorLink.isEmpty() %}
+                        {{ errorLink|raw }}
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% if editmode %}
+        {{ glitchImage|raw }}
+    {% endif %}
+
+{% endblock %}

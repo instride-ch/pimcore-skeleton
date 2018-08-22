@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+
+{% set imprintBlock = pimcore_block('imprintBlock') %}
+
+{% block content %}
+    <div class="uk-section uk-section-default">
+        <div class="uk-container uk-container-small uk-position-relative">
+            {% for i in pimcore_iterate_block(imprintBlock) %}
+
+                {% set imprintTitle = pimcore_input('imprintTitle') %}
+                {% set imprintText = pimcore_wysiwyg('imprintText') %}
+
+                {% if editmode or not imprintText.isEmpty() %}
+                    <div id="imprint-{{ loop.index }}" class="uk-padding-small uk-padding-remove-horizontal">
+                        {% if loop.index > 1 %}<hr class="uk-margin-medium-bottom">{% endif %}
+
+                        {% if editmode or not imprintTitle.isEmpty() %}
+                            <h3>{{ imprintTitle|raw }}</h3>
+                        {% endif %}
+
+                        {{ imprintText|raw }}
+                    </div>
+                {% endif %}
+
+            {% endfor %}
+
+            {% if not editmode and not imprintBlock.isEmpty() %}
+
+                {# Scrollspy navigation #}
+                <div class="uk-position-absolute uk-position-top-right uk-height-1-1 uk-visible@l">
+                    <div data-uk-sticky="offset: 150; bottom: true">
+                        <ul class="uk-nav uk-nav-default" data-uk-scrollspy-nav="closest: li; scroll: true; offset: 65">
+
+                            {% for element in imprintBlock.getElements() %}
+                                <li>
+                                    <a href="#imprint-{{ loop.index }}" class="uk-text-nowrap">
+                                        {{ element.getInput('imprintTitle').getData() }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

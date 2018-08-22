@@ -1,0 +1,16 @@
+<ul class="uk-navbar-nav">
+    <li>
+        <a href="#">{{ 'app.language_switcher.language'|trans }}</a>
+        <div class="uk-navbar-dropdown">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                {% for link, language in language_switcher.getLocalizedLinks(document) %}
+                    <li {% if language.isActive %}class="uk-active"{% endif %}>
+                        <a href="{{ link }}">{{ language.display }}</a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </li>
+</ul>

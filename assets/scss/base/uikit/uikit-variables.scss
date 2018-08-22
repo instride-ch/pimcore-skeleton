@@ -1,0 +1,125 @@
+// Component:       Variables
+// Description:     Defines common values which are used across all components
+//
+// ========================================================================
+
+
+// Breakpoints
+// ========================================================================
+
+// Phone Portrait:   Galaxy (360x640), iPhone 6 (375x667), iPhone 6+ (414x736)
+// Phone Landscape:  Galaxy (640x360), iPhone 6 (667x375), iPhone 6+ (736x414)
+// Tablet Portrait:  iPad (768x1024), Galaxy Tab (800x1280),
+// Tablet Landscape: iPad (1024x768), iPad Pro (1024x1366),
+// Desktop:          Galaxy Tab (1280x800), iPad Pro (1366x1024)
+
+$breakpoint-small:                              $sm !default; // Phone landscape
+$breakpoint-medium:                             $md !default; // Tablet Landscape
+$breakpoint-large:                              $lg !default; // Desktop
+$breakpoint-xlarge:                             $xl !default; // Large Screens
+
+$breakpoint-xsmall-max:                         ($breakpoint-small - 1) !default;
+$breakpoint-small-max:                          ($breakpoint-medium - 1) !default;
+$breakpoint-medium-max:                         ($breakpoint-large - 1) !default;
+$breakpoint-large-max:                          ($breakpoint-xlarge - 1) !default;
+
+
+// Global variables
+// ========================================================================
+
+//
+// Typography
+//
+
+$global-font-family:                             'Roboto', sans-serif !default;
+$global-font-size:                               16px !default;
+$global-line-height:                             1.5 !default;      // 24px
+
+$global-xxlarge-font-size:                       2.625rem !default; // 42px
+$global-xlarge-font-size:                        2rem !default;     // 32px
+$global-large-font-size:                         1.5rem !default;   // 24px
+$global-medium-font-size:                        1.25rem !default;  // 20px
+$global-small-font-size:                         .875rem !default; // 14px
+
+//
+// Colors
+//
+
+$global-color:                                   $color-global !default;
+$global-emphasis-color:                          $color-emphasis !default;
+$global-muted-color:                             $color-mute !default;
+
+$global-link-color:                              $color-primary !default;
+$global-link-hover-color:                        darken($color-primary, 10%) !default;
+
+$global-inverse-color:                           $color-white !default;
+
+//
+// Backgrounds
+//
+
+$global-background:                              $color-white !default;
+
+$global-muted-background:                        lighten($color-mute, 37.25%) !default;
+$global-primary-background:                      $color-primary !default;
+$global-secondary-background:                    $color-secondary !default;
+
+$global-success-background:                      $color-success !default;
+$global-warning-background:                      $color-warning !default;
+$global-danger-background:                       $color-danger !default;
+
+//
+// Borders
+//
+
+$global-border-width:                            1px !default;
+$global-border:                                  $color-border !default;
+
+//
+// Box-Shadows
+//
+
+$global-small-box-shadow:                        0 2px 8px rgba(0, 0, 0, .08) !default;
+$global-medium-box-shadow:                       0 5px 15px rgba(0, 0, 0, .08) !default;
+$global-large-box-shadow:                        0 14px 25px rgba(0, 0, 0, .16) !default;
+$global-xlarge-box-shadow:                       0 28px 50px rgba(0, 0, 0, .16) !default;
+
+//
+// Spacings
+//
+
+// Used in margin, section, list
+$global-margin:                                  20px !default;
+$global-small-margin:                            10px !default;
+$global-medium-margin:                           40px !default;
+$global-large-margin:                            70px !default;
+$global-xlarge-margin:                           140px !default;
+
+// Used in grid, column, container, align, card, padding
+$global-gutter:                                  30px !default;
+$global-small-gutter:                            15px !default;
+$global-medium-gutter:                           40px !default;
+$global-large-gutter:                            70px !default;
+
+//
+// Controls
+//
+
+$global-control-height:                          40px !default;
+$global-control-small-height:                    30px !default;
+$global-control-large-height:                    55px !default;
+
+//
+// Z-index
+//
+
+$global-z-index:                                 1000 !default;
+
+//
+// Overwrites
+//
+
+// Heading
+$heading-hero-line-height-m:                     1.4;
+$heading-hero-line-height-s:                     1.4;
+$heading-hero-line-height:                       1.4;

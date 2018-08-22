@@ -1,0 +1,49 @@
+{% set navStartNode = document.getProperty('navStartNode') %}
+{% if navStartNode is empty %}
+    {% set navStartNode = pimcore_document(1) %}
+{% endif %}
+
+<div id="page-loader" class="uk-position-fixed uk-position-cover uk-background-primary">
+    <div class="uk-position-center" data-uk-spinner="ratio: 1.5"></div>
+</div>
+
+<div data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    <nav class="uk-navbar-container" data-uk-navbar="dropbar: true">
+
+        <div class="uk-navbar-left">
+
+            <a class="uk-navbar-item uk-logo" href="{{ navStartNode }}">
+                <img width="200" height="50" src="{{ asset('build/images/logo.svg') }}" alt="{{ pimcore_website_config('name') }}">
+            </a>
+
+            <div class="uk-visible@s">
+                {% include 'Navigation/navbar.html.twig' %}
+            </div>
+
+        </div>
+
+        <div class="uk-navbar-right">
+
+            <div class="uk-visible@s">
+                <div>
+                    <a class="uk-navbar-toggle" href="#" data-uk-search-icon></a>
+                    <div class="uk-drop" data-uk-drop="mode: click; pos: left-center; offset: 0">
+                        {% include 'Navigation/search.html.twig' %}
+                    </div>
+                </div>
+            </div>
+
+            {% include 'Navigation/language.html.twig' %}
+
+            <div class="uk-hidden@s">
+                <a class="uk-navbar-toggle" href="#off-canvas" data-uk-toggle>
+                    <span data-uk-navbar-toggle-icon></span>
+                </a>
+
+                {% include 'Navigation/offcanvas.html.twig' %}
+            </div>
+
+        </div>
+
+    </nav>
+</div>

@@ -1,8 +1,6 @@
 ![Pimcore Skeleton](docs/images/github_banner.png "Pimcore Skeleton")
 
-This is how we start a Pimcore project from scratch.
-
-# Usage
+# Getting started
 
 **Create a new Project**
 ```

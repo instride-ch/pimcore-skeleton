@@ -24,12 +24,7 @@ web2print.php
 /app/config/local/*
 !app/config/local/.gitkeep
 
-# pimcore legacy (remove this for your own development)
-!/legacy
-/legacy/*
-!legacy/.gitkeep
-!legacy/bundle
-
+#pimcore
 /var/*
 !/var/.gitkeep
 !/var/classes/
@@ -51,12 +46,7 @@ web2print.php
 /.php_cs
 /.php_cs.cache
 
-# composer.local.json is referenced in composer-merge-plugin
-# remove this for your projects if you want to track the file
-/composer.local.json
-
 # composer
-/composer.lock
 /vendor/
 
 # PhpStorm / IDEA

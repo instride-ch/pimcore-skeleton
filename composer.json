@@ -9,7 +9,8 @@
   "require": {
     "php": ">=7.1",
     "pimcore/pimcore": "~5.4.0",
-    "w-vision/pimcore-deployer": "^1.2"
+    "w-vision/pimcore-deployer": "^1.2",
+    "w-vision/wvision": "^2.2.0"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"

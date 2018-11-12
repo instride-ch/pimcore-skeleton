@@ -11,7 +11,7 @@ const paths = {
 };
 
 Encore
-  // Set output and public paths
+// Set output and public paths
   .setOutputPath(paths.output)
   .setPublicPath(paths.public)
 

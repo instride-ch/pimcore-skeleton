@@ -1,11 +1,11 @@
 {
-  "name": "pimcore-skeleton",
-  "version": "5.4.0",
-  "description": "Pimcore Skeleton with Docker and Webpack",
+  "name": "wvision-bundle",
+  "version": "2.0.0",
+  "description": "A full-featured frontend-optimizer for developing projects with pimcore",
   "author": "w-vision AG <support@w-vision.ch>",
-  "license": "GPL-3.0-or-later",
+  "license": "GPL-3.0",
   "homepage": "https://www.w-vision.ch",
-  "repository": "https://github.com/w-vision/pimcore-skeleton",
+  "repository": "https://github.com/w-vision/Wvision",
   "scripts": {
     "build": "./node_modules/.bin/encore production",
     "deploy": "php vendor/bin/dep deploy",
@@ -19,7 +19,7 @@
     "watch": "./node_modules/.bin/encore dev --watch"
   },
   "devDependencies": {
-    "@symfony/webpack-encore": "^0.20.1",
+    "@symfony/webpack-encore": "^0.20.0",
     "autoprefixer": "^8.3.0",
     "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",
@@ -36,7 +36,7 @@
   "dependencies": {
     "foundation-emails": "^2.2.1",
     "imagesloaded": "^4.1.4",
-    "uikit": "^3.0.0-rc.11",
+    "uikit": "^3.0.0-rc.10",
     "webfontloader": "^1.6.28"
   },
   "browserslist": [

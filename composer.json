@@ -8,7 +8,7 @@
   },
   "require": {
     "php": ">=7.1",
-    "pimcore/pimcore": "^5.4.0",
+    "pimcore/pimcore": "~5.4.0",
     "w-vision/pimcore-deployer": "^1.2"
   },
   "require-dev": {

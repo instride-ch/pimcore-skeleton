@@ -6,7 +6,7 @@
         {% endif %}
 
         {% for i in searchPageStart..searchPageEnd %}
-            {% if currentSearchPage === i %}
+            {% if currentSearchPage == i %}
                 <li class="uk-active"><span>{{ i }}</span></li>
             {% else %}
                 <li><a href="{{ searchUrl }}{{ searchUrlData }}&page={{ i }}">{{ i }}</a></li>

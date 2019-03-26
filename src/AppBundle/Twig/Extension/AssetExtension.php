@@ -16,8 +16,10 @@ declare(strict_types=1);
 namespace AppBundle\Twig\Extension;
 
 use Pimcore\Model\Asset\Image;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
-class AssetExtension extends \Twig_Extension
+class AssetExtension extends AbstractExtension
 {
     /**
      * {@inheritdoc}
@@ -25,9 +27,7 @@ class AssetExtension extends \Twig_Extension
     public function getFunctions(): array
     {
         return [
-            new \Twig_Function('uikit_image', [$this, 'getUIkitImage'], [
-                'is_safe' => ['html']
-            ]),
+            new TwigFunction('uikit_image', [$this, 'getUIkitImage'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -35,50 +35,85 @@ class AssetExtension extends \Twig_Extension
      * Generates HTML attributes, which can be used for UIkit's Image component
      *
      * @param Image\Thumbnail $thumbnail
+     * @param bool $backgroundImage
      * @param array $options
-     * @param bool $placeholder
      * @return string
      */
-    public function getUIkitImage(Image\Thumbnail $thumbnail, array $options = [], $placeholder = true): string
+    public function getUIkitImage(Image\Thumbnail $thumbnail, $backgroundImage = false, array $options = []): string
     {
         $attributes = [];
+        $image = $thumbnail->getAsset();
+        $thumbConfig = $thumbnail->getConfig();
 
         // Define width and height
         $width = $thumbnail->getWidth();
         $height = $thumbnail->getHeight();
 
-        if ($width && $placeholder) {
+        if ($width && !$backgroundImage) {
             $attributes['width'] = $width;
         }
 
-        if ($height && $placeholder) {
+        if ($height && !$backgroundImage) {
             $attributes['height'] = $height;
         }
 
         // Define the default src
-        $src = $thumbnail->getPath(true);
-        $attributes['data-src'] = $src;
+        if ($this->useOriginalFile($image->getFullPath(), $thumbConfig)) {
+            $attributes['data-src'] = $image->getFullPath();
+        } else {
+            $attributes['data-src'] = $thumbnail->getPath();
 
-        $image = $thumbnail->getAsset();
-        $thumbConfig = $thumbnail->getConfig();
-
-        // Generate high resolution source set
-        if ($thumbConfig && !$thumbConfig->hasMedias() && !$this->useOriginalFile($src, $thumbConfig)) {
-            $attributes['data-srcset'] = $this->generateHighResSrcSet($image, $thumbConfig);
+            // Generate source set
+            if ($thumbConfig) {
+                // Source set and sizes
+                if ($thumbConfig->hasMedias()) {
+                    $mediaSrcSet = $this->generateMediaSrcSet($image, $thumbConfig);
+                    $attributes['data-srcset'] = $mediaSrcSet['srcset'];
+                    $attributes['data-sizes'] = $mediaSrcSet['sizes'];
+                } // High resolution source set
+                else {
+                    $attributes['data-srcset'] = $this->generateHighResSrcSet($image, $thumbConfig);
+                }
+            }
         }
 
-        // Generate a media source set and sizes
-        if ($thumbConfig && $thumbConfig->hasMedias()) {
-            $mediaSrcSet = $this->generateMediaSrcSet($image, $thumbConfig);
-            $attributes['data-srcset'] = $mediaSrcSet['srcset'];
-            $attributes['data-sizes'] = $mediaSrcSet['sizes'];
+        // Metadata (alt and title with copyright)
+        if (!$backgroundImage) {
+            $titleText = null;
+            if ($image->getMetadata('title')) {
+                $titleText = $image->getMetadata('title');
+            }
+
+            if ($image->getMetadata('alt')) {
+                $altText = $image->getMetadata('alt');
+            } else {
+                $altText = $titleText;
+            }
+
+            if ($image->getMetadata('copyright')) {
+                if (!empty($altText)) {
+                    $altText .= ' | ';
+                }
+
+                if (!empty($titleText)) {
+                    $titleText .= ' | ';
+                }
+
+                $altText .= sprintf('© %s', $image->getMetadata('copyright'));
+                $titleText .= sprintf('© %s', $image->getMetadata('copyright'));
+            }
+
+            $attributes['alt'] = $altText;
+            if (!empty($titleText)) {
+                $attributes['title'] = $titleText;
+            }
         }
 
         // Add image component
         $attributes['data-uk-img'] = null;
         if (null !== $options) {
             $attributes['data-uk-img'] = implode('; ', array_map(
-                function ($key, $value) {
+                static function ($key, $value) {
                     return sprintf('%s: %s', $key, $value);
                 },
                 array_keys($options),
@@ -102,7 +137,7 @@ class AssetExtension extends \Twig_Extension
 
         foreach ([1, 2] as $highRes) {
             $config->setHighResolution($highRes);
-            $thumbnail = $image->getThumbnail($config, true);
+            $thumbnail = $image->getThumbnail($config);
 
             $srcSetValues[] = sprintf('%s %sx', $thumbnail, $highRes);
         }
@@ -149,7 +184,7 @@ class AssetExtension extends \Twig_Extension
                 $media['sizes'][] = sprintf('%spx', $thumbWidth);
             }
 
-            $thumbnail = $image->getThumbnail($config, true);
+            $thumbnail = $image->getThumbnail($config);
             if (null === $media['srcset'] || !array_key_exists($mediaQuery, $media['srcset'])) {
                 $media['srcset'][$mediaQuery] = sprintf('%s %s', $thumbnail, $mediaQuery);
             }

@@ -1,5 +1,16 @@
-// Page loader
-#page-loader {
-  z-index: 9999;
-  color: $color-white;
+// Custom Image Placeholder
+img[data-src][src*='data:image'] { background: rgba($color-black, .05); }
+
+// Legals Sidebar
+.tm-sidebar {
+  &.uk-sticky-fixed { z-index: $sticky-z-index - 1; }
+
+  .uk-nav-default > li.uk-active > a::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: -25px;
+    width: 15px;
+    border-top: $global-border-width solid $color-primary;
+  }
 }

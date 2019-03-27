@@ -1,0 +1,59 @@
+{% extends 'layout.html.twig' %}
+
+{% set legalsBlock = pimcore_block('legalsBlock') %}
+
+{% block content %}
+
+    <div class="uk-section uk-section-default">
+        <div class="uk-container">
+
+            <div class="uk-grid uk-grid-match" data-uk-grid>
+                <div class="uk-width-expand">
+
+                    {% for item in pimcore_iterate_block(legalsBlock) %}
+                        {% set itemTitle = pimcore_input('itemTitle') %}
+                        {% set itemText = pimcore_wysiwyg('itemText') %}
+
+                        {% if editmode or not itemTitle.empty %}
+                            <div class="uk-panel {% if legalsBlock.count != loop.index %}uk-margin-large-bottom{% endif %}">
+                                {% if loop.first %}
+                                    <h1 {% if scrollSpyNav is not empty and scrollSpyNav[loop.index0] is defined %}id="{{ scrollSpyNav[loop.index0].id }}"{% endif %}>
+                                        {{ itemTitle|raw }}
+                                    </h1>
+                                {% else %}
+                                    <hr class="uk-margin-large" />
+                                    <h2 {% if scrollSpyNav is not empty and scrollSpyNav[loop.index0] is defined %}id="{{ scrollSpyNav[loop.index0].id }}"{% endif %} class="uk-h1">
+                                        {{ itemTitle|raw }}
+                                    </h2>
+                                {% endif %}
+
+                                {% if editmode or not itemText.empty %}
+                                    {{ itemText|raw }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+
+                {% if scrollSpyNav is not empty %}
+                    <div class="uk-width-auto uk-visible@l">
+                        <div class="uk-width-medium">
+                            <div class="tm-sidebar" data-uk-sticky="offset: 160; bottom: true">
+
+                                <ul class="uk-nav uk-nav-default" data-uk-scrollspy-nav="closest: li; scroll: true; offset: 160">
+                                    {% for item in scrollSpyNav %}
+                                        <li><a href="#{{ item.id }}">{{ item.data }}</a></li>
+                                    {% endfor %}
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -3,14 +3,14 @@
 {# Widgets #}
 
 {% block form_widget_simple -%}
-    {% if type is not defined or type not in ['file', 'hidden', 'range'] %}
+    {% if type is not defined or type not in ['hidden', 'range'] %}
         {%- set attr = attr|merge({class: (attr.class|default('') ~ ' uk-input')|trim}) -%}
     {% endif %}
 
     {% if type is defined and type in 'file' %}
-        <div class="upload-file uk-display-block" data-uk-form-custom="target: true">
+        <div class="uk-display-block" data-uk-form-custom="target: true">
             {{- parent() -}}
-            <input class="uk-input uk-width-1-1" placeholder="{{ 'app.form.camp.placeholder.file-upload'|trans({}, translation_domain) }}" disabled>
+            <input class="uk-input uk-width-1-1" disabled>
         </div>
     {% else %}
         {{- parent() -}}
@@ -232,7 +232,9 @@
 {# Rows #}
 
 {% block form_row -%}
-    <div class="uk-form-controls uk-margin{% if (not compound or force_error|default(false)) and not valid %} uk-form-danger{% endif %}">
+    {%- set attr = attr|merge({ class: (attr.class|default('') ~ ' uk-margin')|trim }) -%}
+
+    <div class="uk-form-controls {{ attr.class }} {% if (not compound or force_error|default(false)) and not valid %} uk-form-danger{% endif %}">
         {{- form_label(form) -}}
         {{- form_widget(form) -}}
         {{- form_errors(form) -}}
@@ -283,10 +285,10 @@
 
 {% block form_errors -%}
     {% if errors|length > 0 -%}
-        {% if form.parent %}<span class="help-block">{% else %}<div class="uk-alert-danger" data-uk-alert>{% endif %}
+        {% if form.parent %}<span class="uk-form-help">{% else %}<div class="uk-alert-danger" data-uk-alert>{% endif %}
         <ul class="uk-list">
             {%- for error in errors -%}
-                <li><span class="glyphicon glyphicon-exclamation-sign"></span> {{ error.message }}</li>
+                <li>{{ error.message }}</li>
             {%- endfor -%}
         </ul>
         {% if form.parent %}</span>{% else %}</div>{% endif %}

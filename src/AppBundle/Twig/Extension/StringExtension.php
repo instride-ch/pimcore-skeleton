@@ -19,7 +19,7 @@ use AppBundle\Helper\StringHelper;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-class StringExtension extends AbstractExtension
+final class StringExtension extends AbstractExtension
 {
     /**
      * {@inheritdoc}

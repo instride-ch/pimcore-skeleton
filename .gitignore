@@ -36,6 +36,7 @@ deployer.phar
 
 # composer
 /composer.phar
+/composer.lock
 !/vendor
 /vendor/*
 !/vendor/.gitkeep

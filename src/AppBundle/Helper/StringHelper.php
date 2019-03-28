@@ -7,13 +7,54 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that is distributed with this source code.
  *
- * @copyright  Copyright (c) 2018 w-vision AG (https://www.w-vision.ch)
+ * @copyright  Copyright (c) 2019 w-vision AG (https://www.w-vision.ch)
  */
 
 namespace AppBundle\Helper;
 
-class StringHelper
+use Stringy\Stringy as BaseStringy;
+
+final class StringHelper
 {
+    /**
+     * Checks whether the value is a timestamp or not
+     *
+     * @param $timestamp
+     * @return bool
+     */
+    public static function isValidTimeStamp($timestamp): bool
+    {
+        $check = (\is_int($timestamp) || \is_float($timestamp)) ? $timestamp : (string) (int) $timestamp;
+
+        return ($check === $timestamp) && ((int) $timestamp <= PHP_INT_MAX) && ((int) $timestamp >= ~PHP_INT_MAX);
+    }
+
+    /**
+     * Removes all whitespaces from a string.
+     *
+     * @param string $string
+     * @return string
+     */
+    public static function removeWhitespaces(string $string): string
+    {
+        return trim(preg_replace('/\s+/', '', $string));
+    }
+
+    /**
+     * Truncates the string to a given length, while ensuring that it does not split words. If $substring is provided,
+     * and truncating occurs, the string is further truncated so that the substring may be appended without exceeding
+     * the desired length.
+     *
+     * @param string $str The string to truncate.
+     * @param int $length The desired length of the truncated string.
+     * @param string $substring The substring to append if it can fit.
+     * @return string The resulting string after truncating.
+     */
+    public static function safeTruncate(string $str, int $length, string $substring = '...'): string
+    {
+        return (string) BaseStringy::create($str)->safeTruncate($length, $substring);
+    }
+
     /**
      * Kebab-cases a string.
      *
@@ -31,7 +72,52 @@ class StringHelper
     }
 
     /**
-     * Splits a string into an array of the words in the string
+     * Converts all characters in the string to lowercase.
+     *
+     * @param string $str The string to convert to lowercase
+     * @return string The lowercase string
+     */
+    public static function toLowerCase(string $str): string
+    {
+        return mb_strtolower($str, 'UTF-8');
+    }
+
+    /**
+     * Removes protocol and trailing slashes from a website's url.
+     *
+     * @param string $url
+     * @return string
+     */
+    public static function toPrettyUrl(string $url): string
+    {
+        return trim(preg_replace('(^https?://)', '', $url), '/');
+    }
+
+    /**
+     * Returns a lowercase and trimmed string separated by underscores. Underscores are inserted before uppercase
+     * characters (with the exception of the first character of the string), and in place of spaces as well as dashes.
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function toUnderscored(string $str): string
+    {
+        return (string) BaseStringy::create($str)->underscored();
+    }
+
+    /**
+     * Converts all characters in the string to uppercase
+     *
+     * @param string $str The string to convert to uppercase
+     * @return string The uppercase string
+     */
+    public static function toUpperCase(string $str): string
+    {
+        return mb_strtoupper($str, 'UTF-8');
+    }
+
+    /**
+     * Splits a string into an array of the words in the string.
      *
      * @param string $string The string
      * @return string[] The words in the string
@@ -42,31 +128,7 @@ class StringHelper
         // Reference: http://www.regular-expressions.info/unicode.html
         preg_match_all('/[\p{L}\p{N}\p{M}\._-]+/u', $string, $matches);
 
-        return self::filterEmptyStringsFromArray($matches[0]);
-    }
-
-    /**
-     * Converts all characters in the string to lowercase
-     *
-     * @param string $str The string to convert to lowercase
-     * @return string The lowercase string
-     */
-    private static function toLowerCase(string $str): string
-    {
-        return mb_strtolower($str, 'UTF-8');
-    }
-
-    /**
-     * Filters empty strings from an array
-     *
-     * @param array $arr
-     * @return array
-     */
-    private static function filterEmptyStringsFromArray(array $arr): array
-    {
-        return array_filter($arr, function($value): bool {
-            return $value !== '';
-        });
+        return ArrayHelper::filterEmptyStringsFromArray($matches[0]);
     }
 
     /**
@@ -76,10 +138,6 @@ class StringHelper
      * @param bool $lower
      * @param bool $removePunctuation Whether punctuation marks should be removed (default is true)
      * @return string[] The prepped words in the string
-     * @see toKebabCase()
-     * @see toCamelCase()
-     * @see toPascalCase()
-     * @see toSnakeCase()
      */
     private static function _prepStringForCasing(string $string, bool $lower = true, bool $removePunctuation = true): array
     {

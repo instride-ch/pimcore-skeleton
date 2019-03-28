@@ -1,43 +1,26 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% include 'Layout/favicons.html.twig' %}
 
 {% spaceless -%}
     {# stylesheets #}
-    {% do pimcore_head_link().appendStylesheet(asset('build/css/global.css')) %}
+    {{ encore_entry_link_tags('css/global') }}
 
     {% if editmode %}
-        {% do pimcore_head_link().appendStylesheet(asset('build/css/editmode.css')) %}
+        {{ encore_entry_link_tags('css/editmode') }}
     {% endif %}
 
     {# scripts #}
-    {% do pimcore_head_script().appendFile(asset('build/js/app.js')) %}
-
-    {# set document if not defined #}
-    {% if not document is defined or not document %}
-        {% set document = pimcore_document(1) %}
-    {% endif %}
-
-    {% if document is instanceof('\\Pimcore\\Model\\Document\\Link') %}
-        {# @var document \Pimcore\Model\Document\Link #}
-        {% set document = document.getObject() %}
-    {% endif %}
+    {% for file in encore_entry_js_files('js/app') %}
+        <script src="{{ asset(file) }}" defer></script>
+    {% endfor %}
 
     {# head title #}
-    {% if document.getTitle() is not empty %}
-        {% do pimcore_head_title().set(document.getTitle()) %}
-    {% endif %}
-
     {% if pimcore_website_config('name') is not empty %}
         {% do pimcore_head_title().append(pimcore_website_config('name')) %}
         {% do pimcore_head_title().setSeparator(' | ') %}
-    {% endif %}
-
-    {# head description #}
-    {% if document.getDescription() is not empty %}
-        {% do pimcore_head_meta().setDescription(document.getDescription()) %}
     {% endif %}
 {%- endspaceless %}
 
@@ -48,4 +31,8 @@
 
 {% block head_stylesheets deferred %}
     {{ pimcore_head_link() }}
+{% endblock %}
+
+{% block scripts deferred %}
+    {{ pimcore_head_script() }}
 {% endblock %}

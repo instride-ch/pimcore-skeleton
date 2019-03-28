@@ -128,7 +128,7 @@
     Header set Connection keep-alive
 
     # 1 YEAR
-    <filesMatch "\.(ico|pdf|flv|jpg|jpeg|png|svg|gif|css|js|swf)$">
+    <filesMatch "\.(ico|pdf|flv|jpg|jpeg|png|svg|gif|webp|css|js|swf)$">
         Header set Cache-Control "max-age=31536000, public"
     </filesMatch>
 

@@ -1,6 +1,6 @@
 module.exports = {
-  'ignoreFiles': ['**/vendor/**/*', '**/pimcore/**/*'],
-  'rules': {
+  ignoreFiles: ['**/vendor/**/*', '**/pimcore/**/*'],
+  rules: {
     'block-no-empty': true,
     'color-no-invalid-hex': true,
     'declaration-colon-space-after': 'always',
@@ -20,5 +20,5 @@ module.exports = {
     'selector-list-comma-space-before': 'never',
     'selector-list-comma-newline-after': 'always',
     'string-quotes': 'single',
-  }
+  },
 };

@@ -10,14 +10,16 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE.md
  * file that is distributed with this source code.
  *
- * @copyright  Copyright (c) 2018 w-vision AG (https://www.w-vision.ch)
+ * @copyright  Copyright (c) 2019 w-vision AG (https://www.w-vision.ch)
  */
 
 namespace AppBundle\Twig\Extension;
 
 use AppBundle\Helper\StringHelper;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
-class StringExtension extends \Twig_Extension
+class StringExtension extends AbstractExtension
 {
     /**
      * {@inheritdoc}
@@ -25,7 +27,9 @@ class StringExtension extends \Twig_Extension
     public function getFilters(): array
     {
         return [
-            new \Twig_SimpleFilter('kebab', [$this, 'kebabFilter']),
+            new TwigFilter('kebab', [$this, 'kebabFilter']),
+            new TwigFilter('tel', [$this, 'telLink']),
+            new TwigFilter('url', [$this, 'formattedUrl']),
         ];
     }
 
@@ -41,5 +45,27 @@ class StringExtension extends \Twig_Extension
     public function kebabFilter(string $string, string $glue = '-', bool $lower = true, bool $removePunctuation = true): string
     {
         return StringHelper::toKebabCase($string, $glue, $lower, $removePunctuation);
+    }
+
+    /**
+     * Turns a phone number into a tel: link
+     *
+     * @param $phoneNumber
+     * @return string
+     */
+    public function telLink(string $phoneNumber): string
+    {
+        return sprintf('tel:%s', StringHelper::removeWhitespaces($phoneNumber));
+    }
+
+    /**
+     * Returns a pretty URL
+     *
+     * @param $url
+     * @return string
+     */
+    public function formattedUrl($url): string
+    {
+        return StringHelper::toPrettyUrl($url);
     }
 }

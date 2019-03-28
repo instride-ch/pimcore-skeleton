@@ -23,14 +23,12 @@ class AppKernel extends Kernel
      *
      * @param BundleCollection $collection
      */
-    public function registerBundlesToCollection(BundleCollection $collection)
+    public function registerBundlesToCollection(BundleCollection $collection): void
     {
-        if (class_exists('\\AppBundle\\AppBundle')) {
-            $collection->addBundle(new \AppBundle\AppBundle);
-        }
-
-        if (class_exists('\Pimcore\Bundle\LegacyBundle\PimcoreLegacyBundle')) {
-            $collection->addBundle(new \Pimcore\Bundle\LegacyBundle\PimcoreLegacyBundle);
-        }
+        $collection->addBundles([
+            new \AppBundle\AppBundle(),
+            new \CoreShop\Bundle\SEOBundle\CoreShopSEOBundle(),
+            new \Symfony\WebpackEncoreBundle\WebpackEncoreBundle(),
+        ]);
     }
 }

@@ -1,15 +1,6 @@
 # w-vision custom
 install-deploy.php
 deployer.phar
-node_modules/
-/yarn.lock
-web/build/
-template/web/build/
-importdefinitions.php
-web2print.php
-
-# remove the following ignores for your project
-/app/constants.php
 
 # symfony default
 /.web-server-pid
@@ -19,12 +10,11 @@ web2print.php
 /web/bundles/
 
 # local config
-/.env
 !/app/config/local
 /app/config/local/*
 !app/config/local/.gitkeep
 
-#pimcore
+# Pimcore
 /var/*
 !/var/.gitkeep
 !/var/classes/
@@ -34,29 +24,51 @@ web2print.php
 /var/config/system.php
 /var/config/debug-mode.php
 /var/config/maintenance.php
+!/var/config/ObjectMerger/install
 
 # project specific recommendations
 /var/config/tag-manager.php
 /var/config/reports.php
-
-/web/var/
-/web/sitemap*.xml
 
 # PHP-CS-Fixer
 /.php_cs
 /.php_cs.cache
 
 # composer
-/vendor/
+/composer.phar
+!/vendor
+/vendor/*
+!/vendor/.gitkeep
 
 # PhpStorm / IDEA
 .idea
+
 # NetBeans
 nbproject
 
-# keep legacy paths ignored for easier migration
-/plugins/
-/tools/
-/website/
-.temp
-install-profiles/
+# codeception (only stage *.dist.yml config files)
+/codeception.yml
+/pimcore/codeception.yml
+/pimcore/tests/*.suite.yml
+/pimcore/tests/_output/*
+/pimcore/tests/_support/_generated/*
+
+# Node
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Shared files
+.env
+/var/config/web2print.php
+/var/config/website-settings.php
+/var/config/GeoLite2-City.mmdb
+
+# Shared dirs
+/web/build/
+/web/var/
+/var/email/
+/var/recyclebin/
+/var/versions/
+/var/sessions/

@@ -12,29 +12,18 @@
     Copyright © {{ 'now'|date('Y') }} w-vision AG. All rights reserved.
     Pimcore - Own the Digital World | Digital Enterprise Content Platform
 -->
+{% spaceless %}
 <html lang="{{ app.request.locale|slice(0, 2) }}">
 <head>{% include 'Layout/html-head.html.twig' %}</head>
 <body>
-
-    <div class="uk-offcanvas-content">
-
-        {# page header #}
-        {% include 'Layout/header.html.twig' %}
-
-        <main class="main-content" data-uk-height-viewport="expand: true">
-            {# page content #}
-            {% block content %}{% endblock %}
-        </main>
-
-        {# page footer #}
-        {% include 'Layout/footer.html.twig' %}
-
-    </div>
-
-    {# output scripts added before #}
-    {% block scripts deferred %}
-        {{ pimcore_head_script() }}
-    {% endblock %}
-
+{# page header #}
+{% include 'Layout/header.html.twig' %}
+<main class="main-content" data-uk-height-viewport="expand: true">
+    {# page content #}
+    {% block content %}{% endblock %}
+</main>
+{# page footer #}
+{% include 'Layout/footer.html.twig' %}
 </body>
 </html>
+{% endspaceless %}

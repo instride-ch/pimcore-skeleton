@@ -1,4 +1,4 @@
-version: '2.0'
+version: '3.0'
 services:
     redis:
         image: redis:alpine
@@ -7,10 +7,8 @@ services:
     db:
         image: mariadb:10.1
         container_name: pimcore-skeleton-mariadb
-        working_dir: /application
         command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-format=Barracuda, --innodb_large_prefix=1]
         volumes:
-            - .:/application
             - pimcore-skeleton-database:/var/lib/mysql
         environment:
             - MYSQL_ROOT_PASSWORD=ROOT
@@ -28,14 +26,27 @@ services:
             - 2001:8080
 
     php:
-        image: dpfaffenbauer/pimcore:PHP7.1-apache
+        image: dpfaffenbauer/pimcore:PHP7.2-apache
         container_name: pimcore-skeleton-php
         volumes:
             - ~/.composer:/root/composer
             - .:/var/www/html:cached
             - .docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini
         ports:
-            - "2000:80"
+            - 2000:80
+        links:
+            - db:db
+            - redis:redis
+
+    php-debug:
+        image: dpfaffenbauer/pimcore:PHP7.2-apache-debug
+        container_name: pimcore-skeleton-php-debug
+        volumes:
+            - ~/.composer:/root/composer
+            - .:/var/www/html:cached
+            - .docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini
+        ports:
+            - 2006:80
         links:
             - db:db
             - redis:redis

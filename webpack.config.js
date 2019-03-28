@@ -2,46 +2,38 @@ const { resolve } = require('path');
 const Encore = require('@symfony/webpack-encore');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const { version } = require('uikit/package.json');
 
 const paths = {
-  output: resolve(__dirname, './web/build'),
-  public: '/build',
+  output: resolve(__dirname, './web/build/'),
+  pattern: /\.(jpe?g|png|gif|svg|webp)$/i,
+  public: 'build',
   source: resolve(__dirname, './assets'),
   vendor: resolve(__dirname, './node_modules'),
 };
 
 Encore
-// Set output and public paths
+  // Set output and public paths
   .setOutputPath(paths.output)
-  .setPublicPath(paths.public)
+  .setPublicPath(`/${paths.public}`)
+  .setManifestKeyPrefix(`${paths.public}/`)
 
   // Clean output before build
   .cleanupOutputBeforeBuild()
 
   // JavaScript
-  .autoProvideVariables({
-    UIkit: 'uikit/dist/js/uikit-core',
-    'window.UIkit': 'uikit/dist/js/uikit-core',
-  })
   .addEntry('js/app', `${paths.source}/js/main.js`)
-  .addLoader({
-    test: /\.js$/,
-    exclude: /node_modules/,
-    loader: 'eslint-loader',
+  .enableSingleRuntimeChunk()
+  .enableEslintLoader()
+  .splitEntryChunks()
+  .configureBabel(() => {}, { include_node_modules: ['uikit'] })
+  .configureDefinePlugin((options) => {
+    options.VERSION = JSON.stringify(version);
   })
-  .configureBabel((babelConfig) => {
-    babelConfig.presets.push(
-      ['env', {
-        targets: {
-          browsers: [
-            '>0.25%',
-            'not ie <= 10',
-            'not op_mini all',
-          ]
-        },
-        useBuiltIns: true,
-      }]
-    );
+  .addAliases({ 'uikit-util': `${paths.vendor}/uikit/src/js/util` })
+  .addRule({
+    test: /\.svg$/,
+    use: 'raw-loader'
   })
 
   // CSS
@@ -57,10 +49,16 @@ Encore
   .enablePostCssLoader()
   .addPlugin(new StyleLintPlugin())
 
-  // Optimize images
+  // Copy and optimize images
+  .disableImagesLoader()
+  .copyFiles({
+    from: `${paths.source}/images`,
+    pattern: paths.pattern,
+    to: 'images/[path][name].[hash:8].[ext]',
+  })
   .addPlugin(new ImageminPlugin({
     disable: !Encore.isProduction(),
-    test: /\.(jpe?g|png|gif|svg|webp)$/i,
+    test: paths.pattern,
   }))
 
   // Source maps and cache buster
@@ -70,22 +68,7 @@ Encore
 
 // Advanced webpack config
 const config = Encore.getWebpackConfig();
-
-config.resolve.extensions.push('json');
-config.resolve.alias['uikit-util'] = `${paths.vendor}/uikit/src/js/util`;
-config.watchOptions = {
-  ignored: `${paths.vendor}/`,
-  poll: true,
-};
-
-for (const rule of config.module.rules) {
-  if (rule.use) {
-    for (const loader of rule.use) {
-      if (loader.loader === 'babel-loader') {
-        delete rule.exclude;
-      }
-    }
-  }
-}
+config.optimization.concatenateModules = true;
+config.watchOptions = { poll: true, ignored: `${paths.vendor}/` };
 
 module.exports = config;

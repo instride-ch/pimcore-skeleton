@@ -33,6 +33,7 @@ set('ssh_multiplexing', false); // Cygwin doesn't support multiplexing
 
 // Shared files and directories
 set('shared_files', [
+    '.env',
     'app/config/parameters.yml',
     'var/bundles/LuceneSearchBundle/state.cnf',
     'var/config/custom-reports.php',
@@ -41,9 +42,10 @@ set('shared_files', [
     'var/config/GeoLite2-City.mmdb',
     'var/config/maintenance.php',
     'var/config/reports.php',
+    'var/config/robots.php',
     'var/config/system.php',
     'var/config/web2print.php',
-    'var/config/website-settings.php'
+    'var/config/website-settings.php',
 ]);
 set('shared_dirs', [
     'var/bundles/LuceneSearchBundle/index',
@@ -52,34 +54,35 @@ set('shared_dirs', [
     'var/recyclebin',
     'var/sessions',
     'var/versions',
-    'web/var'
+    'web/var',
 ]);
 set('pimcore_shared_configurations', [
     'var/config/importdefinitions.php',
     'var/config/reports.php',
+    'var/config/robots.php',
     'var/config/web2print.php',
     'var/config/website-settings.php',
     'var/config/workflowmanagement.php'
 ]);
 
-set('bin/php', function () {
-    return '/opt/plesk/php/7.1/bin/php';
+set('bin/php', static function () {
+    return '/opt/plesk/php/7.2/bin/php';
 });
 
-set('current_path', function () {
+set('current_path', static function () {
     $link = run('readlink {{deploy_path}}/httpdocs')->toString();
 
     return $link[0] === '/' ? $link : sprintf('%s/%s', get('deploy_path'), $link);
 });
 
-set('bin/composer', function () {
+set('bin/composer', static function () {
     run('cd {{release_path}} && curl -sS https://getcomposer.org/installer | {{bin/php}}');
 
     return '{{bin/php}} {{release_path}}/composer.phar';
 });
 
 desc('Custom YARN tasks');
-task('deploy:yarn:icons:custom', function() {
+task('deploy:yarn:icons:custom', static function() {
     run('cd {{release_path}} && {{bin/yarn}} icons:custom');
 });
 

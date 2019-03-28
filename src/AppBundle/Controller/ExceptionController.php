@@ -15,13 +15,15 @@ namespace AppBundle\Controller;
 use Pimcore\Controller\FrontendController;
 use Symfony\Component\HttpFoundation\Response;
 
-class ErrorController extends FrontendController
+class ExceptionController extends FrontendController
 {
     /**
      * @return Response
      */
     public function errorAction(): Response
     {
-        return $this->renderTemplate('Error/error.html.twig');
+        $this->get('coreshop.seo.presentation')->updateSeoMetadata($this->document);
+
+        return $this->renderTemplate('Exception/error.html.twig');
     }
 }

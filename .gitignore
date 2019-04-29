@@ -1,12 +1,15 @@
-# Symfony default
+# w-vision custom
+install-deploy.php
+deployer.phar
+
+# symfony default
 /.web-server-pid
 /app/config/parameters.yml
 /build/
 /phpunit.xml
 /web/bundles/
 
-# Local config
-/.env
+# local config
 !/app/config/local
 /app/config/local/*
 !app/config/local/.gitkeep
@@ -21,25 +24,52 @@
 /var/config/system.php
 /var/config/debug-mode.php
 /var/config/maintenance.php
+!/var/config/ObjectMerger/install
 
-# Project specific recommendations
+# project specific recommendations
 /var/config/tag-manager.php
 /var/config/reports.php
-
-/web/var/
-/web/sitemap*.xml
 
 # PHP-CS-Fixer
 /.php_cs
 /.php_cs.cache
 
-# Composer
-/vendor/
+# composer
+/composer.phar
+/composer.lock
+!/vendor
+/vendor/*
+!/vendor/.gitkeep
 
 # PhpStorm / IDEA
 .idea
 
-# Keep legacy paths ignored for easier migration
-.temp
-node_modules/
-web/build/
+# NetBeans
+nbproject
+
+# codeception (only stage *.dist.yml config files)
+/codeception.yml
+/pimcore/codeception.yml
+/pimcore/tests/*.suite.yml
+/pimcore/tests/_output/*
+/pimcore/tests/_support/_generated/*
+
+# Node
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Shared files
+.env
+/var/config/web2print.php
+/var/config/website-settings.php
+/var/config/GeoLite2-City.mmdb
+
+# Shared dirs
+/web/build/
+/web/var/
+/var/email/
+/var/recyclebin/
+/var/versions/
+/var/sessions/

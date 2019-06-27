@@ -7872,9 +7872,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 uikit@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.0.3.tgz#ead1b0a152d2771d2684f60086766ccc50fa3450"
-  integrity sha512-Z73TXlnfJCAXczg5mFCZSTwR0Ii1wW2fZumfIR8G1x1x4SyKHpkU0JCZDoIryYFMu1gSpvy5hZiXk3t4i5tTlw==
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.1.6.tgz#6e4126e8f30fbba424d4b6788e49dda9ff9be088"
+  integrity sha512-S4+1kPUbBXcAc8kO8OhZRgawcp6gmMK9BSx865vsun4ul/rXwgQ95i/3hF2axchQ5Gb6ncH1VfUpfKiOfFecsA==
 
 unherit@^1.0.4:
   version "1.1.1"

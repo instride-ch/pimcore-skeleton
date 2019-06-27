@@ -2,8 +2,8 @@
 @import 'uikit/uikit-variables';
 
 // 2. Import default variables and available mixins.
-@import 'variables-theme';
-@import 'mixins-theme';
+@import '~uikit/src/scss/variables-theme';
+@import '~uikit/src/scss/mixins-theme';
 
 // 3. Mixin overwrites.
 @import 'uikit/uikit-hooks';

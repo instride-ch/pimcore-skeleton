@@ -12,7 +12,7 @@ import Sortable from 'uikit/src/js/components/sortable';
 import Tooltip from 'uikit/src/js/components/tooltip';
 import Upload from 'uikit/src/js/components/upload';
 import Icons from 'uikit/dist/js/uikit-icons';
-// import Icons from 'uikit/src/js/uikit-icons-custom';
+// import Icons from 'uikit/dist/js/uikit-icons-custom';
 import UIkit from './uikit-core';
 
 // Components

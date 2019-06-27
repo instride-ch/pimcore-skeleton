@@ -12,14 +12,15 @@
  * @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
+use Pimcore\Bootstrap;
+use Pimcore\Kernel;
 use Pimcore\Tool;
-use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
-include __DIR__ . "/../vendor/autoload.php";
+include __DIR__ . '/../vendor/autoload.php';
 
-\Pimcore\Bootstrap::setProjectRoot();
-\Pimcore\Bootstrap::boostrap();
+Bootstrap::setProjectRoot();
+Bootstrap::boostrap();
 
 $request = Request::createFromGlobals();
 
@@ -27,17 +28,11 @@ $request = Request::createFromGlobals();
 // request stack available yet
 Tool::setCurrentRequest($request);
 
-// redirect to installer if pimcore is not installed
-if (!is_file(\Pimcore\Config::locateConfigFile('system.php'))) {
-    Debug::enable(E_ALL, true);
-    throw new RuntimeException('Pimcore is not installed! Please install via command line.');
-}
-
-/** @var \Pimcore\Kernel $kernel */
-$kernel = \Pimcore\Bootstrap::kernel();
+/** @var Kernel $kernel */
+$kernel = Bootstrap::kernel();
 
 // reset current request - will be read from request stack from now on
-Tool::setCurrentRequest(null);
+Tool::setCurrentRequest();
 
 $response = $kernel->handle($request);
 $response->send();

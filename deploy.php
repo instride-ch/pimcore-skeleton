@@ -34,6 +34,7 @@ set('ssh_multiplexing', false); // Cygwin doesn't support multiplexing
 // Shared files and directories
 set('shared_files', [
     '.env',
+    'app/config/local/database.yml',
     'app/config/parameters.yml',
     'var/bundles/LuceneSearchBundle/state.cnf',
     'var/config/custom-reports.php',
@@ -43,7 +44,7 @@ set('shared_files', [
     'var/config/maintenance.php',
     'var/config/reports.php',
     'var/config/robots.php',
-    'var/config/system.php',
+    'var/config/system.yml',
     'var/config/web2print.php',
     'var/config/website-settings.php',
 ]);

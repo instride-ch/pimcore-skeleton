@@ -290,16 +290,16 @@
         },
         {
             "name": "coreshop/pimcore",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/coreshop/Pimcore.git",
-                "reference": "2e1ba079ad7b750314c28e44774b0c85d312ccc3"
+                "reference": "d9ecbe3323914acb05c9ac759534992d952e46e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coreshop/Pimcore/zipball/2e1ba079ad7b750314c28e44774b0c85d312ccc3",
-                "reference": "2e1ba079ad7b750314c28e44774b0c85d312ccc3",
+                "url": "https://api.github.com/repos/coreshop/Pimcore/zipball/d9ecbe3323914acb05c9ac759534992d952e46e1",
+                "reference": "d9ecbe3323914acb05c9ac759534992d952e46e1",
                 "shasum": ""
             },
             "require": {
@@ -336,7 +336,7 @@
                 "ecommerce",
                 "pimcore"
             ],
-            "time": "2019-09-15T16:10:06+00:00"
+            "time": "2020-01-10T08:18:08+00:00"
         },
         {
             "name": "coreshop/pimcore-bundle",
@@ -344,12 +344,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/coreshop/PimcoreBundle.git",
-                "reference": "db1097d1ce7be1fe7736d7924e5bdcfd773bbd62"
+                "reference": "89caf4464232a6e040462cabfb312e049e82c526"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coreshop/PimcoreBundle/zipball/db1097d1ce7be1fe7736d7924e5bdcfd773bbd62",
-                "reference": "db1097d1ce7be1fe7736d7924e5bdcfd773bbd62",
+                "url": "https://api.github.com/repos/coreshop/PimcoreBundle/zipball/89caf4464232a6e040462cabfb312e049e82c526",
+                "reference": "89caf4464232a6e040462cabfb312e049e82c526",
                 "shasum": ""
             },
             "require": {
@@ -387,7 +387,7 @@
                 "ecommerce",
                 "pimcore"
             ],
-            "time": "2019-10-10T15:06:57+00:00"
+            "time": "2019-11-19T15:07:31+00:00"
         },
         {
             "name": "coreshop/registry",
@@ -440,16 +440,16 @@
         },
         {
             "name": "coreshop/seo",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/coreshop/SEO.git",
-                "reference": "a2ef0e4bd98915898ac2554b830d0ea1d569ad01"
+                "reference": "26bd497df227ab4fb0ff6017b76191566a97c9ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coreshop/SEO/zipball/a2ef0e4bd98915898ac2554b830d0ea1d569ad01",
-                "reference": "a2ef0e4bd98915898ac2554b830d0ea1d569ad01",
+                "url": "https://api.github.com/repos/coreshop/SEO/zipball/26bd497df227ab4fb0ff6017b76191566a97c9ee",
+                "reference": "26bd497df227ab4fb0ff6017b76191566a97c9ee",
                 "shasum": ""
             },
             "require": {
@@ -487,7 +487,7 @@
                 "ecommerce",
                 "pimcore"
             ],
-            "time": "2019-09-15T16:10:06+00:00"
+            "time": "2020-01-10T08:18:08+00:00"
         },
         {
             "name": "coreshop/seo-bundle",
@@ -495,12 +495,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/coreshop/SEOBundle.git",
-                "reference": "22a7e92c7568cac327401c0dcfbb4b1a1cc6b820"
+                "reference": "92b3714a914b952b6bf620e1e367183cd456f963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coreshop/SEOBundle/zipball/22a7e92c7568cac327401c0dcfbb4b1a1cc6b820",
-                "reference": "22a7e92c7568cac327401c0dcfbb4b1a1cc6b820",
+                "url": "https://api.github.com/repos/coreshop/SEOBundle/zipball/92b3714a914b952b6bf620e1e367183cd456f963",
+                "reference": "92b3714a914b952b6bf620e1e367183cd456f963",
                 "shasum": ""
             },
             "require": {
@@ -537,7 +537,7 @@
                 "ecommerce",
                 "pimcore"
             ],
-            "time": "2019-09-20T10:06:23+00:00"
+            "time": "2019-10-31T11:12:37+00:00"
         },
         {
             "name": "dachcom-digital/emailizr",
@@ -5429,16 +5429,16 @@
         },
         {
             "name": "scheb/two-factor-bundle",
-            "version": "v3.25.0",
+            "version": "v3.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scheb/two-factor-bundle.git",
-                "reference": "9076545972d1b0731600a7e880fc96413b01da98"
+                "reference": "4a88e84973f91a3a5266b5c5203a0a20e616a876"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scheb/two-factor-bundle/zipball/9076545972d1b0731600a7e880fc96413b01da98",
-                "reference": "9076545972d1b0731600a7e880fc96413b01da98",
+                "url": "https://api.github.com/repos/scheb/two-factor-bundle/zipball/4a88e84973f91a3a5266b5c5203a0a20e616a876",
+                "reference": "4a88e84973f91a3a5266b5c5203a0a20e616a876",
                 "shasum": ""
             },
             "require": {
@@ -5490,7 +5490,7 @@
                 "two-factor",
                 "two-step"
             ],
-            "time": "2019-11-20T19:01:13+00:00"
+            "time": "2020-01-12T14:01:32+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -7167,6 +7167,7 @@
                 "code",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-code",
             "time": "2019-10-05T23:18:22+00:00"
         },
         {
@@ -7221,6 +7222,7 @@
                 "events",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-eventmanager",
             "time": "2018-04-25T15:33:34+00:00"
         },
         {
@@ -7286,6 +7288,7 @@
                 "paginator",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-paginator",
             "time": "2019-08-21T13:31:03+00:00"
         },
         {
@@ -7354,6 +7357,7 @@
                 "servicemanager",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-servicemanager",
             "time": "2018-12-22T06:05:09+00:00"
         },
         {
@@ -7400,6 +7404,7 @@
                 "stdlib",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-stdlib",
             "time": "2018-08-28T21:34:05+00:00"
         }
     ],
@@ -7410,12 +7415,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "e4ee2c8e4ccd908debc64069faf023c684a76760"
+                "reference": "67ac6ea8f4a078c3c9b7aec5d7ae70f098c37389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/e4ee2c8e4ccd908debc64069faf023c684a76760",
-                "reference": "e4ee2c8e4ccd908debc64069faf023c684a76760",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/67ac6ea8f4a078c3c9b7aec5d7ae70f098c37389",
+                "reference": "67ac6ea8f4a078c3c9b7aec5d7ae70f098c37389",
                 "shasum": ""
             },
             "conflict": {
@@ -7436,7 +7441,7 @@
                 "composer/composer": "<=1-alpha.11",
                 "contao-components/mediaelement": ">=2.14.2,<2.21.1",
                 "contao/core": ">=2,<3.5.39",
-                "contao/core-bundle": ">=4,<4.4.39|>=4.5,<4.7.5",
+                "contao/core-bundle": ">=4,<4.4.46|>=4.5,<4.8.6",
                 "contao/listing-bundle": ">=4,<4.4.8",
                 "datadog/dd-trace": ">=0.30,<0.30.2",
                 "david-garcia/phpwhois": "<=4.3.1",
@@ -7450,8 +7455,9 @@
                 "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1",
                 "dompdf/dompdf": ">=0.6,<0.6.2",
-                "drupal/core": ">=7,<7.67|>=8,<8.6.16|>=8.7,<8.7.1|>8.7.3,<8.7.5",
-                "drupal/drupal": ">=7,<7.67|>=8,<8.6.16|>=8.7,<8.7.1|>8.7.3,<8.7.5",
+                "drupal/core": ">=7,<7.69|>=8,<8.7.11|>=8.8,<8.8.1",
+                "drupal/drupal": ">=7,<7.69|>=8,<8.7.11|>=8.8,<8.8.1",
+                "endroid/qr-code-bundle": "<3.4.2",
                 "erusev/parsedown": "<1.7.2",
                 "ezsystems/ezplatform-admin-ui": ">=1.3,<1.3.5|>=1.4,<1.4.4",
                 "ezsystems/ezpublish-kernel": ">=5.3,<5.3.12.1|>=5.4,<5.4.13.1|>=6,<6.7.9.1|>=6.8,<6.13.5.1|>=7,<7.2.4.1|>=7.3,<7.3.2.1",
@@ -7483,7 +7489,7 @@
                 "league/commonmark": "<0.18.3",
                 "magento/magento1ce": "<1.9.4.3",
                 "magento/magento1ee": ">=1,<1.14.4.3",
-                "magento/product-community-edition": ">=2,<2.2.10|>=2.3,<2.3.2",
+                "magento/product-community-edition": ">=2,<2.2.10|>=2.3,<2.3.2-p.2",
                 "monolog/monolog": ">=1.8,<1.12",
                 "namshi/jose": "<2.2",
                 "onelogin/php-saml": "<2.10.4",
@@ -7506,6 +7512,7 @@
                 "pusher/pusher-php-server": "<2.2.1",
                 "robrichards/xmlseclibs": ">=1,<3.0.4",
                 "sabre/dav": ">=1.6,<1.6.99|>=1.7,<1.7.11|>=1.8,<1.8.9",
+                "scheb/two-factor-bundle": ">=0,<3.26|>=4,<4.11",
                 "sensiolabs/connect": "<4.2.3",
                 "serluck/phpwhois": "<=4.2.6",
                 "shopware/shopware": "<5.3.7",
@@ -7565,8 +7572,8 @@
                 "titon/framework": ">=0,<9.9.99",
                 "truckersmp/phpwhois": "<=4.3.1",
                 "twig/twig": "<1.38|>=2,<2.7",
-                "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.32|>=8,<8.7.27|>=9,<9.5.8",
-                "typo3/cms-core": ">=8,<8.7.27|>=9,<9.5.8",
+                "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.32|>=8,<8.7.30|>=9,<9.5.12|>=10,<10.2.1",
+                "typo3/cms-core": ">=8,<8.7.30|>=9,<9.5.12|>=10,<10.2.1",
                 "typo3/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.10|>=3.1,<3.1.7|>=3.2,<3.2.7|>=3.3,<3.3.5",
                 "typo3/neos": ">=1.1,<1.1.3|>=1.2,<1.2.13|>=2,<2.0.4",
                 "typo3/phar-stream-wrapper": ">=1,<2.1.1|>=3,<3.1.1",
@@ -7620,7 +7627,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2019-12-02T13:03:15+00:00"
+            "time": "2020-01-06T19:16:46+00:00"
         }
     ],
     "aliases": [],

@@ -7,7 +7,7 @@ services:
     db:
         image: mariadb:10.1
         container_name: pimcore-skeleton-mariadb
-        command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-format=Barracuda, --innodb_large_prefix=1]
+        command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-format=Barracuda, --innodb-large-prefix=1, --innodb-file-per-table=1]
         volumes:
             - pimcore-skeleton-database:/var/lib/mysql
         environment:
@@ -24,9 +24,11 @@ services:
             - .docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/uploads.ini
         ports:
             - 2001:8080
+        links:
+            - db:db
 
     php:
-        image: dpfaffenbauer/pimcore:PHP7.2-apache
+        image: pimcore/pimcore:PHP7.3-apache
         container_name: pimcore-skeleton-php
         volumes:
             - ~/.composer:/root/composer
@@ -39,7 +41,7 @@ services:
             - redis:redis
 
     php-debug:
-        image: dpfaffenbauer/pimcore:PHP7.2-apache-debug
+        image: pimcore/pimcore:PHP7.3-apache-debug
         container_name: pimcore-skeleton-php-debug
         volumes:
             - ~/.composer:/root/composer

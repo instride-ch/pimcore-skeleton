@@ -3,14 +3,14 @@
 declare(strict_types=1);
 
 /**
- * w-vision
+ * w-vision AG.
  *
  * LICENSE
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that is distributed with this source code.
  *
- * @copyright  Copyright (c) 2019 w-vision AG (https://www.w-vision.ch)
+ * @copyright  Copyright (c) 2020 w-vision AG (https://www.w-vision.ch)
  */
 
 namespace AppBundle\Twig\Extension;
@@ -19,7 +19,7 @@ use Pimcore\Model\Asset\Image;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-final class AssetExtension extends AbstractExtension
+class AssetExtension extends AbstractExtension
 {
     /**
      * {@inheritdoc}
@@ -32,14 +32,16 @@ final class AssetExtension extends AbstractExtension
     }
 
     /**
-     * Generates HTML attributes, which can be used for UIkit's Image component
+     * Generates HTML attributes, which can be used for UIkit's Image component.
      *
      * @param Image\Thumbnail $thumbnail
-     * @param bool $backgroundImage
-     * @param array $options
+     * @param bool            $backgroundImage
+     * @param array           $options
+     * @param array           $metadata
+     *
      * @return string
      */
-    public function getUIkitImage(Image\Thumbnail $thumbnail, $backgroundImage = false, array $options = []): string
+    public function getUIkitImage(Image\Thumbnail $thumbnail, $backgroundImage = false, array $options = [], array $metadata = []): string
     {
         $attributes = [];
         $image = $thumbnail->getAsset();
@@ -65,13 +67,11 @@ final class AssetExtension extends AbstractExtension
 
             // Generate source set
             if ($thumbConfig) {
-                // Source set and sizes
-                if ($thumbConfig->hasMedias()) {
+                if ($thumbConfig->hasMedias()) {                                                                        // Source set and sizes
                     $mediaSrcSet = $this->generateMediaSrcSet($image, $thumbConfig);
                     $attributes['data-srcset'] = $mediaSrcSet['srcset'];
                     $attributes['data-sizes'] = $mediaSrcSet['sizes'];
-                } // High resolution source set
-                else {
+                } else {                                                                                                // High resolution source set
                     $attributes['data-srcset'] = $this->generateHighResSrcSet($image, $thumbConfig);
                 }
             }
@@ -79,18 +79,22 @@ final class AssetExtension extends AbstractExtension
 
         // Metadata (alt and title with copyright)
         if (!$backgroundImage) {
-            $titleText = null;
+            $titleText = $metadata['title'];
             if ($image->getMetadata('title')) {
                 $titleText = $image->getMetadata('title');
             }
 
+            $altText = $metadata['alt'];
             if ($image->getMetadata('alt')) {
                 $altText = $image->getMetadata('alt');
-            } else {
+            }
+
+            if (empty($altText)) {
                 $altText = $titleText;
             }
 
-            if ($image->getMetadata('copyright')) {
+            $copyright = $metadata['copyright'];
+            if (!empty($copyright) || $image->getMetadata('copyright')) {
                 if (!empty($altText)) {
                     $altText .= ' | ';
                 }
@@ -99,14 +103,19 @@ final class AssetExtension extends AbstractExtension
                     $titleText .= ' | ';
                 }
 
-                $altText .= sprintf('© %s', $image->getMetadata('copyright'));
-                $titleText .= sprintf('© %s', $image->getMetadata('copyright'));
+                $altText .= sprintf('© %s', $image->getMetadata('copyright') ?? $copyright);
+                $titleText .= sprintf('© %s', $image->getMetadata('copyright') ?? $copyright);
             }
 
             $attributes['alt'] = $altText;
             if (!empty($titleText)) {
                 $attributes['title'] = $titleText;
             }
+        }
+
+        // Add the src attribute by default
+        if (!$backgroundImage && !isset($attributes['src'])) {
+            $attributes['src'] = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
         }
 
         // Add image component
@@ -125,10 +134,11 @@ final class AssetExtension extends AbstractExtension
     }
 
     /**
-     * Generates a high resolution source set of the image
+     * Generates a high resolution source set of the image.
      *
-     * @param Image $image
+     * @param Image                  $image
      * @param Image\Thumbnail\Config $config
+     *
      * @return string
      */
     private function generateHighResSrcSet(Image $image, Image\Thumbnail\Config $config): string
@@ -146,10 +156,11 @@ final class AssetExtension extends AbstractExtension
     }
 
     /**
-     * Generates a media source set of the image
+     * Generates a media source set of the image.
      *
-     * @param Image $image
+     * @param Image                  $image
      * @param Image\Thumbnail\Config $config
+     *
      * @return array
      */
     private function generateMediaSrcSet(Image $image, Image\Thumbnail\Config $config): array
@@ -174,6 +185,7 @@ final class AssetExtension extends AbstractExtension
                     if (isset($item['arguments']['width'])) {
                         $thumbWidth = $item['arguments']['width'];
                         $mediaQuery = sprintf('%sw', $thumbWidth);
+
                         break;
                     }
                 }
@@ -193,15 +205,16 @@ final class AssetExtension extends AbstractExtension
 
         return [
             'srcset' => implode(', ', $media['srcset']),
-            'sizes' => implode(', ', $media['sizes'])
+            'sizes' => implode(', ', $media['sizes']),
         ];
     }
 
     /**
-     * Detects whether the original file is to be used or not
+     * Detects whether the original file is to be used or not.
      *
-     * @param string $filename
+     * @param string                 $filename
      * @param Image\Thumbnail\Config $config
+     *
      * @return bool
      */
     private function useOriginalFile($filename, Image\Thumbnail\Config $config): bool

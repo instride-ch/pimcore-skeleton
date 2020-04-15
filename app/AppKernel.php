@@ -12,8 +12,11 @@
  * @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
+use AppBundle\AppBundle;
+use CoreShop\Bundle\SEOBundle\CoreShopSEOBundle;
 use Pimcore\HttpKernel\BundleCollection\BundleCollection;
 use Pimcore\Kernel;
+use Symfony\WebpackEncoreBundle\WebpackEncoreBundle;
 
 class AppKernel extends Kernel
 {
@@ -26,9 +29,9 @@ class AppKernel extends Kernel
     public function registerBundlesToCollection(BundleCollection $collection): void
     {
         $collection->addBundles([
-            new \AppBundle\AppBundle(),
-            new \CoreShop\Bundle\SEOBundle\CoreShopSEOBundle(),
-            new \Symfony\WebpackEncoreBundle\WebpackEncoreBundle(),
+            new AppBundle(),
+            new CoreShopSEOBundle(),
+            new WebpackEncoreBundle(),
         ]);
     }
 }

@@ -3,7 +3,6 @@ import Alert from 'uikit/src/js/core/alert';
 import Core from 'uikit/src/js/core/core';
 import Cover from 'uikit/src/js/core/cover';
 import Drop from 'uikit/src/js/core/drop';
-import Dropdown from 'uikit/src/js/core/dropdown';
 import FormCustom from 'uikit/src/js/core/form-custom';
 import Gif from 'uikit/src/js/core/gif';
 import Grid from 'uikit/src/js/core/grid';
@@ -41,7 +40,6 @@ export default function (UIkit) {
   UIkit.component('alert', Alert);
   UIkit.component('cover', Cover);
   UIkit.component('drop', Drop);
-  UIkit.component('dropdown', Dropdown);
   UIkit.component('formCustom', FormCustom);
   UIkit.component('gif', Gif);
   UIkit.component('grid', Grid);

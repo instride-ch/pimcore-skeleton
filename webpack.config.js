@@ -71,9 +71,8 @@ Encore
       `${paths.vendor}/uikit`,
       `${paths.source}/custom/icons`,
     ],
-    loader: 'raw-loader'
-  })
-;
+    loader: 'raw-loader',
+  });
 
 // Advanced webpack config
 const config = Encore.getWebpackConfig();

@@ -1,6 +1,6 @@
 {
   "name": "pimcore-skeleton",
-  "version": "5.6",
+  "version": "6.0",
   "description": "A full-featured Pimcore skeleton for developing projects with Docker and Webpack",
   "author": "w-vision AG <support@w-vision.ch>",
   "license": "GPL-3.0",
@@ -13,28 +13,32 @@
     "deploy:prod": "php vendor/bin/dep deploy production",
     "dev": "./node_modules/.bin/encore dev",
     "dev:server": "./node_modules/.bin/encore dev-server --hot",
-    "icons:custom": "cd node_modules/uikit && yarn && yarn compile && yarn icons -- --custom ../../assets/custom/icons",
+    "ecs": "php vendor/bin/ecs check -c easy-coding-standard.yml src -n --no-progress-bar",
+    "ecs:fix": "php vendor/bin/ecs check --fix -c easy-coding-standard.yml src -n --no-progress-bar",
+    "icons:custom": "cd node_modules/uikit && yarn && yarn icons -- --custom ../../assets/custom/icons",
+    "lint": "eslint --ext .js assets/",
+    "phpstan": "php -d memory_limit=4G vendor/bin/phpstan analyse -c phpstan.neon src -l 3",
     "ssh": "php vendor/bin/dep ssh",
     "watch": "./node_modules/.bin/encore dev --watch"
   },
   "devDependencies": {
-    "@symfony/webpack-encore": "^0.27.0",
-    "babel-eslint": "^10.0.2",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-loader": "^2.1.2",
-    "eslint-plugin-import": "^2.18.0",
-    "node-sass": "^4.12.0",
+    "@symfony/webpack-encore": "^0.28.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.20.2",
+    "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
-    "raw-loader": "^2.0.0",
-    "sass-loader": "^7.1.0",
-    "stylelint": "^10.1.0",
-    "stylelint-webpack-plugin": "^0.10.5"
+    "raw-loader": "^4.0.1",
+    "sass-loader": "^7.3.1",
+    "stylelint": "^13.3.2",
+    "stylelint-webpack-plugin": "^1.2.3"
   },
   "dependencies": {
-    "core-js": "^3.1.4",
+    "core-js": "^3.6.5",
     "foundation-emails": "^2.2.1",
-    "uikit": "^3.1.6"
+    "uikit": "^3.4.0"
   },
   "browserslist": [
     ">0.25%",

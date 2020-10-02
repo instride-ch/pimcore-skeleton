@@ -142,7 +142,7 @@
                 {
                     "name": "Tobias Nyholm",
                     "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/nyholm"
+                    "homepage": "https://github.com/Nyholm"
                 },
                 {
                     "name": "Nicolas Grekas",
@@ -254,7 +254,82 @@
                 "ssl",
                 "tls"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-04-08T08:27:21+00:00"
+        },
+        {
+            "name": "composer/package-versions-deprecated",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/package-versions-deprecated.git",
+                "reference": "98df7f1b293c0550bd5b1ce6b60b59bdda23aa47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/98df7f1b293c0550bd5b1ce6b60b59bdda23aa47",
+                "reference": "98df7f1b293c0550bd5b1ce6b60b59bdda23aa47",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1.0 || ^2.0",
+                "php": "^7"
+            },
+            "replace": {
+                "ocramius/package-versions": "1.2 - 1.8.99"
+            },
+            "require-dev": {
+                "composer/composer": "^1.9.3 || ^2.0@dev",
+                "ext-zip": "^1.13",
+                "phpunit/phpunit": "^6.5 || ^7"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PackageVersions\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageVersions\\": "src/PackageVersions"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be"
+                }
+            ],
+            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-04-23T11:49:37+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -866,6 +941,7 @@
                 "phar",
                 "update"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:45:57+00:00"
         },
         {
@@ -1870,6 +1946,20 @@
                 "orm",
                 "persistence"
             ],
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fpersistence",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-21T15:13:52+00:00"
         },
         {
@@ -2065,6 +2155,12 @@
                 "php",
                 "qr",
                 "qrcode"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/endroid",
+                    "type": "github"
+                }
             ],
             "time": "2020-03-10T08:32:43+00:00"
         },
@@ -2936,6 +3032,12 @@
                 "transform",
                 "write"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/nyamsprod",
+                    "type": "github"
+                }
+            ],
             "time": "2020-03-17T15:15:35+00:00"
         },
         {
@@ -3761,58 +3863,17 @@
                 "datetime",
                 "time"
             ],
-            "time": "2020-03-31T13:43:19+00:00"
-        },
-        {
-            "name": "ocramius/package-versions",
-            "version": "1.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Ocramius/PackageVersions.git",
-                "reference": "1d32342b8c1eb27353c8887c366147b4c2da673c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/1d32342b8c1eb27353c8887c366147b4c2da673c",
-                "reference": "1d32342b8c1eb27353c8887c366147b4c2da673c",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0.0",
-                "php": "^7.3.0"
-            },
-            "require-dev": {
-                "composer/composer": "^1.8.6",
-                "doctrine/coding-standard": "^6.0.0",
-                "ext-zip": "*",
-                "infection/infection": "^0.13.4",
-                "phpunit/phpunit": "^8.2.5",
-                "vimeo/psalm": "^3.4.9"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "PackageVersions\\Installer",
-                "branch-alias": {
-                    "dev-master": "1.6.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PackageVersions\\": "src/PackageVersions"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
+            "funding": [
                 {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com"
+                    "url": "https://opencollective.com/Carbon",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/nesbot/carbon",
+                    "type": "tidelift"
                 }
             ],
-            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "time": "2019-07-17T15:49:50+00:00"
+            "time": "2020-03-31T13:43:19+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -3976,6 +4037,7 @@
                 "rest",
                 "sdk"
             ],
+            "abandoned": true,
             "time": "2019-01-04T20:04:25+00:00"
         },
         {
@@ -4121,12 +4183,12 @@
             "version": "v2.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/rybakit/twig-deferred-extension.git",
+                "url": "https://github.com/rybakit/twig-extensions-deferred-legacy.git",
                 "reference": "0c2da51bcaeefac09d94d9125d837f8f63b01325"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rybakit/twig-deferred-extension/zipball/0c2da51bcaeefac09d94d9125d837f8f63b01325",
+                "url": "https://api.github.com/repos/rybakit/twig-extensions-deferred-legacy/zipball/0c2da51bcaeefac09d94d9125d837f8f63b01325",
                 "reference": "0c2da51bcaeefac09d94d9125d837f8f63b01325",
                 "shasum": ""
             },
@@ -4159,6 +4221,12 @@
                 "extension",
                 "lazy",
                 "twig"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/rybakit",
+                    "type": "github"
+                }
             ],
             "time": "2019-05-24T21:57:45+00:00"
         },
@@ -4344,6 +4412,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-04-04T23:17:33+00:00"
         },
@@ -6180,6 +6262,20 @@
                 "polyfill",
                 "portable"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-02-27T09:26:54+00:00"
         },
         {
@@ -6239,6 +6335,20 @@
                 "portable",
                 "shim"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-09T19:04:49+00:00"
         },
         {
@@ -6296,6 +6406,20 @@
                 "polyfill",
                 "portable",
                 "shim"
+            ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-02-27T09:26:54+00:00"
         },
@@ -6359,6 +6483,20 @@
                 "portable",
                 "shim"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-09T19:04:49+00:00"
         },
         {
@@ -6418,6 +6556,20 @@
                 "portable",
                 "shim"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-09T19:04:49+00:00"
         },
         {
@@ -6472,6 +6624,20 @@
                 "polyfill",
                 "portable",
                 "shim"
+            ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-02-27T09:26:54+00:00"
         },
@@ -6530,6 +6696,20 @@
                 "polyfill",
                 "portable",
                 "shim"
+            ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-02-27T09:26:54+00:00"
         },
@@ -6771,6 +6951,20 @@
             "keywords": [
                 "framework"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-30T14:59:37+00:00"
         },
         {
@@ -6928,6 +7122,7 @@
                 "i18n",
                 "text"
             ],
+            "abandoned": true,
             "time": "2018-12-05T18:34:18+00:00"
         },
         {
@@ -7639,6 +7834,12 @@
                 "Xdebug",
                 "performance"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                }
+            ],
             "time": "2020-03-01T12:26:26+00:00"
         },
         {
@@ -7730,6 +7931,12 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
+            "funding": [
+                {
+                    "url": "https://github.com/keradus",
+                    "type": "github"
+                }
+            ],
             "time": "2020-04-10T21:08:06+00:00"
         },
         {
@@ -7785,16 +7992,16 @@
         },
         {
             "name": "nette/application",
-            "version": "v3.0.4",
+            "version": "v3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/application.git",
-                "reference": "da24ae52e65fe52fa6d26f2181a56ec48958ccb0"
+                "reference": "783ad6fc6444f63314175131885c04b3dd0291dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/application/zipball/da24ae52e65fe52fa6d26f2181a56ec48958ccb0",
-                "reference": "da24ae52e65fe52fa6d26f2181a56ec48958ccb0",
+                "url": "https://api.github.com/repos/nette/application/zipball/783ad6fc6444f63314175131885c04b3dd0291dd",
+                "reference": "783ad6fc6444f63314175131885c04b3dd0291dd",
                 "shasum": ""
             },
             "require": {
@@ -7811,7 +8018,7 @@
                 "tracy/tracy": "<2.5"
             },
             "require-dev": {
-                "latte/latte": "^2.6",
+                "latte/latte": "^2.6.2",
                 "mockery/mockery": "^1.0",
                 "nette/di": "^v3.0",
                 "nette/forms": "^3.0",
@@ -7866,32 +8073,29 @@
                 "routing",
                 "seo"
             ],
-            "time": "2020-01-22T21:39:02+00:00"
+            "time": "2020-08-25T01:52:08+00:00"
         },
         {
             "name": "nette/component-model",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/component-model.git",
-                "reference": "3153441f3d64bbdac300e75b8e5dde36590f7e01"
+                "reference": "66409cf5507c77edb46ffa88cf6a92ff58395601"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/component-model/zipball/3153441f3d64bbdac300e75b8e5dde36590f7e01",
-                "reference": "3153441f3d64bbdac300e75b8e5dde36590f7e01",
+                "url": "https://api.github.com/repos/nette/component-model/zipball/66409cf5507c77edb46ffa88cf6a92ff58395601",
+                "reference": "66409cf5507c77edb46ffa88cf6a92ff58395601",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^2.5 || ^3.0",
                 "php": ">=7.1"
             },
-            "conflict": {
-                "nette/application": "<2.4",
-                "nette/nette": "<2.2"
-            },
             "require-dev": {
                 "nette/tester": "^2.0",
+                "phpstan/phpstan": "^0.12",
                 "tracy/tracy": "^2.3"
             },
             "type": "library",
@@ -7908,8 +8112,8 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
+                "GPL-2.0-only",
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -7927,7 +8131,7 @@
                 "components",
                 "nette"
             ],
-            "time": "2019-02-20T07:13:15+00:00"
+            "time": "2020-04-21T13:48:20+00:00"
         },
         {
             "name": "nette/finder",
@@ -8188,16 +8392,16 @@
         },
         {
             "name": "nette/utils",
-            "version": "v3.1.1",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "2c17d16d8887579ae1c0898ff94a3668997fd3eb"
+                "reference": "c09937fbb24987b2a41c6022ebe84f4f1b8eec0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/2c17d16d8887579ae1c0898ff94a3668997fd3eb",
-                "reference": "2c17d16d8887579ae1c0898ff94a3668997fd3eb",
+                "url": "https://api.github.com/repos/nette/utils/zipball/c09937fbb24987b2a41c6022ebe84f4f1b8eec0f",
+                "reference": "c09937fbb24987b2a41c6022ebe84f4f1b8eec0f",
                 "shasum": ""
             },
             "require": {
@@ -8210,7 +8414,7 @@
             },
             "suggest": {
                 "ext-gd": "to use Image",
-                "ext-iconv": "to use Strings::webalize() and toAscii()",
+                "ext-iconv": "to use Strings::webalize(), toAscii(), chr() and reverse()",
                 "ext-intl": "to use Strings::webalize(), toAscii(), normalize() and compare()",
                 "ext-json": "to use Nette\\Utils\\Json",
                 "ext-mbstring": "to use Strings::lower() etc...",
@@ -8262,7 +8466,7 @@
                 "utility",
                 "validation"
             ],
-            "time": "2020-02-09T14:10:55+00:00"
+            "time": "2020-08-07T10:34:21+00:00"
         },
         {
             "name": "php-cs-fixer/diff",
@@ -8401,6 +8605,20 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpstan",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-22T16:51:47+00:00"
         },
         {
@@ -8781,6 +8999,16 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
+            "funding": [
+                {
+                    "url": "https://github.com/kukulich",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/slevomat/coding-standard",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-28T22:04:31+00:00"
         },
         {
@@ -8840,12 +9068,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/auto-bind-parameter.git",
-                "reference": "ccfc92a30a6adcce0127ed4a8b1adb114e98b236"
+                "reference": "43ab403cb0b5e9e7e0d45268635fb43d9723a50b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/auto-bind-parameter/zipball/ccfc92a30a6adcce0127ed4a8b1adb114e98b236",
-                "reference": "ccfc92a30a6adcce0127ed4a8b1adb114e98b236",
+                "url": "https://api.github.com/repos/symplify/auto-bind-parameter/zipball/43ab403cb0b5e9e7e0d45268635fb43d9723a50b",
+                "reference": "43ab403cb0b5e9e7e0d45268635fb43d9723a50b",
                 "shasum": ""
             },
             "require": {
@@ -8874,6 +9102,17 @@
                 "MIT"
             ],
             "description": "Auto bind parameters for your Symfony applications",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
+            "abandoned": "symplify/package-builder",
             "time": "2020-04-09T23:55:34+00:00"
         },
         {
@@ -8882,12 +9121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/autowire-array-parameter.git",
-                "reference": "f63211638bf67fdb4e35fc9da225a5dc63230157"
+                "reference": "ba054f1d47e4544ac91aebbf91a291290a4b04b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/autowire-array-parameter/zipball/f63211638bf67fdb4e35fc9da225a5dc63230157",
-                "reference": "f63211638bf67fdb4e35fc9da225a5dc63230157",
+                "url": "https://api.github.com/repos/symplify/autowire-array-parameter/zipball/ba054f1d47e4544ac91aebbf91a291290a4b04b0",
+                "reference": "ba054f1d47e4544ac91aebbf91a291290a4b04b0",
                 "shasum": ""
             },
             "require": {
@@ -8916,6 +9155,16 @@
                 "MIT"
             ],
             "description": "Autowire array parameters for your Symfony applications",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2020-04-09T23:55:34+00:00"
         },
         {
@@ -8924,12 +9173,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/coding-standard.git",
-                "reference": "ab9b6dd1e7c8ac977bad4c990ab7dfb95ca2fddd"
+                "reference": "0c766cf020b27e2d5dc8efb1bbfcafb4da7c97a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/ab9b6dd1e7c8ac977bad4c990ab7dfb95ca2fddd",
-                "reference": "ab9b6dd1e7c8ac977bad4c990ab7dfb95ca2fddd",
+                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/0c766cf020b27e2d5dc8efb1bbfcafb4da7c97a1",
+                "reference": "0c766cf020b27e2d5dc8efb1bbfcafb4da7c97a1",
                 "shasum": ""
             },
             "require": {
@@ -8966,6 +9215,16 @@
                 "MIT"
             ],
             "description": "Set of Symplify rules for PHP_CodeSniffer and PHP CS Fixer.",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2020-04-09T23:55:34+00:00"
         },
         {
@@ -8974,12 +9233,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-coding-standard.git",
-                "reference": "0a5d309496c79b342e3cc549193f9c1c56c96b9e"
+                "reference": "3e5ad25d1d1172a76f533ac469a76cc2ac44cae8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/0a5d309496c79b342e3cc549193f9c1c56c96b9e",
-                "reference": "0a5d309496c79b342e3cc549193f9c1c56c96b9e",
+                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/3e5ad25d1d1172a76f533ac469a76cc2ac44cae8",
+                "reference": "3e5ad25d1d1172a76f533ac469a76cc2ac44cae8",
                 "shasum": ""
             },
             "require": {
@@ -9037,6 +9296,16 @@
                 "MIT"
             ],
             "description": "Use Coding Standard with 0-knowledge of PHP-CS-Fixer and PHP_CodeSniffer.",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2020-04-09T23:55:34+00:00"
         },
         {
@@ -9045,12 +9314,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/package-builder.git",
-                "reference": "9eacafc4bfc0f5b1ce785ff5662bc3309786c6dd"
+                "reference": "576a99d2973a700c7f60d3c55bbb558b406e9537"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/package-builder/zipball/9eacafc4bfc0f5b1ce785ff5662bc3309786c6dd",
-                "reference": "9eacafc4bfc0f5b1ce785ff5662bc3309786c6dd",
+                "url": "https://api.github.com/repos/symplify/package-builder/zipball/576a99d2973a700c7f60d3c55bbb558b406e9537",
+                "reference": "576a99d2973a700c7f60d3c55bbb558b406e9537",
                 "shasum": ""
             },
             "require": {
@@ -9083,6 +9352,16 @@
                 "MIT"
             ],
             "description": "Dependency Injection, Console and Kernel toolkit for Symplify packages.",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2020-04-07T13:55:45+00:00"
         },
         {
@@ -9091,12 +9370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/set-config-resolver.git",
-                "reference": "8dd7c016552a876d0a69ecb3f2519f9153a769f3"
+                "reference": "dc622c2601ba3b019586c8eb7712357bd5a1155a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/set-config-resolver/zipball/8dd7c016552a876d0a69ecb3f2519f9153a769f3",
-                "reference": "8dd7c016552a876d0a69ecb3f2519f9153a769f3",
+                "url": "https://api.github.com/repos/symplify/set-config-resolver/zipball/dc622c2601ba3b019586c8eb7712357bd5a1155a",
+                "reference": "dc622c2601ba3b019586c8eb7712357bd5a1155a",
                 "shasum": ""
             },
             "require": {
@@ -9126,6 +9405,16 @@
                 "MIT"
             ],
             "description": "Resolve config and sets from configs and cli opptions for CLI applications",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2020-04-09T23:55:34+00:00"
         },
         {
@@ -9134,12 +9423,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/smart-file-system.git",
-                "reference": "30f2f0b776642e23ed747516b8d7f1710f37295e"
+                "reference": "bfea2807b8f68ae483bbd71903ac7311f2983855"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/smart-file-system/zipball/30f2f0b776642e23ed747516b8d7f1710f37295e",
-                "reference": "30f2f0b776642e23ed747516b8d7f1710f37295e",
+                "url": "https://api.github.com/repos/symplify/smart-file-system/zipball/bfea2807b8f68ae483bbd71903ac7311f2983855",
+                "reference": "bfea2807b8f68ae483bbd71903ac7311f2983855",
                 "shasum": ""
             },
             "require": {
@@ -9169,6 +9458,16 @@
                 "MIT"
             ],
             "description": "Sanitized FileInfo with safe getRealPath() and other handy methods",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2020-03-18T23:14:48+00:00"
         }
     ],
@@ -9183,5 +9482,6 @@
         "php": ">=7.2",
         "ext-json": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

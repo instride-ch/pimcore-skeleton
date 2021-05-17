@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * w-vision
+ * w-vision.
  *
  * LICENSE
  *
@@ -34,12 +34,13 @@ final class StringExtension extends AbstractExtension
     }
 
     /**
-     * Kebab-cases a string
+     * Kebab-cases a string.
      *
-     * @param string $string The string
-     * @param string $glue The string used to glue the words together (default is a hyphen)
-     * @param bool $lower Whether the string should be lower-cased (default is true)
-     * @param bool $removePunctuation Whether punctuation marks should be removed (default is true)
+     * @param string $string            The string
+     * @param string $glue              The string used to glue the words together (default is a hyphen)
+     * @param bool   $lower             Whether the string should be lower-cased (default is true)
+     * @param bool   $removePunctuation Whether punctuation marks should be removed (default is true)
+     *
      * @return string The kebab-cased string
      */
     public function kebabFilter(string $string, string $glue = '-', bool $lower = true, bool $removePunctuation = true): string
@@ -48,21 +49,15 @@ final class StringExtension extends AbstractExtension
     }
 
     /**
-     * Turns a phone number into a tel: link
-     *
-     * @param $phoneNumber
-     * @return string
+     * Turns a phone number into a tel: link.
      */
     public function telLink(string $phoneNumber): string
     {
-        return sprintf('tel:%s', StringHelper::removeWhitespaces($phoneNumber));
+        return sprintf('tel:%s', StringHelper::stripWhitespaces($phoneNumber));
     }
 
     /**
-     * Returns a pretty URL
-     *
-     * @param $url
-     * @return string
+     * Returns a pretty URL.
      */
     public function formattedUrl($url): string
     {

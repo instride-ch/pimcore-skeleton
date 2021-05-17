@@ -2,6 +2,10 @@
 
 {% set legalsBlock = pimcore_block('legalsBlock') %}
 
+{% set name = pimcore_website_config('name', null, app.request.locale) %}
+{% set address = pimcore_website_config('address', null, app.request.locale) %}
+{% set zipCity = pimcore_website_config('zipCity', null, app.request.locale) %}
+
 {% block content %}
 
     <div class="uk-section uk-section-default">
@@ -15,14 +19,12 @@
                         {% set itemText = pimcore_wysiwyg('itemText') %}
 
                         {% if editmode or not itemTitle.empty %}
-                            <div class="uk-panel {% if legalsBlock.count != loop.index %}uk-margin-large-bottom{% endif %}">
+                            <div class="uk-panel uk-margin-large-bottom">
                                 {% if loop.first %}
-                                    <h1 {% if scrollSpyNav is not empty and scrollSpyNav[loop.index0] is defined %}id="{{ scrollSpyNav[loop.index0].id }}"{% endif %}>
-                                        {{ itemTitle|raw }}
-                                    </h1>
+                                    <h1>{{ itemTitle|raw }}</h1>
                                 {% else %}
                                     <hr class="uk-margin-large" />
-                                    <h2 {% if scrollSpyNav is not empty and scrollSpyNav[loop.index0] is defined %}id="{{ scrollSpyNav[loop.index0].id }}"{% endif %} class="uk-h1">
+                                    <h2 {% if not itemTitle.empty %}id="{{ itemTitle.data|kebab }}"{% endif %} class="uk-h3">
                                         {{ itemTitle|raw }}
                                     </h2>
                                 {% endif %}
@@ -34,17 +36,52 @@
                         {% endif %}
                     {% endfor %}
 
+                    {% if imprint is not empty %}
+                        <div class="uk-panel uk-margin-large-bottom">
+                            <hr class="uk-margin-large" />
+                            <h2 id="publisher" class="uk-h3">{{ 'app.legals.imprint.publisher'|trans }}</h2>
+                            <address class="uk-margin-remove-last-child">
+                                <p>
+                                    <span class="uk-text-bold">{{ name }}</span><br />
+                                    {{ address }}<br />
+                                    {{ zipCity }}
+                                </p>
+                            </address>
+                        </div>
+
+                        <div class="uk-panel">
+                            <hr class="uk-margin-large" />
+                            <h2 id="conception-coding" class="uk-h3">{{ 'app.legals.imprint.conception_coding'|trans }}</h2>
+                            <address class="uk-margin-remove-last-child">
+                                <p>
+                                    <a href="{{ imprint.website }}" target="_blank" rel="noreferrer noopener" class="uk-text-bold">{{ imprint.name }}</a><br />
+                                    {{ imprint.street }}
+                                    {{ imprint.zip ~ ' ' ~ imprint.town }}
+                                </p>
+                                <p>
+                                    <a href="{{ imprint.phone|tel }}">{{ imprint.phone }}</a>
+                                    <a href="mailto: {{ imprint.email|obfuscateEmail }}">{{ imprint.email|obfuscateEmail }}</a>
+                                </p>
+                            </address>
+                        </div>
+                    {% endif %}
+
                 </div>
 
                 {% if scrollSpyNav is not empty %}
                     <div class="uk-width-auto uk-visible@l">
                         <div class="uk-width-medium">
-                            <div class="tm-sidebar" data-uk-sticky="offset: 160; bottom: true">
+                            <div class="tm-sidebar uk-sticky" data-uk-sticky="offset: 160; bottom: true">
 
                                 <ul class="uk-nav uk-nav-default" data-uk-scrollspy-nav="closest: li; scroll: true; offset: 160">
                                     {% for item in scrollSpyNav %}
                                         <li><a href="#{{ item.id }}">{{ item.data }}</a></li>
                                     {% endfor %}
+
+                                    {% if imprint is not empty %}
+                                        <li><a href="#publisher">{{ 'app.legals.imprint.publisher'|trans }}</a></li>
+                                        <li><a href="#conception-coding">{{ 'app.legals.imprint.conception_coding'|trans }}</a></li>
+                                    {% endif %}
                                 </ul>
 
                             </div>

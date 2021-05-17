@@ -2,7 +2,7 @@ includes:
     - vendor/phpstan/phpstan-symfony/extension.neon
 
 parameters:
-    autoload_files:
+    scanFiles:
         - %currentWorkingDirectory%/vendor/pimcore/pimcore/lib/helper-functions.php
 
     reportUnmatchedIgnoredErrors: false
@@ -42,9 +42,3 @@ parameters:
 
         # Symfony 3 Compatibility
         - '~^Method Symfony\\Contracts\\EventDispatcher\\EventDispatcherInterface::dispatch\(\) invoked with 2 parameters, 1 required\.\z~'
-
-        # Project Specific
-        - '/Call to an undefined method Pimcore\\Model\\DataObject\\Data\\ObjectMetadata::getAdmin()./'
-        - '/Call to an undefined method Pimcore\\Model\\DataObject\\Data\\ObjectMetadata::setAdmin()./'
-        - '/Call to an undefined method Pimcore\\Model\\DataObject\\Data\\ObjectMetadata::getDecisive()./'
-        - '/Call to an undefined method Pimcore\\Model\\DataObject\\Data\\ObjectMetadata::setDecisive()./'

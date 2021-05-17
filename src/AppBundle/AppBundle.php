@@ -1,6 +1,6 @@
 <?php
 /**
- * w-vision
+ * w-vision.
  *
  * LICENSE
  *

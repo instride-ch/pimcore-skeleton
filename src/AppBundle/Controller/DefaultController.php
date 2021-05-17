@@ -1,6 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * w-vision
+ * w-vision.
  *
  * LICENSE
  *
@@ -13,48 +16,54 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Helper\StringHelper;
+use GuzzleHttp\Exception\GuzzleException;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\Document;
 use Symfony\Component\HttpFoundation\Response;
+use WvisionBundle\Api\ImprintApi\ImprintApiInterface;
 
 class DefaultController extends FrontendController
 {
-    /**
-     * @return Response
-     */
     public function defaultAction(): Response
     {
-        $this->get('coreshop.seo.presentation')->updateSeoMetadata($this->document);
-
         return $this->renderTemplate('Default/default.html.twig');
     }
 
-    /**
-     * @return Response
-     */
-    public function legalsAction(): Response
+    public function legalsAction(ImprintApiInterface $imprintApi): Response
     {
-        $this->get('coreshop.seo.presentation')->updateSeoMetadata($this->document);
+        $imprint = $scrollSpyNav = [];
+        $block = $this->getDocumentEditable('block', 'legalsBlock');
 
-        $scrollSpyNav = [];
-        $block = $this->document->getElement('legalsBlock');
+        if ($this->document->getProperty('loadImprintData')) {
+            try {
+                $imprint = $imprintApi->getData();
+            } catch (GuzzleException $e) {
+                // Do nothing here ...
+            }
+        }
 
-        if ($block instanceof Document\Tag\Block && !$block->isEmpty()) {
-            foreach ($block->getElements() as $item) {
-                $input = $item->getElement('itemTitle');
+        if ($block instanceof Document\Editable\Block && ! $block->isEmpty()) {
+            $elements = $block->getElements();
+            array_shift($elements);
 
-                if (!$input instanceof Document\Tag\Input || $input->isEmpty()) {
+            foreach ($elements as $item) {
+                $input = $item->getEditable('itemTitle');
+
+                if (! $input instanceof Document\Editable\Input || $input->isEmpty()) {
                     continue;
                 }
 
+                $data = $input->getData();
+
                 $scrollSpyNav[] = [
-                    'id' => StringHelper::toKebabCase($input->getName()),
-                    'data' => $input->getData(),
+                    'id' => StringHelper::toKebabCase($data),
+                    'data' => $data,
                 ];
             }
         }
 
         return $this->renderTemplate('Default/legals.html.twig', [
+            'imprint' => $imprint,
             'scrollSpyNav' => $scrollSpyNav,
         ]);
     }

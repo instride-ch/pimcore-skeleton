@@ -1,2 +1,5 @@
 imports:
     - { resource: config.yml }
+
+webpack_encore:
+    cache: true

@@ -3,10 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: 'local/' }
-
-# Webpack Encore
-webpack_encore:
-    output_path: '%kernel.project_dir%/web/build'
+    - { resource: 'packages/*.yml' }
 
 pimcore:
 

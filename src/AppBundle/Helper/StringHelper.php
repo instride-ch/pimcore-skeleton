@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * w-vision AG.
  *
@@ -19,8 +22,6 @@ final class StringHelper
     /**
      * Reverse function for `nl2br`.
      *
-     * @param string $string
-     *
      * @return string|string[]|null
      */
     public static function br2nl(string $string)
@@ -30,11 +31,6 @@ final class StringHelper
 
     /**
      * Returns the first letter of a string.
-     *
-     * @param string $string
-     * @param bool   $uppercase
-     *
-     * @return string
      */
     public static function initial(string $string, bool $uppercase = true): string
     {
@@ -45,12 +41,10 @@ final class StringHelper
      * Checks whether the value is a timestamp or not.
      *
      * @param int|float $timestamp
-     *
-     * @return bool
      */
     public static function isValidTimeStamp($timestamp): bool
     {
-        $check = (is_int($timestamp) || is_float($timestamp))
+        $check = (\is_int($timestamp) || \is_float($timestamp))
             ? $timestamp
             : (string) (int) $timestamp;
 
@@ -93,10 +87,6 @@ final class StringHelper
 
     /**
      * Strips all whitespaces from a string.
-     *
-     * @param string $string
-     *
-     * @return string
      */
     public static function stripWhitespaces(string $string): string
     {
@@ -134,10 +124,6 @@ final class StringHelper
 
     /**
      * Removes protocol and trailing slashes from a website's url.
-     *
-     * @param string $url
-     *
-     * @return string
      */
     public static function toPrettyUrl(string $url): string
     {
@@ -147,10 +133,6 @@ final class StringHelper
     /**
      * Returns a lowercase and trimmed string separated by underscores. Underscores are inserted before uppercase
      * characters (with the exception of the first character of the string), and in place of spaces as well as dashes.
-     *
-     * @param string $str
-     *
-     * @return string
      */
     public static function toUnderscored(string $str): string
     {
@@ -173,7 +155,6 @@ final class StringHelper
      * Prepares a string for casing routines.
      *
      * @param string|array $string            The string
-     * @param bool         $lower
      * @param bool         $removePunctuation Whether punctuation marks should be removed (default is true)
      *
      * @return string[] The prepped words in the string
@@ -185,7 +166,7 @@ final class StringHelper
 
         if ($lower) {
             // Make it lowercase
-            $string = static::toLowerCase($string);
+            $string = self::toLowerCase($string);
         }
 
         if ($removePunctuation) {
@@ -196,6 +177,6 @@ final class StringHelper
         $string = preg_replace('/[\'"‘’“”\[\](){}:]/u', '', $string);
 
         // Split on the words and return
-        return static::splitOnWords($string);
+        return self::splitOnWords($string);
     }
 }

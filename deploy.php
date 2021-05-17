@@ -36,7 +36,6 @@ set('shared_files', [
     '.env',
     'app/config/local/database.yml',
     'app/config/parameters.yml',
-    'var/bundles/LuceneSearchBundle/state.cnf',
     'var/config/custom-reports.php',
     'var/config/debug-mode.php',
     'var/config/GeoLite2-City.mmdb',
@@ -48,25 +47,15 @@ set('shared_files', [
     'var/config/website-settings.php',
 ]);
 set('shared_dirs', [
-    'var/bundles/LuceneSearchBundle/index',
-    'var/bundles/LuceneSearchBundle/site-map',
     'var/email',
     'var/recyclebin',
     'var/sessions',
     'var/versions',
     'web/var',
 ]);
-set('pimcore_shared_configurations', [
-    'var/config/importdefinitions.php',
-    'var/config/reports.php',
-    'var/config/robots.php',
-    'var/config/web2print.php',
-    'var/config/website-settings.php',
-    'var/config/workflowmanagement.php'
-]);
 
 set('bin/php', static function () {
-    return '/opt/plesk/php/7.3/bin/php';
+    return '/opt/plesk/php/7.4/bin/php';
 });
 
 set('current_path', static function () {
@@ -88,6 +77,7 @@ task('deploy:yarn:icons:custom', static function() {
 
 desc('Deploy tasks');
 task('deploy', [
+    'deploy:info',
     'deploy:prepare',
     'deploy:lock',
     'deploy:release',
@@ -101,7 +91,7 @@ task('deploy', [
     'deploy:yarn:encore:production',
     'deploy:clear_paths',
     'deploy:pimcore:install-classes',
-//    'deploy:pimcore:migrate:core',         // Uncomment if you want to migrate Pimcore
+    'deploy:pimcore:migrate:core',
     'deploy:pimcore:migrate',
     'deploy:symlink',
     'deploy:unlock',

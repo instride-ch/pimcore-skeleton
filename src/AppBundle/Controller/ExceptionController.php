@@ -1,6 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * w-vision
+ * w-vision.
  *
  * LICENSE
  *
@@ -17,9 +20,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ExceptionController extends FrontendController
 {
-    /**
-     * @return Response
-     */
     public function errorAction(): Response
     {
         $this->get('coreshop.seo.presentation')->updateSeoMetadata($this->document);

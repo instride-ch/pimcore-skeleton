@@ -4,10 +4,6 @@
 <div id="off-canvas" data-uk-offcanvas="overlay: true; flip: true">
     <div class="uk-offcanvas-bar uk-flex uk-flex-column">
 
-        <div class="uk-margin">
-            {% include 'Navigation/search.html.twig' with { mode: 'uk-search-default' } %}
-        </div>
-
         <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             {% for page in navigation %}
                 {% if (page.isVisible and menuRenderer.accept(page)) %}
@@ -20,7 +16,7 @@
 
                                 {% for child in page.pages %}
                                     {% if (child.isVisible and menuRenderer.accept(child)) %}
-                                        <li class="{{ child.isActive(true) ? 'uk-active' }}">
+                                        <li{% if child.isActive(true) %} class="uk-active"{% endif %}>
                                             <a href="{{ child.href }}" target="{{ child.target }}">{{ child.label }}</a>
                                         </li>
                                     {% endif %}

@@ -1,6 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * w-vision
+ * w-vision.
  *
  * LICENSE
  *
@@ -28,11 +31,7 @@ class AppExtension extends Extension
     public function load(array $configs, ContainerBuilder $container): void
     {
         // use this to load your custom configurations
-        $loader = new YamlFileLoader(
-            $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
-        );
-
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }
 }

@@ -1,28 +1,34 @@
 <?php 
 
 return [
-    "fullsize-background" => [
+    "open-graph__default" => [
         "items" => [
             [
-                "method" => "scaleByWidth",
+                "method" => "cover",
                 "arguments" => [
                     "width" => 1200,
-                    "forceResize" => FALSE
+                    "height" => 630,
+                    "positioning" => "center",
+                    "forceResize" => TRUE
                 ]
             ]
         ],
         "medias" => [
 
         ],
-        "name" => "fullsize-background",
+        "name" => "open-graph__default",
         "description" => "",
-        "format" => "SOURCE",
+        "group" => "Open Graph",
+        "format" => "ORIGINAL",
         "quality" => 85,
         "highResolution" => 0.0,
         "preserveColor" => FALSE,
         "preserveMetaData" => FALSE,
-        "modificationDate" => 1524064948,
-        "creationDate" => 1524064938,
-        "id" => "fullsize-background"
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1621245439,
+        "creationDate" => 1621245391,
+        "forcePictureTag" => FALSE,
+        "id" => "open-graph__default"
     ]
 ];

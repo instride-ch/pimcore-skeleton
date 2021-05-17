@@ -2,11 +2,7 @@
     {% for message in messages %}
         <div class="uk-alert uk-alert-{{ type }}" data-uk-alert>
             <a class="uk-alert-close" data-uk-close></a>
-            <div class="uk-container uk-container-large">
-                <p class="uk-alert-message uk-text-large">
-                    {{ message|trans|raw }}
-                </p>
-            </div>
+            <p>{{ message|raw }}</p>
         </div>
     {% endfor %}
 {% endfor %}

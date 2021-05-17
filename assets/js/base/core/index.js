@@ -40,6 +40,7 @@ export default function (UIkit) {
   UIkit.component('alert', Alert);
   UIkit.component('cover', Cover);
   UIkit.component('drop', Drop);
+  UIkit.component('dropdown', Drop);
   UIkit.component('formCustom', FormCustom);
   UIkit.component('gif', Gif);
   UIkit.component('grid', Grid);

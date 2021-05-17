@@ -14,7 +14,7 @@
 
                             {% for child in page.pages %}
                                 {% if (child.isVisible and menuRenderer.accept(child)) %}
-                                    <li class="{{ child.isActive(true) ? 'uk-active' }}">
+                                    <li{% if child.isActive(true) %} class="uk-active"{% endif %}>
                                         <a href="{{ child.href }}" target="{{ child.target }}">{{ child.label }}</a>
                                     </li>
                                 {% endif %}

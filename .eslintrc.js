@@ -3,18 +3,24 @@ module.exports = {
 
   env: {
     browser: true,
+    commonjs: true,
     es6: true,
     node: true,
   },
 
-  parserOptions: { sourceType: 'module' },
+  parser: 'babel-eslint',
+
+  parserOptions: {
+    ecmaVersion: 8,
+    sourceType: 'module',
+  },
 
   extends: [
     'eslint:recommended',
     'airbnb-base'
   ],
 
-  globals: { 'VERSION': true },
+  globals: { VERSION: true },
 
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

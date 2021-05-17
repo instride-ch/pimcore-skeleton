@@ -12,18 +12,36 @@
     Copyright © {{ 'now'|date('Y') }} w-vision AG. All rights reserved.
     Pimcore - Own the Digital World | Digital Enterprise Content Platform
 -->
-{% spaceless %}
-<html lang="{{ app.request.locale|slice(0, 2) }}">
-<head>{% include 'Layout/html-head.html.twig' %}</head>
+{% apply spaceless %}
+<html lang="{{ app.request.locale|replace({ '_': '-' }) }}">
+<head>
+    {% include 'Layout/html-head.html.twig' %}
+    {% block metadata %}
+        {% if pimcore_website_config('name') is not empty %}
+            {% do pimcore_head_title().append(pimcore_website_config('name')) %}
+            {% do pimcore_head_title().setSeparator(' | ') %}
+        {% endif %}
+
+        {{ pimcore_head_title() }}
+        {{ pimcore_head_meta() }}
+    {% endblock %}
+    {% block styles %}
+        {{ encore_entry_link_tags('css/global') }}
+        {% if editmode %}{{ encore_entry_link_tags('css/editmode') }}{% endif %}
+    {% endblock %}
+    {% block scripts %}
+        {{ encore_entry_script_tags('js/app') }}
+    {% endblock %}
+    {% block headscripts deferred %}
+        {{ pimcore_head_script() }}
+    {% endblock %}
+</head>
 <body>
-{# page header #}
 {% include 'Layout/header.html.twig' %}
-<main class="main-content" data-uk-height-viewport="expand: true">
-    {# page content #}
+<main data-uk-height-viewport="expand: true">
     {% block content %}{% endblock %}
 </main>
-{# page footer #}
 {% include 'Layout/footer.html.twig' %}
 </body>
 </html>
-{% endspaceless %}
+{% endapply %}

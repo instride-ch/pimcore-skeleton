@@ -7,42 +7,46 @@
   "homepage": "https://www.w-vision.ch",
   "repository": "https://github.com/w-vision/pimcore-skeleton",
   "scripts": {
-    "build": "./node_modules/.bin/encore production",
+    "build": "encore production",
     "deploy": "php vendor/bin/dep deploy",
     "deploy:dev": "php vendor/bin/dep deploy dev",
     "deploy:prod": "php vendor/bin/dep deploy production",
-    "dev": "./node_modules/.bin/encore dev",
-    "dev:server": "./node_modules/.bin/encore dev-server --hot",
-    "ecs": "php vendor/bin/ecs check -c easy-coding-standard.yml src -n --no-progress-bar",
-    "ecs:fix": "php vendor/bin/ecs check --fix -c easy-coding-standard.yml src -n --no-progress-bar",
-    "icons:custom": "cd node_modules/uikit && yarn && yarn icons -- --custom ../../assets/custom/icons",
+    "dev": "encore dev",
+    "dev-server": "encore dev-server --public localhost:8080",
+    "ecs": "php vendor/bin/ecs check src",
+    "ecs:fix": "php vendor/bin/ecs check src --fix",
+    "icons:custom": "cd node_modules/uikit && yarn && yarn icons --custom ../../assets/custom/icons",
     "lint": "eslint --ext .js assets/",
     "phpstan": "php -d memory_limit=4G vendor/bin/phpstan analyse -c phpstan.neon src -l 3",
     "ssh": "php vendor/bin/dep ssh",
-    "watch": "./node_modules/.bin/encore dev --watch"
+    "watch": "encore dev --watch"
   },
   "devDependencies": {
-    "@symfony/webpack-encore": "^0.28.3",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-loader": "^2.2.1",
-    "eslint-plugin-import": "^2.20.2",
-    "node-sass": "^4.13.1",
-    "postcss-loader": "^3.0.0",
-    "raw-loader": "^4.0.1",
-    "sass-loader": "^7.3.1",
-    "stylelint": "^13.3.2",
-    "stylelint-webpack-plugin": "^1.2.3"
+    "@symfony/webpack-encore": "^1.0",
+    "autoprefixer": "^10.0",
+    "babel-eslint": "^10.0",
+    "eslint": "^7.0",
+    "eslint-config-airbnb-base": "^14.0",
+    "eslint-loader": "^4.0",
+    "eslint-plugin-import": "^2.0",
+    "file-loader": "^6.0",
+    "postcss": "^8.0",
+    "postcss-loader": "^5.0",
+    "raw-loader": "^4.0",
+    "sass": "^1.0",
+    "sass-loader": "^11.0",
+    "stylelint": "^13.0",
+    "stylelint-webpack-plugin": "^2.0",
+    "webpack": "^5.0"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "foundation-emails": "^2.2.1",
-    "uikit": "^3.4.0"
+    "core-js": "^3.0",
+    "foundation-emails": "^2.0",
+    "uikit": "^3.0"
   },
   "browserslist": [
     ">0.25%",
-    "not ie <= 10",
+    "not ie > 0",
     "not op_mini all"
   ]
 }

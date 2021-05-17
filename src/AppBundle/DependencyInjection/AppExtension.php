@@ -1,13 +1,16 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * w-vision
+ * w-vision.
  *
  * LICENSE
  *
  * For the full copyright and license information, please view the LICENSE
  * file that is distributed with this source code.
  *
- * @copyright  Copyright (c) 2020 w-vision AG (https://www.w-vision.ch)
+ * @copyright  Copyright (c) 2021 w-vision AG (https://www.w-vision.ch)
  */
 
 namespace AppBundle\DependencyInjection;
@@ -28,11 +31,7 @@ class AppExtension extends Extension
     public function load(array $configs, ContainerBuilder $container): void
     {
         // use this to load your custom configurations
-        $loader = new YamlFileLoader(
-            $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
-        );
-
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }
 }

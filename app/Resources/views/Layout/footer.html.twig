@@ -1,10 +1,19 @@
+{% set name = pimcore_website_config('name') %}
+{% set address = pimcore_website_config('address') %}
+{% set zipCity = pimcore_website_config('zipCity') %}
+{% set email = pimcore_website_config('email') %}
+{% set phone = pimcore_website_config('phone') %}
+{% set googleMapsQuery = pimcore_website_config('google-maps-query') %}
+
+{% set imprint = document.property('imprintPage') %}
+
 <div class="uk-section uk-section-secondary">
     <div class="uk-container">
 
         <div class="uk-flex-middle uk-grid-margin uk-grid uk-grid-stack" data-uk-grid>
             <div class="uk-width-1-1@m uk-first-column">
                 <div class="uk-margin-small uk-text-center ">
-                    <img width="100" height="25" src="{{ asset('build/images/logo.svg') }}" alt="{{ pimcore_website_config('name') }}">
+                    <img width="100" height="25" src="{{ asset('build/images/logo.svg') }}" alt="{{ name }}">
                 </div>
             </div>
         </div>
@@ -13,32 +22,26 @@
             <div class="uk-width-expand@s uk-first-column">
                 <h3 class="uk-text-center">Visit Us</h3>
                 <div class="uk-margin uk-text-center">
-                    <a href="https://google.com/maps?q={{ pimcore_website_config('google-maps-query') }}"
+                    <a href="https://google.com/maps?q={{ googleMapsQuery }}"
                        class="uk-link-reset" target="_blank" rel="noopener nofollow">
-                        {{ pimcore_website_config('address') }}<br />
-                        {{ pimcore_website_config('zipCity') }}
+                        {{ address }}<br />
+                        {{ zipCity }}
                     </a>
                 </div>
             </div>
             <div class="uk-width-expand@s">
                 <h3 class="uk-margin-remove-top uk-text-center">Contact</h3>
                 <div class="uk-margin uk-text-center">
-                    <a class="uk-link-reset" href="mailto:{{ pimcore_website_config('email')|obfuscateEmail }}">
-                        {{ pimcore_website_config('email')|obfuscateEmail }}
-                    </a><br />
-                    <a class="uk-link-reset" href="tel:{{ pimcore_website_config('phone')|replace({ ' ': '' }) }}">
-                        {{ pimcore_website_config('phone') }}
-                    </a>
+                    <a class="uk-link-reset" href="mailto:{{ email|obfuscateEmail }}">{{ email|obfuscateEmail }}</a><br />
+                    <a class="uk-link-reset" href="{{ phone|tel }}">{{ phone }}</a>
                 </div>
             </div>
-            {% if document.getProperty('imprintPage') is instanceof('\\Pimcore\\Model\\Document\\Page') %}
-                {% set imprint = document.getProperty('imprintPage') %}
-
+            {% if imprint is document_page %}
                 <div class="uk-width-expand@s">
                     <h3 class="uk-text-center">Legals</h3>
                     <div class="uk-margin uk-text-center">
-                        <a href="{{ imprint.getFullPath() }}">{{ imprint.getProperty('navigation_name') }}</a><br/>
-                        &copy; {{ pimcore_website_config('name') }}
+                        <a href="{{ imprint.fullPath }}">{{ imprint.property('navigation_name') }}</a><br />
+                        &copy; {{ name }}
                     </div>
                 </div>
             {% endif %}

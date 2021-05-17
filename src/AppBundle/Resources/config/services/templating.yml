@@ -3,4 +3,4 @@ services:
     # Language Switcher
     AppBundle\Templating\LanguageSwitcher:
         arguments:
-            - '@pimcore.document_service'
+            - '@Pimcore\Model\Document\Service'

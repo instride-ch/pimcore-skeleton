@@ -3,36 +3,3 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% include 'Layout/favicons.html.twig' %}
-
-{% spaceless -%}
-    {# stylesheets #}
-    {{ encore_entry_link_tags('css/global') }}
-
-    {% if editmode %}
-        {{ encore_entry_link_tags('css/editmode') }}
-    {% endif %}
-
-    {# scripts #}
-    {% for file in encore_entry_js_files('js/app') %}
-        <script src="{{ asset(file) }}" defer></script>
-    {% endfor %}
-
-    {# head title #}
-    {% if pimcore_website_config('name') is not empty %}
-        {% do pimcore_head_title().append(pimcore_website_config('name')) %}
-        {% do pimcore_head_title().setSeparator(' | ') %}
-    {% endif %}
-{%- endspaceless %}
-
-{% block layout_head_meta deferred %}
-    {{ pimcore_head_title() }}
-    {{ pimcore_head_meta() }}
-{% endblock %}
-
-{% block head_stylesheets deferred %}
-    {{ pimcore_head_link() }}
-{% endblock %}
-
-{% block scripts deferred %}
-    {{ pimcore_head_script() }}
-{% endblock %}

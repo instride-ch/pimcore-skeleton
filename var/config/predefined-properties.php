@@ -52,5 +52,18 @@ return [
         "inheritable" => TRUE,
         "creationDate" => 1542022981,
         "modificationDate" => 1542022981
+    ],
+    5 => [
+        "id" => 5,
+        "name" => "I18n: Front Page Mapping",
+        "description" => "I18n: Use this property to map a custom front page.",
+        "key" => "front_page_map",
+        "type" => "document",
+        "data" => NULL,
+        "config" => "",
+        "ctype" => "document",
+        "inheritable" => FALSE,
+        "creationDate" => 1621244740,
+        "modificationDate" => 1621244740
     ]
 ];

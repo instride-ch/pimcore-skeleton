@@ -13,7 +13,6 @@
  */
 
 use AppBundle\AppBundle;
-use CoreShop\Bundle\SEOBundle\CoreShopSEOBundle;
 use Pimcore\HttpKernel\BundleCollection\BundleCollection;
 use Pimcore\Kernel;
 use Symfony\WebpackEncoreBundle\WebpackEncoreBundle;
@@ -30,7 +29,6 @@ class AppKernel extends Kernel
     {
         $collection->addBundles([
             new AppBundle(),
-            new CoreShopSEOBundle(),
             new WebpackEncoreBundle(),
         ]);
     }

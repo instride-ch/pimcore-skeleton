@@ -1,8 +1,9 @@
-{% spaceless %}
+{% set lang = app.request.locale|slice(0, 2) %}
+{% apply spaceless %}
     {{ emailizr_style_collector.add(kernelPublicDir ~ asset('build/css/email.css')) }}
     {% emailizr_inline_style %}
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-        <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+        <html xmlns="http://www.w3.org/1999/xhtml" lang="{{ lang }}" xml:lang="{{ lang }}">
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
             <meta name="viewport" content="width=device-width">
@@ -28,10 +29,7 @@
                         <td class="float-center" align="center" valign="top">
                             <center>
                                 {% include 'Email/Partials/header.html.twig' %}
-
-                                {% block content %}
-                                {% endblock %}
-
+                                {% block content %}{% endblock %}
                                 {% include 'Email/Partials/footer.html.twig' %}
                             </center>
                         </td>
@@ -44,4 +42,4 @@
         {% end_emailizr_inky %}
         </html>
     {% end_emailizr_inline_style %}
-{% endspaceless %}
+{% endapply %}

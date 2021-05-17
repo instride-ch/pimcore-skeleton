@@ -10,7 +10,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE.md
  * file that is distributed with this source code.
  *
- * @copyright  Copyright (c) 2020 w-vision AG (https://www.w-vision.ch)
+ * @copyright  Copyright (c) 2021 w-vision AG (https://www.w-vision.ch)
  */
 
 namespace AppBundle\Twig\Extension;
@@ -19,7 +19,7 @@ use Pimcore\Model\Asset\Image;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class AssetExtension extends AbstractExtension
+final class AssetExtension extends AbstractExtension
 {
     /**
      * {@inheritdoc}
@@ -27,21 +27,16 @@ class AssetExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('uikit_image', [$this, 'getUIkitImage'], ['is_safe' => ['html']]),
+            new TwigFunction('uikit_image', [$this, 'getUIkitImage'], [
+                'is_safe' => ['html'],
+            ]),
         ];
     }
 
     /**
      * Generates HTML attributes, which can be used for UIkit's Image component.
-     *
-     * @param Image\Thumbnail $thumbnail
-     * @param bool            $backgroundImage
-     * @param array           $options
-     * @param array           $metadata
-     *
-     * @return string
      */
-    public function getUIkitImage(Image\Thumbnail $thumbnail, $backgroundImage = false, array $options = [], array $metadata = []): string
+    public function getUIkitImage(Image\Thumbnail $thumbnail, bool $backgroundImage = false, array $options = [], array $metadata = []): string
     {
         $attributes = [];
         $image = $thumbnail->getAsset();
@@ -51,11 +46,11 @@ class AssetExtension extends AbstractExtension
         $width = $thumbnail->getWidth();
         $height = $thumbnail->getHeight();
 
-        if ($width && !$backgroundImage) {
+        if ($width && ! $backgroundImage) {
             $attributes['width'] = $width;
         }
 
-        if ($height && !$backgroundImage) {
+        if ($height && ! $backgroundImage) {
             $attributes['height'] = $height;
         }
 
@@ -78,7 +73,7 @@ class AssetExtension extends AbstractExtension
         }
 
         // Metadata (alt and title with copyright)
-        if (!$backgroundImage) {
+        if (! $backgroundImage) {
             $titleText = $metadata['title'];
             if ($image->getMetadata('title')) {
                 $titleText = $image->getMetadata('title');
@@ -94,12 +89,12 @@ class AssetExtension extends AbstractExtension
             }
 
             $copyright = $metadata['copyright'];
-            if (!empty($copyright) || $image->getMetadata('copyright')) {
-                if (!empty($altText)) {
+            if (! empty($copyright) || $image->getMetadata('copyright')) {
+                if (! empty($altText)) {
                     $altText .= ' | ';
                 }
 
-                if (!empty($titleText)) {
+                if (! empty($titleText)) {
                     $titleText .= ' | ';
                 }
 
@@ -108,13 +103,13 @@ class AssetExtension extends AbstractExtension
             }
 
             $attributes['alt'] = $altText;
-            if (!empty($titleText)) {
+            if (! empty($titleText)) {
                 $attributes['title'] = $titleText;
             }
         }
 
         // Add the src attribute by default
-        if (!$backgroundImage && !isset($attributes['src'])) {
+        if (! $backgroundImage && ! isset($attributes['src'])) {
             $attributes['src'] = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
         }
 
@@ -135,11 +130,6 @@ class AssetExtension extends AbstractExtension
 
     /**
      * Generates a high resolution source set of the image.
-     *
-     * @param Image                  $image
-     * @param Image\Thumbnail\Config $config
-     *
-     * @return string
      */
     private function generateHighResSrcSet(Image $image, Image\Thumbnail\Config $config): string
     {
@@ -157,11 +147,6 @@ class AssetExtension extends AbstractExtension
 
     /**
      * Generates a media source set of the image.
-     *
-     * @param Image                  $image
-     * @param Image\Thumbnail\Config $config
-     *
-     * @return array
      */
     private function generateMediaSrcSet(Image $image, Image\Thumbnail\Config $config): array
     {
@@ -197,7 +182,7 @@ class AssetExtension extends AbstractExtension
             }
 
             $thumbnail = $image->getThumbnail($config);
-            if (null === $media['srcset'] || !array_key_exists($mediaQuery, $media['srcset'])) {
+            if (null === $media['srcset'] || ! \array_key_exists($mediaQuery, $media['srcset'])) {
                 $media['srcset'][$mediaQuery] = sprintf('%s %s', $thumbnail, $mediaQuery);
             }
             $thumbnail->reset();
@@ -211,14 +196,9 @@ class AssetExtension extends AbstractExtension
 
     /**
      * Detects whether the original file is to be used or not.
-     *
-     * @param string                 $filename
-     * @param Image\Thumbnail\Config $config
-     *
-     * @return bool
      */
-    private function useOriginalFile($filename, Image\Thumbnail\Config $config): bool
+    private function useOriginalFile(string $filename, Image\Thumbnail\Config $config): bool
     {
-        return $config && !$config->isRasterizeSVG() && preg_match('@\.svgz?$@', $filename);
+        return $config && ! $config->isRasterizeSVG() && preg_match('@\.svgz?$@', $filename);
     }
 }

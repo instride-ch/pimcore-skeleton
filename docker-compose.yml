@@ -5,7 +5,7 @@ services:
         container_name: pimcore-skeleton-redis
 
     db:
-        image: mariadb:10.1
+        image: mariadb:10.5
         container_name: pimcore-skeleton-mariadb
         command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-format=Barracuda, --innodb-large-prefix=1, --innodb-file-per-table=1]
         volumes:
@@ -28,7 +28,7 @@ services:
             - db:db
 
     php:
-        image: pimcore/pimcore:PHP7.3-apache
+        image: pimcore/pimcore:PHP7.4-apache
         container_name: pimcore-skeleton-php
         volumes:
             - ~/.composer:/root/composer
@@ -41,7 +41,7 @@ services:
             - redis:redis
 
     php-debug:
-        image: pimcore/pimcore:PHP7.3-apache-debug
+        image: pimcore/pimcore:PHP7.4-apache-debug
         container_name: pimcore-skeleton-php-debug
         volumes:
             - ~/.composer:/root/composer

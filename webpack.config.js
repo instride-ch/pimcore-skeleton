@@ -1,6 +1,6 @@
-const { resolve } = require('path');
 const Encore = require('@symfony/webpack-encore');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const { resolve } = require('path');
 const { version } = require('uikit/package.json');
 
 const paths = {
@@ -15,13 +15,12 @@ Encore
   // Set output and public paths
   .setOutputPath(`${paths.output}/`)
   .setPublicPath(`/${paths.public}`)
-  .setManifestKeyPrefix(`${paths.public}/`)
 
   // Clean output before build
   .cleanupOutputBeforeBuild()
 
   // JavaScript
-  .addEntry('js/app', `${paths.source}/js/main.js`)
+  .addEntry('js/app', `${paths.source}/js/app.js`)
   .enableSingleRuntimeChunk()
   .enableEslintLoader()
   .splitEntryChunks()
@@ -47,7 +46,8 @@ Encore
   .copyFiles({
     from: `${paths.source}/images`,
     pattern: paths.pattern,
-    to: 'images/[path][name].[hash:8].[ext]',
+    to: '[path][name].[ext]',
+    context: './assets',
   })
 
   // Source maps and cache buster

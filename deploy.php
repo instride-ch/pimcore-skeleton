@@ -47,6 +47,7 @@ set('shared_files', [
     'var/config/website-settings.php',
 ]);
 set('shared_dirs', [
+    'var/config/portal',
     'var/email',
     'var/recyclebin',
     'var/sessions',

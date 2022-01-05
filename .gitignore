@@ -1,15 +1,16 @@
-# Symfony default
+# symfony default
 /.web-server-pid
-/app/config/parameters.yml
 /build/
 /phpunit.xml
-/web/bundles/
+/public/bundles/
 
-# Local config
-/.env
-!/app/config/local
-/app/config/local/*
-!app/config/local/.gitkeep
+# local config
+/.env.local
+/.env.local.php
+/.env.*.local
+!/config/local
+/config/local/*
+!config/local/.gitkeep
 
 # Pimcore
 /var/*
@@ -22,24 +23,20 @@
 /var/config/debug-mode.php
 /var/config/maintenance.php
 
-# Project specific recommendations
+# project specific recommendations
 /var/config/tag-manager.php
 /var/config/reports.php
 
-/web/var/
-/web/sitemap*.xml
+/public/var/
+/public/sitemap*.xml
 
-# PHP-CS-Fixer
-/.php_cs
-/.php_cs.cache
-
-# Composer
+# composer
 /vendor/
+/cache/
 
 # PhpStorm / IDEA
-.idea
+/.idea/
 
-# Keep legacy paths ignored for easier migration
-.temp
-node_modules/
-web/build/
+# Node / Webpack
+/node_modules/
+/public/build/

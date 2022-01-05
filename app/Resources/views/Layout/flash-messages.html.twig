@@ -1,8 +1,0 @@
-{% for type, messages in app.flashes %}
-    {% for message in messages %}
-        <div class="uk-alert uk-alert-{{ type }}" data-uk-alert>
-            <a class="uk-alert-close" data-uk-close></a>
-            <p>{{ message|raw }}</p>
-        </div>
-    {% endfor %}
-{% endfor %}

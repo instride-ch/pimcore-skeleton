@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-namespace Symfony\Component\DependencyInjection\Loader\Configurator;
-
 use PhpCsFixer\Fixer\Alias\NoMixedEchoPrintFixer;
 use PhpCsFixer\Fixer\ArrayNotation\NoMultilineWhitespaceAroundDoubleArrowFixer;
 use PhpCsFixer\Fixer\ArrayNotation\NormalizeIndexBraceFixer;
@@ -78,37 +76,79 @@ use PhpCsFixer\Fixer\Whitespace\BlankLineBeforeStatementFixer;
 use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
 use PhpCsFixer\Fixer\Whitespace\NoSpacesAroundOffsetFixer;
 use PhpCsFixer\Fixer\Whitespace\NoWhitespaceInBlankLineFixer;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\EasyCodingStandard\ValueObject\Option;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    // A. Services
+    // A. Imports
+    $containerConfigurator->import(SetList::CLEAN_CODE);
+    $containerConfigurator->import(SetList::COMMON);
+    $containerConfigurator->import(SetList::PSR_12);
+    $containerConfigurator->import(SetList::SYMFONY);
+    $containerConfigurator->import(SetList::SYMFONY_RISKY);
+
+    // B. Services
     $services = $containerConfigurator->services();
 
     $services->set(BracesFixer::class)
-        ->call('configure', [['allow_single_line_closure' => true]]);
+        ->call('configure', [
+            [
+                'allow_single_line_closure' => true,
+            ],
+        ]);
     $services->set(BlankLineAfterOpeningTagFixer::class);
     $services->set(ConcatSpaceFixer::class)
-        ->call('configure', [['spacing' => 'one']]);
+        ->call('configure', [
+            [
+                'spacing' => 'one',
+            ],
+        ]);
     $services->set(NewWithBracesFixer::class);
     $services->set(PhpdocAlignFixer::class)
-        ->call('configure', [[
-            'tags' => ['method', 'param', 'property', 'return', 'throws', 'type', 'var'],
-        ]]);
+        ->call('configure', [
+            [
+                'tags' => [
+                    'method',
+                    'param',
+                    'property',
+                    'return',
+                    'throws',
+                    'type',
+                    'var',
+                ],
+            ],
+        ]);
     $services->set(BinaryOperatorSpacesFixer::class);
     $services->set(IncrementStyleFixer::class)
-        ->call('configure', [['style' => 'post']]);
+        ->call('configure', [
+            [
+                'style' => 'post',
+            ],
+        ]);
     $services->set(UnaryOperatorSpacesFixer::class);
     $services->set(BlankLineBeforeStatementFixer::class);
     $services->set(CastSpacesFixer::class);
     $services->set(DeclareEqualNormalizeFixer::class);
     $services->set(FunctionTypehintSpaceFixer::class);
     $services->set(SingleLineCommentStyleFixer::class)
-        ->call('configure', [['comment_types' => ['hash']]]);
+        ->call('configure', [
+            [
+                'comment_types' => [
+                    'hash',
+                ],
+            ],
+        ]);
     $services->set(IncludeFixer::class);
     $services->set(LowercaseCastFixer::class);
     $services->set(ClassAttributesSeparationFixer::class)
-        ->call('configure', [['elements' => ['method']]]);
+        ->call('configure', [
+            [
+                'elements' => [
+                    'method' => 'one',
+                ],
+            ],
+        ]);
     $services->set(NativeFunctionCasingFixer::class);
     $services->set(NoBlankLinesAfterClassOpeningFixer::class);
     $services->set(NoEmptyCommentFixer::class);
@@ -116,9 +156,19 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(PhpdocSeparationFixer::class);
     $services->set(NoEmptyStatementFixer::class);
     $services->set(NoExtraBlankLinesFixer::class)
-        ->call('configure', [[
-            'tokens' => ['curly_brace_block', 'extra', 'parenthesis_brace_block', 'parenthesis_brace_block', 'square_brace_block', 'throw', 'use'],
-        ]]);
+        ->call('configure', [
+            [
+                'tokens' => [
+                    'curly_brace_block',
+                    'extra',
+                    'parenthesis_brace_block',
+                    'parenthesis_brace_block',
+                    'square_brace_block',
+                    'throw',
+                    'use',
+                ],
+            ],
+        ]);
     $services->set(NoLeadingNamespaceWhitespaceFixer::class);
     $services->set(NoMultilineWhitespaceAroundDoubleArrowFixer::class);
     $services->set(NoShortBoolCastFixer::class);
@@ -153,11 +203,19 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(TrimArraySpacesFixer::class);
     $services->set(WhitespaceAfterCommaInArrayFixer::class);
     $services->set(ClassDefinitionFixer::class)
-        ->call('configure', [['singleLine' => true]]);
+        ->call('configure', [
+            [
+                'single_line' => true,
+            ],
+        ]);
     $services->set(MagicConstantCasingFixer::class);
     $services->set(MethodArgumentSpaceFixer::class);
     $services->set(NoMixedEchoPrintFixer::class)
-        ->call('configure', [['use' => 'echo']]);
+        ->call('configure', [
+            [
+                'use' => 'echo',
+            ],
+        ]);
     $services->set(NoLeadingImportSlashFixer::class);
     $services->set(NoUnusedImportsFixer::class);
     $services->set(PhpUnitFqcnAnnotationFixer::class);
@@ -178,17 +236,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     // new since 2.11
     $services->set(StandardizeIncrementFixer::class);
 
-    // B. Parameters
+    // C. Parameters
     $parameters = $containerConfigurator->parameters();
 
-    $containerConfigurator->import(SetList::CLEAN_CODE);
-    $containerConfigurator->import(SetList::COMMON);
-//    $containerConfigurator->import(SetList::PHP_70); ???
-//    $containerConfigurator->import(SetList::PHP_71); ???
-    $containerConfigurator->import(SetList::PSR_12);
-    $containerConfigurator->import(SetList::SYMFONY);
-    $containerConfigurator->import(SetList::SYMFONY_RISKY);
-
+    // Paths
     $parameters->set(Option::PATHS, [
         __DIR__ . '/src',
         __DIR__ . '/ecs.php',
@@ -196,7 +247,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::CACHE_DIRECTORY, 'var/cache/ecs');
     $parameters->set(Option::SKIP, [
         VoidReturnFixer::class => [
-            __DIR__ . '/src/AppBundle/Model/**/*',
+            __DIR__ . '/src/Model/**/*',
         ],
     ]);
+
+    // Enable Parallel Runs
+    $parameters->set(Option::PARALLEL, true);
 };

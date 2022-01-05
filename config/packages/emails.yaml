@@ -1,0 +1,14 @@
+pimcore:
+    email:
+        sender:
+            name: ''
+            email: ''
+        return:
+            name: ''
+            email: ''
+
+framework:
+    mailer:
+        transports:
+            main: '%env(MAILER_DSN_MAIN)%'
+            pimcore_newsletter: '%env(MAILER_DSN_NEWSLETTER)%'

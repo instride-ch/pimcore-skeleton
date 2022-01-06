@@ -1,0 +1,4 @@
+@import "../utils/variables";
+
+// Custom Image Placeholder
+img[data-src][src*="data:image"] { background: rgba($color-black, .05); }

@@ -1,0 +1,8 @@
+@import "../../utils/variables";
+
+// Base
+@mixin hook-base-body() {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

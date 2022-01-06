@@ -1,0 +1,43 @@
+{% set lang = app.request.locale|slice(0, 2) %}
+{% apply spaceless %}
+    {{ emailizr_style_collector.add(kernelPublicDir ~ asset('build/css/email.css')) }}
+    {% emailizr_inline_style %}
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml" lang="{{ lang }}" xml:lang="{{ lang }}">
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <meta name="viewport" content="width=device-width">
+            {% if document.subject is not empty and pimcore_website_config('name') is not empty %}
+                <title>{{ document.subject ~ ' | ' ~ pimcore_website_config('name')}}</title>
+            {% endif %}
+            {% block headStyles %}
+                <style type="text/css">
+                    {% autoescape false %}{{ emailizr_inline_style(emailizr_style_collector) }}{% endautoescape %}
+                </style>
+            {% endblock %}
+        </head>
+        {% emailizr_inky %}
+            <body>
+            {% if app.request.get('description') is not empty %}
+                <span class="preheader">{{ app.request.get('description')|trans }}</span>
+            {% endif %}
+            {% block body %}
+                <table class="body">
+                    <tr>
+                        <td class="float-center" align="center" valign="top">
+                            <center>
+                                {{ include('email/layout/header.html.twig') }}
+                                {% block content %}{% endblock %}
+                                {{ include('email/layout/footer.html.twig') }}
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <!-- prevent Gmail on iOS font size manipulation -->
+                <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+            {% endblock %}
+            </body>
+        {% end_emailizr_inky %}
+        </html>
+    {% end_emailizr_inline_style %}
+{% endapply %}

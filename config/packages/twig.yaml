@@ -1,2 +1,2 @@
 twig:
-    form_themes: ['portal/form/theme.html.twig']
+    form_themes: ['form/uikit_3_layout.html.twig']

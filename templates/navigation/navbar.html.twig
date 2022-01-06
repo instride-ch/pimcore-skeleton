@@ -1,0 +1,21 @@
+<ul class="uk-navbar-nav">
+    {% for page in navigation|filter(page => page.isVisible and menuRenderer.accept(page)) %}
+        <li class="{{ page.hasPages ? 'uk-parent' }} {{ page.isActive(true) ? 'uk-active' }}">
+            <a href="{{ page.href }}">{{ page.label }}</a>
+
+            {% if page.hasPages %}
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        {% for child in page.pages %}
+                            {% if (child.isVisible and menuRenderer.accept(child)) %}
+                                <li{% if child.isActive(true) %} class="uk-active"{% endif %}>
+                                    <a href="{{ child.href }}" target="{{ child.target }}">{{ child.label }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

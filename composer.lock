@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a243d9a3b72d3d683ae4fe3a364cd9a7",
+    "content-hash": "f8798c87dcf87e38d6c73416e2f382b6",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -5585,16 +5585,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v10.2.7",
+            "version": "v10.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "82dae6902d9a78c48e8de9e4fdbd2ecf0cec7816"
+                "reference": "a23ccb2bfaf92b1723e16ddd94e6cd296c50387f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/82dae6902d9a78c48e8de9e4fdbd2ecf0cec7816",
-                "reference": "82dae6902d9a78c48e8de9e4fdbd2ecf0cec7816",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/a23ccb2bfaf92b1723e16ddd94e6cd296c50387f",
+                "reference": "a23ccb2bfaf92b1723e16ddd94e6cd296c50387f",
                 "shasum": ""
             },
             "require": {
@@ -5804,7 +5804,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-12-22T11:32:24+00:00"
+            "time": "2022-01-05T11:30:13+00:00"
         },
         {
             "name": "presta/sitemap-bundle",

@@ -1,0 +1,25 @@
+<div id="mobile-navigation" data-uk-offcanvas="overlay: true; flip: true">
+    <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+        <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+            {% for page in navigation|filter(page => page.isVisible and menuRenderer.accept(page)) %}
+                <li class="{{ page.hasPages ? 'uk-parent' }} {{ page.isActive(true) ? 'uk-active' }}">
+                    <a href="{{ page.href }}">{{ page.label }}</a>
+
+                    {% if page.hasPages %}
+                        <ul class="uk-nav-sub">
+                            {% for child in page.pages %}
+                                {% if (child.isVisible and menuRenderer.accept(child)) %}
+                                    <li{% if child.isActive(true) %} class="uk-active"{% endif %}>
+                                        <a href="{{ child.href }}" target="{{ child.target }}">{{ child.label }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>

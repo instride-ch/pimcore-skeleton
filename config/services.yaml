@@ -52,3 +52,11 @@ services:
         resource: '../src/Controller'
         public: true
         tags: ['controller.service_arguments']
+
+    # Disable the FrontendJsListener of the Toolbox Bundle
+    ToolboxBundle\EventListener\Frontend\FrontendJsListener:
+        public: true
+        calls:
+            - disable: []
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse, priority: 0 }

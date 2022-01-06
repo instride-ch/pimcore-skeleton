@@ -1,0 +1,57 @@
+{
+  "name": "@w-vision/pimcore-skeleton",
+  "version": "1.0",
+  "description": "The Pimcore skeleton for projects at w-vision.",
+  "repository": "https://github.com/w-vision/pimcore-skeleton.git",
+  "author": "w-vision AG <support@w-vision.ch>",
+  "homepage": "https://www.w-vision.ch",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build": "encore production",
+    "deploy": "php vendor/bin/dep deploy",
+    "deploy:dev": "php vendor/bin/dep deploy dev",
+    "deploy:prod": "php vendor/bin/dep deploy prod",
+    "dev": "encore dev",
+    "dev-server": "encore dev-server",
+    "ecs": "php vendor/bin/ecs check",
+    "ecs:fix": "php vendor/bin/ecs check --fix",
+    "icons:custom": "cd node_modules/uikit && yarn && yarn icons --custom ../../assets/custom/icons",
+    "lint": "eslint --ext .js assets/",
+    "phpstan": "php -d memory_limit=4G vendor/bin/phpstan analyse -c phpstan.neon src -l 3",
+    "ssh": "php vendor/bin/dep ssh",
+    "watch": "encore dev --watch"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.0",
+    "@fullhuman/postcss-purgecss": "^4.0",
+    "@symfony/webpack-encore": "^1.0",
+    "autoprefixer": "^10.0",
+    "eslint": "^7.0",
+    "eslint-config-airbnb-base": "^15.0",
+    "eslint-loader": "^4.0",
+    "eslint-plugin-import": "^2.0",
+    "file-loader": "^6.0",
+    "postcss": "^8.0",
+    "postcss-loader": "^6.0",
+    "raw-loader": "^4.0",
+    "sass": "^1.0",
+    "sass-loader": "^12.0",
+    "stylelint": "^14.0",
+    "stylelint-config-airbnb": "^0.0",
+    "stylelint-config-standard-scss": "^3.0",
+    "stylelint-order": "^5.0",
+    "stylelint-scss": "^4.0",
+    "stylelint-webpack-plugin": "^3.0"
+  },
+  "dependencies": {
+    "core-js": "^3.0",
+    "foundation-emails": "^2.0",
+    "uikit": "^3.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not op_mini all"
+  ]
+}

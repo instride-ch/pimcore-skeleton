@@ -1,11 +1,12 @@
-![Pimcore Skeleton](docs/images/github_banner.png "Pimcore Skeleton")
+# Pimcore Skeleton
 
-# Getting started
+## Local Development
 
 **Create valid HTTPS certificates**
 ```yaml
 mkcert -install
-mkcert -cert-file ~/.ssh/dev.local+4.pem -key-file ~/.ssh/dev.local+4-key.pem dev.local "*.dev.local" localhost 127.0.0.1 ::1
+sudo mkcert -cert-file /etc/ssl/dev.local+4.pem -key-file /etc/ssl/dev.local+4-key.pem dev.local "*.dev.local" localhost 127.0.0.1 ::1
+sudo chown <username>:staff /etc/ssl/dev.local+4.pem /etc/ssl/dev.local+4-key.pem
 ```
 
 Don't forget to add your local domain to your hosts file:
@@ -26,22 +27,17 @@ docker compose up -d && docker compose exec php bash
 
 **Install Pimcore**
 ```
-vendor/bin/pimcore-install --admin-username=admin \
-                           --admin-password=admin \
-                           --mysql-host-socket=db \
-                           --mysql-username=pimcore \
-                           --mysql-password=pimcore \
-                           --mysql-database=pimcore
+php vendor/bin/pimcore-install --admin-username=admin \
+                               --admin-password=admin \
+                               --mysql-host-socket=db \
+                               --mysql-username=pimcore \
+                               --mysql-password=pimcore \
+                               --mysql-database=pimcore
 ```
 
-**Install Node Modules**
+**Install Node Modules and run Webpack**
 ```
-yarn install
-```
-
-**Run Webpack**
-```
-yarn dev
+yarn install && yarn dev
 ```
 
 ## Copyright

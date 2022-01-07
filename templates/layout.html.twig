@@ -22,12 +22,12 @@
         {%- endif -%}
 
         {{ pimcore_head_title() -}}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         {{ pimcore_head_meta() -}}
     {% endblock %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ include('layout/favicons.html.twig') }}
     {% block styles %}
+        {{- include('layout/favicons.html.twig') }}
         {{- encore_entry_link_tags('js/app') }}
         {% if editmode %}{{- encore_entry_link_tags('css/editmode') -}}{% endif %}
     {%- endblock %}

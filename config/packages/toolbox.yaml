@@ -1,0 +1,151 @@
+toolbox:
+    theme:
+        layout: 'UIkit3'
+        calculators:
+            column_calculator: ToolboxBundle\Calculator\UIkit3\ColumnCalculator
+            slide_calculator: ToolboxBundle\Calculator\UIkit3\SlideColumnCalculator
+        wrapper:
+            image: ~
+            gallery: ~
+            slideColumns: ~
+            teaser: ~
+            columns:
+                - { tag: 'div', class: 'uk-grid' }
+        grid:
+            grid_size: 12
+            column_store:
+                11: '1/1'
+                12: '1/2'
+                13: '1/3'
+                14: '1/4'
+                15: '1/5'
+                16: '1/6'
+                23: '2/3'
+                25: '2/5'
+                34: '3/4'
+                35: '3/5'
+                45: '4/5'
+                56: '5/6'
+            breakpoints:
+                -   identifier: 's'
+                    name: 'Breakpoint: S'
+                    description: 'Viewports wider than 640px'
+                -   identifier: 'm'
+                    name: 'Breakpoint: M'
+                    description: 'Viewports wider than 960px'
+                -   identifier: 'l'
+                    name: 'Breakpoint: L'
+                    description: 'Viewports wider than 1200px'
+                -   identifier: 'xl'
+                    name: 'Breakpoint: XL'
+                    description: 'Viewports wider than 1600px'
+    ckeditor:
+        config:
+            toolbar:
+                -   name: 'clipboard'
+                    items:
+                        - 'Cut'
+                        - 'Copy'
+                        - 'Paste'
+                        - 'PasteText'
+                        - 'PasteFromWord'
+                        - '-'
+                        - 'Undo'
+                        - 'Redo'
+                        - '-'
+                        - 'JustifyLeft'
+                        - 'JustifyCenter'
+                        - 'JustifyRight'
+                -   name: 'editing'
+                    items:
+                        - 'Find'
+                        - 'Replace'
+                - '/'
+                -   name: 'basicstyles'
+                    items:
+                        - 'Bold'
+                        - 'Subscript'
+                        - 'Superscript'
+                        - 'NumberedList'
+                        - 'BulletedList'
+                        - '-'
+                        - 'RemoveFormat'
+                        - 'HorizontalRule'
+                -   name: 'links'
+                    items:
+                        - 'Link'
+                        - 'Unlink'
+                - '/'
+                -   name: 'styles'
+                    items:
+                        - 'Styles'
+                        - 'Format'
+                -   name: 'tools'
+                    items:
+                        - 'ShowBlocks'
+                        - 'Sourcedialog'
+        global_style_sets:
+            default:
+                -   name: 'Primary Button'
+                    element: 'a'
+                    attributes:
+                        class: 'uk-button uk-button-primary'
+                -   name: 'Secondary Button'
+                    element: 'a'
+                    attributes:
+                        class: 'uk-button uk-button-secondary'
+                -   name: 'Default Button'
+                    element: 'a'
+                    attributes:
+                        class: 'uk-button uk-button-default'
+                -   name: 'Lead'
+                    element: 'p'
+                    attributes:
+                        class: 'uk-text-lead'
+                -   name: 'Large'
+                    element: 'p'
+                    attributes:
+                        class: 'uk-text-large'
+                -   name: 'Small'
+                    element: 'p'
+                    attributes:
+                        class: 'uk-text-small'
+                -   name: 'XSmall'
+                    element: 'p'
+                    attributes:
+                        class: 'uk-text-xsmall'
+                -   name: 'Meta'
+                    element: 'p'
+                    attributes:
+                        class: 'uk-text-meta'
+                -   name: 'Label'
+                    element: 'span'
+                    attributes:
+                        class: 'uk-label'
+                -   name: 'Bullet List'
+                    element: 'ul'
+                    attributes:
+                        class: 'uk-list uk-list-disc'
+                -   name: 'Hyphen List'
+                    element: 'ul'
+                    attributes:
+                        class: 'uk-list uk-list-hyphen'
+                -   name: 'Decimal List'
+                    element: 'ul'
+                    attributes:
+                        class: 'uk-list uk-list-decimal'
+                -   name: 'Divider List'
+                    element: 'ul'
+                    attributes:
+                        class: 'uk-list uk-list-divider'
+                -   name: 'Striped List'
+                    element: 'ul'
+                    attributes:
+                        class: 'uk-list uk-list-striped'
+
+    area_block_configuration:
+        groups: ~
+
+    areas_appearance:
+        default_section:
+            allowed: ~

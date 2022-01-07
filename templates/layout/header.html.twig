@@ -2,8 +2,8 @@
 {% set navigation = pimcore_build_nav({ active: document, root: navStartNode }) %}
 {% set menuRenderer = pimcore_nav_renderer('menu') %}
 
-<div data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-    <nav class="uk-navbar-container" data-uk-navbar>
+<div class="uk-sticky" data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    <nav class="uk-navbar uk-navbar-container" data-uk-navbar>
 
         <div class="uk-navbar-left">
             <a class="uk-navbar-item uk-logo" href="{{ navStartNode }}">
@@ -18,7 +18,7 @@
         <div class="uk-navbar-right">
             <div class="uk-hidden@s">
                 <a class="uk-navbar-toggle" href="#mobile-navigation" data-uk-toggle>
-                    <span data-uk-navbar-toggle-icon></span>
+                    <span class="uk-icon uk-navbar-toggle-icon" data-uk-navbar-toggle-icon></span>
                 </a>
 
                 {{ include('navigation/mobile-navigation.html.twig') }}

@@ -1,7 +1,7 @@
 {% for type, messages in app.flashes(['info', 'succes', 'warning', 'error']) %}
     {% for message in messages %}
         <div class="uk-alert uk-alert-{{ type }}" data-uk-alert>
-            <a class="uk-alert-close" data-uk-close></a>
+            <a class="uk-icon uk-close uk-alert-close" data-uk-close></a>
             <p>{{ message|raw }}</p>
         </div>
     {% endfor %}

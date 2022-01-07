@@ -56,8 +56,8 @@ services:
             - 'pimcore-skeleton-tmp-storage:/tmp:cached'
             - '.docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini'
             - '.docker/apache2/ssl.conf:/etc/apache2/sites-enabled/001-ssl.conf'
-            - '~/.ssh/pimcore.local+4-key.pem:/etc/ssl/private/pimcore.local+4-key.pem'
-            - '~/.ssh/pimcore.local+4.pem:/etc/ssl/certs/pimcore.local+4.pem'
+            - '/etc/ssl/dev.local+4.pem:/etc/ssl/certs/dev.local+4.pem'
+            - '/etc/ssl/dev.local+4-key.pem:/etc/ssl/private/dev.local+4-key.pem'
         ports:
             - '2005:80'
             - '2006:443'

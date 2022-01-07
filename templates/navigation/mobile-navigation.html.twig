@@ -1,5 +1,7 @@
-<div id="mobile-navigation" data-uk-offcanvas="overlay: true; flip: true">
+<div id="mobile-navigation" class="uk-offcanvas" data-uk-offcanvas="overlay: true; flip: true">
     <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+        <button class="uk-icon uk-close uk-offcanvas-close" type="button" data-uk-close></button>
 
         <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             {% for page in navigation|filter(page => page.isVisible and menuRenderer.accept(page)) %}

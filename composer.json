@@ -22,7 +22,8 @@
     "dachcom-digital/seo": "^2.0",
     "dachcom-digital/toolbox": "^4.0",
     "pimcore/pimcore": "~10.2.0",
-    "symfony/webpack-encore-bundle": "^1.13"
+    "symfony/webpack-encore-bundle": "^1.13",
+    "w-vision/pimcore-monitor-bundle": "^1.0"
   },
   "require-dev": {
     "phpstan/phpstan": "^1.3",

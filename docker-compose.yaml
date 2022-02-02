@@ -42,10 +42,9 @@ services:
         ports:
             - '80:80'
             - '443:443'
-        environment:
-            COMPOSER_HOME: /var/www/html
         depends_on:
             - db
+            - redis
 
     php-debug:
         image: pimcore/pimcore:PHP8.0-apache-debug
@@ -63,9 +62,9 @@ services:
             - '2006:443'
         environment:
             PHP_IDE_CONFIG: serverName=localhost
-            COMPOSER_HOME: /var/www/html
         depends_on:
             - db
+            - redis
 
     supervisord:
         image: pimcore/pimcore:supervisord

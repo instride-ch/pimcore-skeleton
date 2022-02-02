@@ -26,7 +26,7 @@ Encore
 
   // JavaScript
   .enableSingleRuntimeChunk()
-  .enableEslintLoader()
+  .enableEslintPlugin()
   .splitEntryChunks()
   .configureBabel(() => {}, {
     includeNodeModules: [

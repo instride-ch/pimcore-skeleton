@@ -28,38 +28,31 @@ services:
         links:
             - db:db
 
+    apache:
+        image: bitnami/apache:latest
+        container_name: 'pimcore-skeleton-apache'
+        ports:
+            - '80:8080'
+            - '443:8443'
+        volumes:
+            - '.:/var/www/html:cached'
+            - '.docker/apache2/vhosts.conf:/vhosts/vhosts.conf:ro'
+            - '/etc/ssl/dev.local+4.pem:/certs/server.crt'
+            - '/etc/ssl/dev.local+4-key.pem:/certs/server.key'
+        links:
+            - php
+        depends_on:
+            - db
+            - redis
+
     php:
-        image: pimcore/pimcore:PHP8.0-apache
+        image: pimcore/pimcore:PHP8.1-fpm
         container_name: 'pimcore-skeleton-php'
         volumes:
             - '~/.composer:/root/composer'
             - '.:/var/www/html:cached'
             - 'pimcore-skeleton-tmp-storage:/tmp:cached'
             - '.docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini'
-            - '.docker/apache2/ssl.conf:/etc/apache2/sites-enabled/001-ssl.conf'
-            - '/etc/ssl/dev.local+4.pem:/etc/ssl/certs/dev.local+4.pem'
-            - '/etc/ssl/dev.local+4-key.pem:/etc/ssl/private/dev.local+4-key.pem'
-        ports:
-            - '80:80'
-            - '443:443'
-        depends_on:
-            - db
-            - redis
-
-    php-debug:
-        image: pimcore/pimcore:PHP8.0-apache-debug
-        container_name: 'pimcore-skeleton-php-debug'
-        volumes:
-            - '~/.composer:/root/composer'
-            - '.:/var/www/html:cached'
-            - 'pimcore-skeleton-tmp-storage:/tmp:cached'
-            - '.docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini'
-            - '.docker/apache2/ssl.conf:/etc/apache2/sites-enabled/001-ssl.conf'
-            - '/etc/ssl/dev.local+4.pem:/etc/ssl/certs/dev.local+4.pem'
-            - '/etc/ssl/dev.local+4-key.pem:/etc/ssl/private/dev.local+4-key.pem'
-        ports:
-            - '2005:80'
-            - '2006:443'
         environment:
             PHP_IDE_CONFIG: serverName=localhost
         depends_on:

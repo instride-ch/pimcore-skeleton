@@ -10,7 +10,8 @@
 /.env.*.local
 !/config/local
 /config/local/*
-!config/local/.gitkeep
+!/config/local/.gitkeep
+/config/parameters.yaml
 
 # Pimcore
 /var/*

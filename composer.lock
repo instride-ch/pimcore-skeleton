@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82e3215bbc10b8ffd79f5c0eeebe2381",
+    "content-hash": "11c27ee0d401df5629dfb62bea1d3719",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -70,16 +70,16 @@
         },
         {
             "name": "bacon/bacon-qr-code",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bacon/BaconQrCode.git",
-                "reference": "7190fc6c20370e0e93da6717b182b8249d5b8e71"
+                "reference": "0069435e2a01a57193b25790f105a5d3168653c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/7190fc6c20370e0e93da6717b182b8249d5b8e71",
-                "reference": "7190fc6c20370e0e93da6717b182b8249d5b8e71",
+                "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/0069435e2a01a57193b25790f105a5d3168653c1",
+                "reference": "0069435e2a01a57193b25790f105a5d3168653c1",
                 "shasum": ""
             },
             "require": {
@@ -118,9 +118,9 @@
             "homepage": "https://github.com/Bacon/BaconQrCode",
             "support": {
                 "issues": "https://github.com/Bacon/BaconQrCode/issues",
-                "source": "https://github.com/Bacon/BaconQrCode/tree/2.0.5"
+                "source": "https://github.com/Bacon/BaconQrCode/tree/2.0.6"
             },
-            "time": "2022-01-31T00:43:09+00:00"
+            "time": "2022-02-04T20:16:05+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -2529,12 +2529,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Google\\": "src/"
-                },
                 "files": [
                     "src/aliases.php"
                 ],
+                "psr-4": {
+                    "Google\\": "src/"
+                },
                 "classmap": [
                     "src/aliases.php"
                 ]
@@ -2556,16 +2556,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.233.0",
+            "version": "v0.234.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "c3632d433742f1e0660460c1d9c220adf4e83885"
+                "reference": "a448391ee97d4ee315fcabf023aa27a022ac5c54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/c3632d433742f1e0660460c1d9c220adf4e83885",
-                "reference": "c3632d433742f1e0660460c1d9c220adf4e83885",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/a448391ee97d4ee315fcabf023aa27a022ac5c54",
+                "reference": "a448391ee97d4ee315fcabf023aa27a022ac5c54",
                 "shasum": ""
             },
             "require": {
@@ -2576,12 +2576,12 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Google\\Service\\": "src"
-                },
                 "files": [
                     "autoload.php"
-                ]
+                ],
+                "psr-4": {
+                    "Google\\Service\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2594,9 +2594,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.233.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.234.0"
             },
-            "time": "2022-01-30T12:26:38+00:00"
+            "time": "2022-02-06T12:23:03+00:00"
         },
         {
             "name": "google/auth",
@@ -4645,16 +4645,16 @@
         },
         {
             "name": "mpratt/embera",
-            "version": "2.0.23",
+            "version": "2.0.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpratt/Embera.git",
-                "reference": "f492632c5c7ef6c452f64e640061d7725bab57cf"
+                "reference": "997e7352af461f6c1b21757695971646c2b36933"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpratt/Embera/zipball/f492632c5c7ef6c452f64e640061d7725bab57cf",
-                "reference": "f492632c5c7ef6c452f64e640061d7725bab57cf",
+                "url": "https://api.github.com/repos/mpratt/Embera/zipball/997e7352af461f6c1b21757695971646c2b36933",
+                "reference": "997e7352af461f6c1b21757695971646c2b36933",
                 "shasum": ""
             },
             "require": {
@@ -4662,10 +4662,11 @@
                 "php": ">=5.6"
             },
             "require-dev": {
+                "phpstan/phpstan": "^1.4",
                 "phpunit/phpunit": "^9.0"
             },
             "suggest": {
-                "ext-curl": "Allow to fetch data using curl instead of using file_get_contents"
+                "ext-curl": "Fetch data using curl instead of using file_get_contents"
             },
             "type": "library",
             "autoload": {
@@ -4702,9 +4703,15 @@
             ],
             "support": {
                 "issues": "https://github.com/mpratt/Embera/issues",
-                "source": "https://github.com/mpratt/Embera/tree/2.0.23"
+                "source": "https://github.com/mpratt/Embera/tree/2.0.24"
             },
-            "time": "2022-02-01T05:13:05+00:00"
+            "funding": [
+                {
+                    "url": "https://paypal.me/mtpratt",
+                    "type": "paypal"
+                }
+            ],
+            "time": "2022-02-08T05:25:07+00:00"
         },
         {
             "name": "mustangostang/spyc",
@@ -4773,9 +4780,6 @@
             "require": {
                 "php": "^7.1 || ^8.0"
             },
-            "replace": {
-                "myclabs/deep-copy": "self.version"
-            },
             "require-dev": {
                 "doctrine/collections": "^1.0",
                 "doctrine/common": "^2.6",
@@ -4783,12 +4787,12 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "DeepCopy\\": "src/DeepCopy/"
-                },
                 "files": [
                     "src/DeepCopy/deep_copy.php"
-                ]
+                ],
+                "psr-4": {
+                    "DeepCopy\\": "src/DeepCopy/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -5013,27 +5017,27 @@
         },
         {
             "name": "ocramius/package-versions",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/PackageVersions.git",
-                "reference": "8e96fb9f4671eff86e8e487ff45c49bdc2d2d677"
+                "reference": "deded4228eed848fc5eae2fa0149ceb43afd012a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/8e96fb9f4671eff86e8e487ff45c49bdc2d2d677",
-                "reference": "8e96fb9f4671eff86e8e487ff45c49bdc2d2d677",
+                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/deded4228eed848fc5eae2fa0149ceb43afd012a",
+                "reference": "deded4228eed848fc5eae2fa0149ceb43afd012a",
                 "shasum": ""
             },
             "require": {
-                "composer-runtime-api": "^2.1.0",
+                "composer-runtime-api": "^2.2.0",
                 "php": "~8.0.0 || ~8.1.0"
             },
             "replace": {
                 "composer/package-versions-deprecated": "*"
             },
             "require-dev": {
-                "composer/composer": "^2.1.8",
+                "composer/composer": "^2.2.0",
                 "doctrine/coding-standard": "^9.0.0",
                 "ext-zip": "^1.15.0",
                 "phpunit/phpunit": "^9.5.9",
@@ -5059,7 +5063,7 @@
             "description": "Provides efficient querying for installed package versions (no runtime IO)",
             "support": {
                 "issues": "https://github.com/Ocramius/PackageVersions/issues",
-                "source": "https://github.com/Ocramius/PackageVersions/tree/2.4.0"
+                "source": "https://github.com/Ocramius/PackageVersions/tree/2.5.0"
             },
             "funding": [
                 {
@@ -5071,7 +5075,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-19T02:32:19+00:00"
+            "time": "2021-12-22T12:00:55+00:00"
         },
         {
             "name": "onnov/detect-encoding",
@@ -5617,30 +5621,30 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "10.2.x-dev",
+            "version": "v10.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "a743a9a458ede6a9af0e3e9b1c4702fbb16986df"
+                "reference": "b077b49d3572660d29109bf445e3aed8e0325e21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/a743a9a458ede6a9af0e3e9b1c4702fbb16986df",
-                "reference": "a743a9a458ede6a9af0e3e9b1c4702fbb16986df",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/b077b49d3572660d29109bf445e3aed8e0325e21",
+                "reference": "b077b49d3572660d29109bf445e3aed8e0325e21",
                 "shasum": ""
             },
             "require": {
                 "amnuts/opcache-gui": "^3.0.1",
                 "cbschuld/browser.php": "^1.9.6",
                 "colinmollenhour/credis": "^1.10.0",
-                "composer/ca-bundle": "^1",
+                "composer/ca-bundle": "^1.2",
                 "defuse/php-encryption": "^2.2.0",
-                "doctrine/annotations": "^1.6.0",
-                "doctrine/collections": "^1.5.0",
-                "doctrine/dbal": "^2.11.0",
+                "doctrine/annotations": "^1.12",
+                "doctrine/collections": "^1.6.5",
+                "doctrine/dbal": "^2.12",
                 "doctrine/doctrine-bundle": "^2.2.1",
-                "doctrine/doctrine-migrations-bundle": "^3.0.1",
-                "doctrine/inflector": "^1.4.0 || ^2.0.0",
+                "doctrine/doctrine-migrations-bundle": "^3.0.2",
+                "doctrine/inflector": "^1.4.2 || ^2",
                 "doctrine/persistence": "^2.1.0",
                 "egulias/email-validator": "^3.0.0",
                 "endroid/qr-code": "^4",
@@ -5658,7 +5662,7 @@
                 "ext-simplexml": "*",
                 "ext-zip": "*",
                 "ext-zlib": "*",
-                "friendsofsymfony/jsrouting-bundle": "^2.6",
+                "friendsofsymfony/jsrouting-bundle": "^2.7",
                 "geoip2/geoip2": "^2.9",
                 "google/apiclient": "^2.10",
                 "guzzlehttp/guzzle": "^7.2",
@@ -5673,29 +5677,29 @@
                 "matthiasmullie/minify": "^1.3",
                 "mjaschen/phpgeo": "^3.0",
                 "mpratt/embera": "^2.0.14",
-                "myclabs/deep-copy": "^1.7",
+                "myclabs/deep-copy": "^1.10.1",
                 "neitanod/forceutf8": "^2.0.4",
-                "nesbot/carbon": "^1.34.0 || ^2.11.0",
+                "nesbot/carbon": "^2.27",
                 "ocramius/package-versions": "^2.3",
                 "onnov/detect-encoding": "^2.0",
                 "pear/net_url2": "^2.2",
                 "php": "^8.0",
-                "phpoffice/phpspreadsheet": "^1.9",
+                "phpoffice/phpspreadsheet": "^1.15",
                 "presta/sitemap-bundle": "^2.1",
                 "psr/simple-cache": "^1.0.0",
                 "rybakit/twig-deferred-extension": "^3.0",
-                "sabre/dav": "^4.1.1",
+                "sabre/dav": "^4.1.2",
                 "scheb/2fa-bundle": "^5.3",
                 "scheb/2fa-google-authenticator": "^5.3",
                 "sensio/framework-extra-bundle": "^6.1",
                 "sensiolabs/ansi-to-html": "^1.1",
-                "symfony-cmf/routing-bundle": "^2.0",
-                "symfony/asset": "^5.2.0",
+                "symfony-cmf/routing-bundle": "^2.4.2",
+                "symfony/asset": "^5.3",
                 "symfony/browser-kit": "^5.2.0",
                 "symfony/cache": "^5.2.0",
-                "symfony/config": "^5.2.0",
+                "symfony/config": "^5.3",
                 "symfony/console": "^5.3.0",
-                "symfony/contracts": "^2.0",
+                "symfony/contracts": "^2.3",
                 "symfony/css-selector": "^5.2.0",
                 "symfony/debug-bundle": "^5.2.0",
                 "symfony/dependency-injection": "^5.3.3",
@@ -5709,10 +5713,10 @@
                 "symfony/filesystem": "^5.2.0",
                 "symfony/finder": "^5.2.0",
                 "symfony/form": "^5.2.0",
-                "symfony/framework-bundle": "^5.2.0",
+                "symfony/framework-bundle": "^5.3.0",
                 "symfony/http-client": "^5.2.0",
                 "symfony/http-foundation": "^5.3.0",
-                "symfony/http-kernel": "^5.2.0",
+                "symfony/http-kernel": "^5.3",
                 "symfony/inflector": "^5.2.0",
                 "symfony/intl": "^5.2.0",
                 "symfony/lock": "^5.2.0",
@@ -5720,28 +5724,28 @@
                 "symfony/messenger": "^5.2.0",
                 "symfony/mime": "^5.2.0",
                 "symfony/monolog-bridge": "^5.2.0",
-                "symfony/monolog-bundle": "^3.1.0",
+                "symfony/monolog-bundle": "^3.5",
                 "symfony/notifier": "^5.2.0",
                 "symfony/options-resolver": "^5.2.0",
-                "symfony/password-hasher": "^5.2.0",
+                "symfony/password-hasher": "^5.3",
                 "symfony/polyfill-php81": "^1.23.0",
                 "symfony/process": "^5.2.0",
-                "symfony/property-access": "^5.2.0",
+                "symfony/property-access": "^5.3",
                 "symfony/property-info": "^5.2.0",
                 "symfony/proxy-manager-bridge": "^5.2.0",
                 "symfony/rate-limiter": "^5.2.0",
-                "symfony/routing": "^5.2.0",
+                "symfony/routing": "^5.3",
                 "symfony/security-bundle": "^5.3.0",
                 "symfony/security-core": "^5.3.0",
-                "symfony/security-csrf": "^5.2.0",
-                "symfony/security-guard": "^5.2.0",
-                "symfony/security-http": "^5.2.0",
+                "symfony/security-csrf": "^5.3",
+                "symfony/security-guard": "^5.3",
+                "symfony/security-http": "^5.3",
                 "symfony/semaphore": "^5.2.0",
                 "symfony/serializer": "^5.2.0",
                 "symfony/stopwatch": "^5.2.0",
                 "symfony/string": "^5.2.0",
                 "symfony/templating": "^5.2.0",
-                "symfony/translation": "^5.2.0",
+                "symfony/translation": "^5.3",
                 "symfony/twig-bridge": "^5.2.0",
                 "symfony/twig-bundle": "^5.2.0",
                 "symfony/uid": "^5.2.0",
@@ -5752,10 +5756,10 @@
                 "symfony/web-profiler-bundle": "^5.2.0",
                 "symfony/workflow": "^5.2.0",
                 "symfony/yaml": "^5.2.0",
-                "tijsverkoyen/css-to-inline-styles": "^2.2.1",
-                "twig/string-extra": "^3.0",
-                "twig/twig": "^3.0",
-                "umpirsky/country-list": "^2.0.4",
+                "tijsverkoyen/css-to-inline-styles": "^2.2.3",
+                "twig/string-extra": "^3.0.4",
+                "twig/twig": "^3.0.4",
+                "umpirsky/country-list": "^2.0.6",
                 "vrana/adminer": "^4.8.0",
                 "vrana/jush": "~2.0.2",
                 "webmozarts/console-parallelization": "^1.2.0"
@@ -5764,9 +5768,7 @@
                 "doctrine/doctrine-migrations-bundle": "3.1.0",
                 "sabre/dav": "4.2.2",
                 "symfony/monolog-bundle": "3.6.0",
-                "symfony/symfony": "*",
-                "thecodingmachine/safe": "<1.2.0",
-                "webmozarts/console-parallelization": "1.2.2"
+                "symfony/symfony": "*"
             },
             "require-dev": {
                 "cache/integration-tests": "dev-master",
@@ -5775,10 +5777,10 @@
                 "codeception/phpunit-wrapper": "^9",
                 "composer/composer": "*",
                 "elasticsearch/elasticsearch": "^7.11",
-                "phpstan/phpstan": "^0.12.85",
-                "phpstan/phpstan-symfony": "^0.12.32",
-                "phpunit/phpunit": "^9",
-                "spiritix/php-chrome-html2pdf": "^1.5"
+                "phpstan/phpstan": "^1.4",
+                "phpstan/phpstan-symfony": "^1.1",
+                "phpunit/phpunit": "^9.3",
+                "spiritix/php-chrome-html2pdf": "^1.6"
             },
             "suggest": {
                 "elasticsearch/elasticsearch": "Required for Elastic Search service",
@@ -5795,8 +5797,8 @@
                     "lib/helper-functions.php"
                 ],
                 "psr-4": {
-                    "Pimcore\\Model\\": "models",
                     "Pimcore\\": "lib",
+                    "Pimcore\\Model\\": "models",
                     "Pimcore\\Bundle\\": "bundles"
                 },
                 "classmap": [
@@ -5836,7 +5838,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2022-02-02T09:08:57+00:00"
+            "time": "2022-02-02T16:04:16+00:00"
         },
         {
             "name": "presta/sitemap-bundle",
@@ -6630,14 +6632,14 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Sabre\\Event\\": "lib/"
-                },
                 "files": [
                     "lib/coroutine.php",
                     "lib/Loop/functions.php",
                     "lib/Promise/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Sabre\\Event\\": "lib/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6925,13 +6927,13 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Sabre\\Xml\\": "lib/"
-                },
                 "files": [
                     "lib/Deserializer/functions.php",
                     "lib/Serializer/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Sabre\\Xml\\": "lib/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -10475,12 +10477,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -10645,12 +10647,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -10730,12 +10732,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -10894,12 +10896,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php72\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php72\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -10970,12 +10972,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php73\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php73\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -11049,12 +11051,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php80\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php80\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -11132,12 +11134,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php81\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php81\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -11217,12 +11219,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Uuid\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Uuid\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -13683,13 +13685,6 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Safe\\": [
-                        "lib/",
-                        "deprecated/",
-                        "generated/"
-                    ]
-                },
                 "files": [
                     "deprecated/apc.php",
                     "deprecated/libevent.php",
@@ -13780,7 +13775,14 @@
                     "generated/yaz.php",
                     "generated/zip.php",
                     "generated/zlib.php"
-                ]
+                ],
+                "psr-4": {
+                    "Safe\\": [
+                        "lib/",
+                        "deprecated/",
+                        "generated/"
+                    ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -13920,16 +13922,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.3.7",
+            "version": "v3.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "8f168c6ffa3ce76d1786b3cd52275424a3fc675b"
+                "reference": "972d8604a92b7054828b539f2febb0211dd5945c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/8f168c6ffa3ce76d1786b3cd52275424a3fc675b",
-                "reference": "8f168c6ffa3ce76d1786b3cd52275424a3fc675b",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/972d8604a92b7054828b539f2febb0211dd5945c",
+                "reference": "972d8604a92b7054828b539f2febb0211dd5945c",
                 "shasum": ""
             },
             "require": {
@@ -13980,7 +13982,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.3.7"
+                "source": "https://github.com/twigphp/Twig/tree/v3.3.8"
             },
             "funding": [
                 {
@@ -13992,7 +13994,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-03T21:15:37+00:00"
+            "time": "2022-02-04T06:59:48+00:00"
         },
         {
             "name": "umpirsky/country-list",
@@ -14357,16 +14359,16 @@
     "packages-dev": [
         {
             "name": "phpstan/phpstan",
-            "version": "1.4.4",
+            "version": "1.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "f7409da1e26c6dee172cce744034b869a2f27a9e"
+                "reference": "8a7761f1c520e0dad6e04d862fdc697445457cfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f7409da1e26c6dee172cce744034b869a2f27a9e",
-                "reference": "f7409da1e26c6dee172cce744034b869a2f27a9e",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8a7761f1c520e0dad6e04d862fdc697445457cfe",
+                "reference": "8a7761f1c520e0dad6e04d862fdc697445457cfe",
                 "shasum": ""
             },
             "require": {
@@ -14397,7 +14399,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.4.4"
+                "source": "https://github.com/phpstan/phpstan/tree/1.4.6"
             },
             "funding": [
                 {
@@ -14417,20 +14419,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-31T16:50:49+00:00"
+            "time": "2022-02-06T12:56:13+00:00"
         },
         {
             "name": "phpstan/phpstan-symfony",
-            "version": "1.1.3",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-symfony.git",
-                "reference": "11221afa283a3fa679a1678449fed0f5a81926b9"
+                "reference": "4e20d2e6b65a6eb2d0b8ff285c6c8c049faff03d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-symfony/zipball/11221afa283a3fa679a1678449fed0f5a81926b9",
-                "reference": "11221afa283a3fa679a1678449fed0f5a81926b9",
+                "url": "https://api.github.com/repos/phpstan/phpstan-symfony/zipball/4e20d2e6b65a6eb2d0b8ff285c6c8c049faff03d",
+                "reference": "4e20d2e6b65a6eb2d0b8ff285c6c8c049faff03d",
                 "shasum": ""
             },
             "require": {
@@ -14487,9 +14489,9 @@
             "description": "Symfony Framework extensions and rules for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-symfony/issues",
-                "source": "https://github.com/phpstan/phpstan-symfony/tree/1.1.3"
+                "source": "https://github.com/phpstan/phpstan-symfony/tree/1.1.5"
             },
-            "time": "2022-02-01T12:17:17+00:00"
+            "time": "2022-02-05T13:48:27+00:00"
         },
         {
             "name": "roave/security-advisories",
@@ -14497,12 +14499,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "fa60732bcafd446e9ff858eefa06cdcbae8d9823"
+                "reference": "2ec9ad634c459ee60c42d99390be37c8a3c6e8e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/fa60732bcafd446e9ff858eefa06cdcbae8d9823",
-                "reference": "fa60732bcafd446e9ff858eefa06cdcbae8d9823",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/2ec9ad634c459ee60c42d99390be37c8a3c6e8e5",
+                "reference": "2ec9ad634c459ee60c42d99390be37c8a3c6e8e5",
                 "shasum": ""
             },
             "conflict": {
@@ -14648,7 +14650,7 @@
                 "klaviyo/magento2-extension": ">=1,<3",
                 "kreait/firebase-php": ">=3.2,<3.8.1",
                 "la-haute-societe/tcpdf": "<6.2.22",
-                "laminas/laminas-form": "<2.17.2|>=3,<3.0.2|>=3.1,<3.1.1",
+                "laminas/laminas-form": "<2.17.1|>=3,<3.0.2|>=3.1,<3.1.1",
                 "laminas/laminas-http": "<2.14.2",
                 "laravel/framework": "<6.20.42|>=7,<7.30.6|>=8,<8.75",
                 "laravel/socialite": ">=1,<1.0.99|>=2,<2.0.10",
@@ -14801,7 +14803,7 @@
                 "symfony/dependency-injection": ">=2,<2.0.17|>=2.7,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7",
                 "symfony/error-handler": ">=4.4,<4.4.4|>=5,<5.0.4",
                 "symfony/form": ">=2.3,<2.3.35|>=2.4,<2.6.12|>=2.7,<2.7.50|>=2.8,<2.8.49|>=3,<3.4.20|>=4,<4.0.15|>=4.1,<4.1.9|>=4.2,<4.2.1",
-                "symfony/framework-bundle": "<5.3.15|>=5.4,<5.4.4|>=6,<6.0.4",
+                "symfony/framework-bundle": ">=2,<2.3.18|>=2.4,<2.4.8|>=2.5,<2.5.2|>=2.7,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7|>=5.3.14,<=5.3.14|>=5.4.3,<=5.4.3|>=6.0.3,<=6.0.3|= 6.0.3|= 5.4.3|= 5.3.14",
                 "symfony/http-foundation": ">=2,<2.8.52|>=3,<3.4.35|>=4,<4.2.12|>=4.3,<4.3.8|>=4.4,<4.4.7|>=5,<5.0.7",
                 "symfony/http-kernel": ">=2,<2.8.52|>=3,<3.4.35|>=4,<4.2.12|>=4.3,<4.4.13|>=5,<5.1.5|>=5.2,<5.3.12",
                 "symfony/intl": ">=2.7,<2.7.38|>=2.8,<2.8.31|>=3,<3.2.14|>=3.3,<3.3.13",
@@ -14828,6 +14830,7 @@
                 "t3/dce": ">=2.2,<2.6.2",
                 "t3g/svg-sanitizer": "<1.0.3",
                 "tecnickcom/tcpdf": "<6.2.22",
+                "terminal42/contao-tablelookupwizard": ">=1,<3.3.5",
                 "thelia/backoffice-default-template": ">=2.1,<2.1.2",
                 "thelia/thelia": ">=2.1-beta.1,<2.1.3",
                 "theonedemon/phpwhois": "<=4.2.5",
@@ -14936,20 +14939,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-01T15:19:50+00:00"
+            "time": "2022-02-05T03:12:57+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
-            "version": "10.0.20",
+            "version": "10.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-coding-standard.git",
-                "reference": "5d161b10eac4e7fc1b225f130f6481bb82844f88"
+                "reference": "740472eebb80b17ab48d753fe6e2c5625e82ca43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/5d161b10eac4e7fc1b225f130f6481bb82844f88",
-                "reference": "5d161b10eac4e7fc1b225f130f6481bb82844f88",
+                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/740472eebb80b17ab48d753fe6e2c5625e82ca43",
+                "reference": "740472eebb80b17ab48d753fe6e2c5625e82ca43",
                 "shasum": ""
             },
             "require": {
@@ -14979,7 +14982,7 @@
             ],
             "description": "Prefixed scoped version of ECS package",
             "support": {
-                "source": "https://github.com/symplify/easy-coding-standard/tree/10.0.20"
+                "source": "https://github.com/symplify/easy-coding-standard/tree/10.0.21"
             },
             "funding": [
                 {
@@ -14991,7 +14994,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-30T20:50:35+00:00"
+            "time": "2022-02-04T16:37:35+00:00"
         }
     ],
     "aliases": [],
@@ -15005,5 +15008,5 @@
         "php": ">=8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

@@ -9,9 +9,8 @@
   "private": true,
   "scripts": {
     "build": "encore production",
-    "deploy": "php vendor/bin/dep deploy",
-    "deploy:dev": "php vendor/bin/dep deploy dev",
-    "deploy:prod": "php vendor/bin/dep deploy prod",
+    "deploy:staging": "php vendor/bin/dep deploy stage=staging",
+    "deploy:production": "php vendor/bin/dep deploy stage=production",
     "dev": "encore dev",
     "dev-server": "encore dev-server",
     "ecs": "php vendor/bin/ecs check",

@@ -5,14 +5,17 @@ DATA=$( cat public/build/environment.json )
 
 read -r -d '' JXA <<EOF
 function run() {
-	var data = JSON.parse(\`$DATA\`);
-	return data.environment;
+ 	var data = JSON.parse(\`$DATA\`);
+ 	return data.environment;
 }
 EOF
 
 ENV=$( osascript -l 'JavaScript' <<< "${JXA}" )
 
-if [ $ENV != 'prod' ]; then
-  echo "This webpack build was compiled in ${ENV} mode."
+echo "This webpack build was compiled in ${ENV} mode."
+
+if [ "$ENV" != "prod" ]; then
   echo "🚫 You have to compile a production build before pushing to GitHub." && exit 1
+else
+  echo "✅ Everything is fine, let's push to GitHub."
 fi

@@ -1,0 +1,14 @@
+{
+  "build/js/app.css": "/build/js/app.css",
+  "build/js/app.js": "/build/js/app.js",
+  "build/css/email.css": "/build/css/email.css",
+  "build/css/editmode.css": "/build/css/editmode.css",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_uikit_dist_js_uikit-icons_js-node_modules_uikit_src_js_api_boot_js-node_-8a3ba3.js": "/build/vendors-node_modules_uikit_dist_js_uikit-icons_js-node_modules_uikit_src_js_api_boot_js-node_-8a3ba3.js",
+  "build/fonts/source-sans-pro-regular.woff": "/build/fonts/source-sans-pro-regular.1a364893.woff",
+  "build/fonts/source-sans-pro-bold.woff": "/build/fonts/source-sans-pro-bold.9cc29cd0.woff",
+  "build/fonts/source-sans-pro-regular.woff2": "/build/fonts/source-sans-pro-regular.db333126.woff2",
+  "build/fonts/source-sans-pro-bold.woff2": "/build/fonts/source-sans-pro-bold.cb781724.woff2",
+  "build/images/logo-claim.svg": "/build/images/logo-claim.eb9379ac.svg",
+  "build/images/logo.svg": "/build/images/logo.761e6fe1.svg"
+}

@@ -1,0 +1,30 @@
+{
+  "entrypoints": {
+    "js/app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_uikit_dist_js_uikit-icons_js-node_modules_uikit_src_js_api_boot_js-node_-8a3ba3.js",
+        "/build/js/app.js"
+      ],
+      "css": [
+        "/build/js/app.css"
+      ]
+    },
+    "css/email": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/css/email.css"
+      ]
+    },
+    "css/editmode": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/css/editmode.css"
+      ]
+    }
+  }
+}

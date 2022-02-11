@@ -1,5 +1,6 @@
 const Encore = require('@symfony/webpack-encore');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const fs = require('fs');
 const { resolve } = require('path');
 const { version } = require('uikit/package.json');
 
@@ -72,7 +73,7 @@ Encore
     options.poll = true;
     options.ignored = `${paths.vendor}/`;
   })
-  .configureLoaderRule('images', (rule) => {
+  .configureImageRule({}, (rule) => {
     rule.exclude = [
       `${paths.vendor}/uikit`,
       `${paths.source}/custom/icons`,
@@ -85,6 +86,13 @@ Encore
       `${paths.vendor}/uikit`,
       `${paths.source}/custom/icons`,
     ],
+  })
+  .addPlugin({
+    apply: (compiler) => {
+      compiler.hooks.afterEmit.tap('AfterEmitPlugin', () => {
+        fs.writeFileSync(`${paths.output}/environment.json`, `{"environment": "${Encore.isProduction() ? 'prod' : 'dev'}"}`);
+      });
+    },
   });
 
 module.exports = Encore.getWebpackConfig();

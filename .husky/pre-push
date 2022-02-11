@@ -1,7 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-DATA=`cat public/build/environment.json`
+DATA=$( cat public/build/environment.json )
 
 read -r -d '' JXA <<EOF
 function run() {
@@ -12,8 +12,7 @@ EOF
 
 ENV=$( osascript -l 'JavaScript' <<< "${JXA}" )
 
-if [[ ENV != 'prod' ]]
-then
+if [ $ENV != 'prod' ]; then
   echo "This webpack build was compiled in ${ENV} mode."
   echo "🚫 You have to compile a production build before pushing to GitHub." && exit 1
 fi

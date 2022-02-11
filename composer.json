@@ -3,7 +3,7 @@
   "type": "project",
   "description": "The Pimcore skeleton for projects at w-vision.",
   "homepage": "https://www.w-vision.ch/",
-  "license": "UNLICENSED",
+  "license": "proprietary",
   "authors": [
     {
       "name": "w-vision AG",

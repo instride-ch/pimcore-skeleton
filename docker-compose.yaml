@@ -54,7 +54,8 @@ services:
             - 'pimcore-skeleton-tmp-storage:/tmp:cached'
             - '.docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini'
         environment:
-            PHP_IDE_CONFIG: serverName=localhost
+            COMPOSER_HOME: '/var/www/html'
+            PHP_IDE_CONFIG: 'serverName=localhost'
         depends_on:
             - db
             - redis

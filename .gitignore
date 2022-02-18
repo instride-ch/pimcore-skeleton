@@ -33,6 +33,7 @@
 
 # composer
 /vendor/
+/cache/
 
 # PhpStorm / IDEA
 /.idea/
@@ -41,3 +42,6 @@
 /node_modules/
 /yarn-debug.log
 /yarn-error.log
+
+# Project Setup
+/install-deploy.php

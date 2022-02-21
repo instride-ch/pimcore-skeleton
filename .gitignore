@@ -16,8 +16,10 @@
 # Pimcore
 /var/*
 !/var/.gitkeep
+!/var/admin
+/var/admin/*
 !/var/admin/custom-logo.image
-!/var/classes/
+!/var/classes
 /var/classes/DataObject
 
 !/var/config

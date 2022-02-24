@@ -48,3 +48,4 @@
 
 # Project Setup
 /install-deploy.php
+/supervisord.conf

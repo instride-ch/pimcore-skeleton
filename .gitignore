@@ -47,5 +47,6 @@
 /yarn-error.log
 
 # Project Setup
+/deployer.phar
 /install-deploy.php
 /supervisord.conf

@@ -1,11 +1,11 @@
 pimcore:
     email:
         sender:
-            name: ''
-            email: ''
+            name: 'PLEASE_CHANGE_ME'
+            email: '<company_email_address>'
         return:
-            name: ''
-            email: ''
+            name: 'PLEASE_CHANGE_ME'
+            email: '<company_email_address>'
 
 framework:
     mailer:

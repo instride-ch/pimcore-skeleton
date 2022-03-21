@@ -8,7 +8,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "build": "encore production",
+    "build": "encore production --progress",
     "deploy:staging": "php vendor/bin/dep deploy stage=staging",
     "deploy:production": "php vendor/bin/dep deploy stage=production",
     "dev": "encore dev",

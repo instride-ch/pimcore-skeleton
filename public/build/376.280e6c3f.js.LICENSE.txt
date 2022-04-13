@@ -1,1 +1,0 @@
-/*! UIkit 3.10.1 | https://www.getuikit.com | (c) 2014 - 2022 YOOtheme | MIT License */

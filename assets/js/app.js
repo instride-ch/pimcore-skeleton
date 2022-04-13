@@ -1,4 +1,3 @@
-import { Promise } from 'uikit/src/js/util';
 import polyfills from './polyfills';
 
 // Import base

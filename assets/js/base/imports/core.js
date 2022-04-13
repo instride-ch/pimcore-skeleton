@@ -3,7 +3,6 @@ export { default as Alert } from 'uikit/src/js/core/alert';
 export { default as Cover } from 'uikit/src/js/core/cover';
 export { default as Drop, default as Dropdown } from 'uikit/src/js/core/drop';
 export { default as FormCustom } from 'uikit/src/js/core/form-custom';
-export { default as Gif } from 'uikit/src/js/core/gif';
 export { default as Grid } from 'uikit/src/js/core/grid';
 export { default as HeightMatch } from 'uikit/src/js/core/height-match';
 export { default as HeightViewport } from 'uikit/src/js/core/height-viewport';

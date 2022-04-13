@@ -29,16 +29,17 @@ services:
             - db:db
 
     apache:
-        image: bitnami/apache:latest
+        image: httpd:2.4
         container_name: 'pimcore-skeleton-apache'
         ports:
-            - '80:8080'
-            - '443:8443'
+            - '80:80'
+            - '443:443'
         volumes:
-            - '.:/var/www/html:cached'
-            - '.docker/apache2/vhosts.conf:/vhosts/vhosts.conf:ro'
-            - '/etc/ssl/dev.local+4.pem:/certs/server.crt'
-            - '/etc/ssl/dev.local+4-key.pem:/certs/server.key'
+            - '.:/usr/local/apache2/htdocs:cached'
+            - '.docker/apache2/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro'
+            - '.docker/apache2/httpd-ssl.conf:/usr/local/apache2/conf/extra/httpd-ssl.conf:ro'
+            - '/etc/ssl/dev.local+4.pem:/usr/local/apache2/conf/server.crt'
+            - '/etc/ssl/dev.local+4-key.pem:/usr/local/apache2/conf/server.key'
         links:
             - php
         depends_on:
@@ -61,7 +62,7 @@ services:
             - redis
 
     supervisord:
-        image: pimcore/pimcore:supervisord
+        image: pimcore/pimcore:PHP8.1-supervisord
         container_name: 'pimcore-skeleton-supervisord'
         volumes:
             - '.:/var/www/html:cached'

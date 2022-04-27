@@ -9,8 +9,8 @@
   "private": true,
   "scripts": {
     "build": "encore production --progress",
-    "deploy:staging": "php vendor/bin/dep deploy stage=staging",
-    "deploy:production": "php vendor/bin/dep deploy stage=production",
+    "deploy:staging": "php vendor/bin/deployer.phar deploy stage=staging",
+    "deploy:production": "php vendor/bin/deployer.phar deploy stage=production",
     "dev": "encore dev",
     "dev-server": "encore dev-server",
     "ecs": "php vendor/bin/ecs check",
@@ -18,7 +18,7 @@
     "icons:custom": "cd node_modules/uikit && yarn && yarn icons --custom ../../assets/custom/icons",
     "lint": "eslint --ext .js assets/",
     "phpstan": "php -d memory_limit=4G vendor/bin/phpstan analyse -c phpstan.neon src -l 3",
-    "ssh": "php vendor/bin/dep ssh",
+    "ssh": "php vendor/bin/deployer.phar ssh",
     "watch": "encore dev --watch"
   },
   "devDependencies": {

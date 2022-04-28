@@ -1,5 +1,4 @@
 import UIkit from 'uikit/src/js/api/index';
-import Core from 'uikit/src/js/core/core';
 import boot from 'uikit/src/js/api/boot';
 import { each } from 'uikit/src/js/util';
 
@@ -15,7 +14,6 @@ import * as components from './imports/components';
 each(coreComponents, (component, name) => UIkit.component(name, component));
 
 // Core functionality
-UIkit.use(Core);
 boot(UIkit);
 
 // Set version

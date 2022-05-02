@@ -34,9 +34,6 @@
     {%- block scripts %}
         {{- encore_entry_script_tags('js/app') }}
     {% endblock %}
-    {%- block headscripts deferred %}
-        {{- pimcore_head_script() }}
-    {% endblock %}
 </head>
 <body>
 {{ include('layout/header.html.twig') }}

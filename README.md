@@ -50,5 +50,5 @@ yarn install && yarn dev
 ## Copyright
 
 w-vision AG, Sandgruebestrasse 4, 6210 Sursee, Switzerland  
-https://www.w-vision.ch, support@w-vision.ch  
+https://w-vision.ch, support@w-vision.ch  
 Copyright © 2022 w-vision AG. All rights reserved.

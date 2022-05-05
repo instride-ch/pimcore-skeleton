@@ -4,7 +4,7 @@
   "description": "The Pimcore skeleton for projects at w-vision.",
   "repository": "https://github.com/w-vision/pimcore-skeleton.git",
   "author": "w-vision AG <support@w-vision.ch>",
-  "homepage": "https://www.w-vision.ch",
+  "homepage": "https://w-vision.ch",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {

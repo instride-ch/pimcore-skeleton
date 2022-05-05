@@ -24,7 +24,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.0",
     "@fullhuman/postcss-purgecss": "^4.0",
-    "@symfony/webpack-encore": "^1.0",
+    "@symfony/webpack-encore": "^2.0",
     "autoprefixer": "^10.0",
     "eslint": "^8.0",
     "eslint-config-airbnb-base": "^15.0",

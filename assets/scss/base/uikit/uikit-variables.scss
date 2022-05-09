@@ -1,7 +1,6 @@
 @use "sass:color";
 @use "sass:math";
-
-@import "../../utils/variables";
+@use "../../utils/variables" as base;
 
 // Load deprecated components
 // ========================================================================
@@ -18,10 +17,10 @@ $deprecated:                                      false !default;
 // Tablet Landscape: iPad (1024x768), iPad Pro (1024x1366),
 // Desktop:          Galaxy Tab (1280x800), iPad Pro (1366x1024)
 
-$breakpoint-small:                                $sm !default; // Phone landscape
-$breakpoint-medium:                               $md !default; // Tablet Landscape
-$breakpoint-large:                                $lg !default; // Desktop
-$breakpoint-xlarge:                               $xl !default; // Large Screens
+$breakpoint-small:                                base.$sm !default; // Phone landscape
+$breakpoint-medium:                               base.$md !default; // Tablet Landscape
+$breakpoint-large:                                base.$lg !default; // Desktop
+$breakpoint-xlarge:                               base.$xl !default; // Large Screens
 
 $breakpoint-xsmall-max:                           ($breakpoint-small - 1) !default;
 $breakpoint-small-max:                            ($breakpoint-medium - 1) !default;
@@ -58,27 +57,27 @@ $global-small-font-size:                          .875rem !default; // 14px
 
 // Colors
 
-$global-color:                                    $color-global !default;
-$global-emphasis-color:                           $color-emphasis !default;
-$global-muted-color:                              $color-muted !default;
-$global-link-color:                               $color-primary !default;
-$global-link-hover-color:                         color.adjust($color-primary, $lightness: -10%) !default;
-$global-inverse-color:                            $color-white !default;
+$global-color:                                    base.$color-global !default;
+$global-emphasis-color:                           base.$color-emphasis !default;
+$global-muted-color:                              base.$color-muted !default;
+$global-link-color:                               base.$color-primary !default;
+$global-link-hover-color:                         color.adjust(base.$color-primary, $lightness: -10%) !default;
+$global-inverse-color:                            base.$color-white !default;
 
 // Backgrounds
 
-$global-background:                               $color-white !default;
-$global-muted-background:                         color.adjust($color-muted, $lightness: 37.25%) !default;
-$global-primary-background:                       $color-primary !default;
-$global-secondary-background:                     $color-secondary !default;
-$global-success-background:                       $color-success !default;
-$global-warning-background:                       $color-warning !default;
-$global-danger-background:                        $color-danger !default;
+$global-background:                               base.$color-white !default;
+$global-muted-background:                         color.adjust(base.$color-muted, $lightness: 37.25%) !default;
+$global-primary-background:                       base.$color-primary !default;
+$global-secondary-background:                     base.$color-secondary !default;
+$global-success-background:                       base.$color-success !default;
+$global-warning-background:                       base.$color-warning !default;
+$global-danger-background:                        base.$color-danger !default;
 
 // Borders
 
 $global-border-width:                             1px !default;
-$global-border:                                   $color-border !default;
+$global-border:                                   base.$color-border !default;
 
 // Box-Shadows
 
@@ -118,4 +117,4 @@ $global-z-index:                                  1000 !default;
 
 // Base
 
-$base-heading-font-weight:                        $font-weight-bold;
+$base-heading-font-weight:                        base.$font-weight-bold;

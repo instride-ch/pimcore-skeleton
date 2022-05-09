@@ -1,4 +1,7 @@
-@import "../utils/variables";
+@use "sass:color";
+@use "../utils/variables" as base;
 
 // Custom Image Placeholder
-img[data-src][src*="data:image"] { background: rgba($color-black, .05); }
+img[data-src][src*="data:image"] {
+  background: rgba(base.$color-black, 5%); // stylelint-disable-line color-function-notation
+}

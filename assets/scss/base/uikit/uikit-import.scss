@@ -21,7 +21,8 @@
 // @import "~uikit/src/scss/components/form-range";
 @import "~uikit/src/scss/components/form"; // After: Icon, Form Range
 @import "~uikit/src/scss/components/button";
-@import "~uikit/src/scss/components/progress";
+
+// @import "~uikit/src/scss/components/progress";
 
 
 // Layout
@@ -49,7 +50,7 @@
 // @import "~uikit/src/scss/components/overlay"; // After: Icon
 // @import "~uikit/src/scss/components/article";
 // @import "~uikit/src/scss/components/comment";
-@import "~uikit/src/scss/components/search"; // After: Icon
+// @import "~uikit/src/scss/components/search"; // After: Icon
 
 
 // JavaScript
@@ -99,23 +100,26 @@
 // Utilities
 // ========================================================================
 
-@import "~uikit/src/scss/components/animation";
+// @import "~uikit/src/scss/components/animation";
 @import "~uikit/src/scss/components/width";
 @import "~uikit/src/scss/components/height";
 @import "~uikit/src/scss/components/text";
-@import "~uikit/src/scss/components/column";
-@import "~uikit/src/scss/components/cover";
-@import "~uikit/src/scss/components/background";
-@import "~uikit/src/scss/components/align";
-@import "~uikit/src/scss/components/svg";
+
+// @import "~uikit/src/scss/components/column";
+// @import "~uikit/src/scss/components/cover";
+// @import "~uikit/src/scss/components/background";
+// @import "~uikit/src/scss/components/align";
+// @import "~uikit/src/scss/components/svg";
 @import "~uikit/src/scss/components/utility";
 @import "~uikit/src/scss/components/flex"; // After: Utility
 @import "~uikit/src/scss/components/margin";
 @import "~uikit/src/scss/components/padding";
 @import "~uikit/src/scss/components/position";
-@import "~uikit/src/scss/components/transition";
+
+// @import "~uikit/src/scss/components/transition";
 @import "~uikit/src/scss/components/visibility";
-@import "~uikit/src/scss/components/inverse";
+
+// @import "~uikit/src/scss/components/inverse";
 
 // Need to be loaded last
 // @import "~uikit/src/scss/components/print";

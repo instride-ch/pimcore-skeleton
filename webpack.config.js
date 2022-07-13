@@ -63,10 +63,12 @@ Encore
   // Advanced config options
   .configureDevServerOptions((options) => {
     options.allowedHosts = 'all';
-    options.http2 = true;
-    options.https = {
-      cert: '/etc/ssl/dev.local+4.pem',
-      key: '/etc/ssl/dev.local+4-key.pem',
+    options.server = {
+      type: 'https',
+      options: {
+        cert: '/etc/ssl/dev.local+4.pem',
+        key: '/etc/ssl/dev.local+4-key.pem',
+      },
     };
   })
   .configureWatchOptions((options) => {

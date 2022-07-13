@@ -14,10 +14,7 @@
   ],
   "config": {
     "optimize-autoloader": true,
-    "sort-packages": true,
-    "allow-plugins": {
-      "symfony/flex": true
-    }
+    "sort-packages": true
   },
   "require": {
     "php": ">=8.0",

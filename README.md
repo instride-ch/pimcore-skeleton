@@ -19,7 +19,7 @@ sudo nano /etc/hosts
 **Create a new Project**
 
 ```
-composer create-project w-vision/pimcore-skeleton:10.3
+composer create-project w-vision/pimcore-skeleton:10.5
 ```
 
 **Start and connect to Docker container**

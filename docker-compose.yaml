@@ -8,7 +8,7 @@ services:
         image: mariadb:10.5
         container_name: 'pimcore-skeleton-mariadb'
         working_dir: '/application'
-        command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-per-table=1]
+        command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-format=Barracuda, --innodb-large-prefix=1, --innodb-file-per-table=1, --lower-case-table-names=1]
         volumes:
             - 'pimcore-skeleton-database:/var/lib/mysql'
         environment:

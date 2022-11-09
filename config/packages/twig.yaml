@@ -1,2 +1,4 @@
 twig:
     form_themes: ['form/uikit_3_layout.html.twig']
+    globals:
+        kernel_public_dir: '%kernel.project_dir%/public'

@@ -4,7 +4,7 @@
 
 {% block form_widget_simple -%}
     {% if type is not defined or type not in ['hidden', 'range'] %}
-        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' uk-input')|trim}) -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' uk-input')|trim}) -%}
     {% endif %}
 
     {% if type is defined and type in 'file' %}
@@ -18,12 +18,12 @@
 {%- endblock form_widget_simple %}
 
 {% block textarea_widget -%}
-    {% set attr = attr|merge({class: (attr.class|default('') ~ ' uk-textarea')|trim}) %}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' uk-textarea')|trim}) %}
     {{- parent() -}}
 {%- endblock textarea_widget %}
 
 {% block button_widget -%}
-    {% set attr = attr|merge({class: (attr.class|default('uk-button-primary') ~ ' uk-button')|trim}) %}
+    {% set attr = attr|merge({'class': (attr.class|default('uk-button-primary') ~ ' uk-button')|trim}) %}
     {{- parent() -}}
 {%- endblock %}
 
@@ -31,11 +31,11 @@
     <div class="uk-inline">
         {% set append = money_pattern starts with '{{' %}
         {% if not append %}
-            <span class="uk-form-icon">{{ money_pattern|replace({ '{{ widget }}':''}) }}</span>
+            <span class="uk-form-icon">{{ money_pattern|replace({'{{ widget }}':''}) }}</span>
         {% endif %}
         {{- block('form_widget_simple') -}}
         {% if append %}
-            <span class="uk-form-icon uk-form-icon-flip">{{ money_pattern|replace({ '{{ widget }}':''}) }}</span>
+            <span class="uk-form-icon uk-form-icon-flip">{{ money_pattern|replace({'{{ widget }}':''}) }}</span>
         {% endif %}
     </div>
 {%- endblock money_widget %}
@@ -48,24 +48,24 @@
 {%- endblock percent_widget %}
 
 {% block datetime_widget -%}
-    {% if widget == 'single_text' %}
+    {% if widget is same as('single_text') %}
         {{- block('form_widget_simple') -}}
     {% else -%}
-        {% set attr = attr|merge({class: (attr.class|default('') ~ ' uk-inline')|trim}) -%}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' uk-inline')|trim}) -%}
         <div {{ block('widget_container_attributes') }}>
             {{- form_errors(form.date) -}}
             {{- form_errors(form.time) -}}
-            {{- form_widget(form.date, { datetime: true } ) -}}
-            {{- form_widget(form.time, { datetime: true } ) -}}
+            {{- form_widget(form.date, {'datetime': true } ) -}}
+            {{- form_widget(form.time, {'datetime': true } ) -}}
         </div>
     {%- endif %}
 {%- endblock datetime_widget %}
 
 {% block date_widget -%}
-    {% if widget == 'single_text' %}
+    {% if widget is same as('single_text') %}
         {{- block('form_widget_simple') -}}
     {% else -%}
-        {% set attr = attr|merge({class: (attr.class|default('') ~ ' uk-inline')|trim}) -%}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' uk-inline')|trim}) -%}
         {% if datetime is not defined or not datetime -%}
             <div {{ block('widget_container_attributes') -}}>
         {%- endif %}
@@ -81,50 +81,50 @@
 {%- endblock date_widget %}
 
 {% block time_widget -%}
-    {% if widget == 'single_text' %}
+    {% if widget is same as('single_text') %}
         {{- block('form_widget_simple') -}}
     {% else -%}
-        {% set attr = attr|merge({class: (attr.class|default('') ~ ' uk-inline')|trim}) -%}
-        {% if datetime is not defined or false == datetime -%}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' uk-inline')|trim}) -%}
+        {% if datetime is not defined or not datetime -%}
             <div {{ block('widget_container_attributes') -}}>
         {%- endif -%}
         {{- form_widget(form.hour) }}{% if with_minutes %}:{{ form_widget(form.minute) }}{% endif %}{% if with_seconds %}:{{ form_widget(form.second) }}{% endif %}
-        {% if datetime is not defined or false == datetime -%}
+        {% if datetime is not defined or not datetime -%}
             </div>
         {%- endif -%}
     {% endif %}
 {%- endblock time_widget %}
 
 {%- block dateinterval_widget -%}
-    {%- if widget == 'single_text' -%}
+    {%- if widget is same as('single_text') -%}
         {{- block('form_widget_simple') -}}
     {%- else -%}
-        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' uk-inline')|trim}) -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' uk-inline')|trim}) -%}
         <div {{ block('widget_container_attributes') }}>
             {{- form_errors(form) -}}
             <div class="uk-overflow-auto">
                 <table class="uk-table {{ table_class|default('uk-table-divider uk-table-small uk-table-striped') }}">
                     <thead>
-                    <tr>
-                        {%- if with_years %}<th>{{ form_label(form.years) }}</th>{% endif -%}
-                        {%- if with_months %}<th>{{ form_label(form.months) }}</th>{% endif -%}
-                        {%- if with_weeks %}<th>{{ form_label(form.weeks) }}</th>{% endif -%}
-                        {%- if with_days %}<th>{{ form_label(form.days) }}</th>{% endif -%}
-                        {%- if with_hours %}<th>{{ form_label(form.hours) }}</th>{% endif -%}
-                        {%- if with_minutes %}<th>{{ form_label(form.minutes) }}</th>{% endif -%}
-                        {%- if with_seconds %}<th>{{ form_label(form.seconds) }}</th>{% endif -%}
-                    </tr>
+                        <tr>
+                            {%- if with_years %}<th>{{ form_label(form.years) }}</th>{% endif -%}
+                            {%- if with_months %}<th>{{ form_label(form.months) }}</th>{% endif -%}
+                            {%- if with_weeks %}<th>{{ form_label(form.weeks) }}</th>{% endif -%}
+                            {%- if with_days %}<th>{{ form_label(form.days) }}</th>{% endif -%}
+                            {%- if with_hours %}<th>{{ form_label(form.hours) }}</th>{% endif -%}
+                            {%- if with_minutes %}<th>{{ form_label(form.minutes) }}</th>{% endif -%}
+                            {%- if with_seconds %}<th>{{ form_label(form.seconds) }}</th>{% endif -%}
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        {%- if with_years %}<td>{{ form_widget(form.years) }}</td>{% endif -%}
-                        {%- if with_months %}<td>{{ form_widget(form.months) }}</td>{% endif -%}
-                        {%- if with_weeks %}<td>{{ form_widget(form.weeks) }}</td>{% endif -%}
-                        {%- if with_days %}<td>{{ form_widget(form.days) }}</td>{% endif -%}
-                        {%- if with_hours %}<td>{{ form_widget(form.hours) }}</td>{% endif -%}
-                        {%- if with_minutes %}<td>{{ form_widget(form.minutes) }}</td>{% endif -%}
-                        {%- if with_seconds %}<td>{{ form_widget(form.seconds) }}</td>{% endif -%}
-                    </tr>
+                        <tr>
+                            {%- if with_years %}<td>{{ form_widget(form.years) }}</td>{% endif -%}
+                            {%- if with_months %}<td>{{ form_widget(form.months) }}</td>{% endif -%}
+                            {%- if with_weeks %}<td>{{ form_widget(form.weeks) }}</td>{% endif -%}
+                            {%- if with_days %}<td>{{ form_widget(form.days) }}</td>{% endif -%}
+                            {%- if with_hours %}<td>{{ form_widget(form.hours) }}</td>{% endif -%}
+                            {%- if with_minutes %}<td>{{ form_widget(form.minutes) }}</td>{% endif -%}
+                            {%- if with_seconds %}<td>{{ form_widget(form.seconds) }}</td>{% endif -%}
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -134,7 +134,7 @@
 {%- endblock dateinterval_widget -%}
 
 {% block choice_widget_collapsed -%}
-    {% set attr = attr|merge({class: (attr.class|default('') ~ ' uk-select')|trim}) %}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' uk-select')|trim}) %}
     {{- parent() -}}
 {%- endblock %}
 
@@ -142,19 +142,19 @@
     {% if '-inline' in label_attr.class|default('') -%}
         {%- for child in form %}
             {{- form_widget(child, {
-                parent_label_class: label_attr.class|default(''),
-                translation_domain: choice_translation_domain,
+                'parent_label_class': label_attr.class|default(''),
+                'translation_domain': choice_translation_domain,
             }) -}}
         {% endfor -%}
     {%- else -%}
-        {% set attr = attr|merge({class: (attr.class|default('uk-grid-collapse uk-child-width-1-1') ~ ' uk-grid')|trim}) %}
+        {% set attr = attr|merge({'class': (attr.class|default('uk-grid-collapse uk-child-width-1-1') ~ ' uk-grid')|trim}) %}
         <div {{ block('widget_container_attributes') }} data-uk-grid>
             {%- for child in form %}
                 <div>
                     {{- form_widget(child, {
-                        parent_label_class: label_attr.class|default(''),
-                        attr: widget_attr|default({}),
-                        translation_domain: choice_translation_domain,
+                        'parent_label_class': label_attr.class|default(''),
+                        'attr': widget_attr|default({}),
+                        'translation_domain': choice_translation_domain,
                     }) -}}
                 </div>
             {% endfor -%}
@@ -165,38 +165,38 @@
 {% block checkbox_widget -%}
     {%- set parent_label_class = parent_label_class|default(label_attr.class|default('')) -%}
     {% if 'checkbox-inline' in parent_label_class %}
-        {{- form_label(form, null, { widget: parent() }) -}}
+        {{- form_label(form, null, {'widget': parent()}) -}}
     {% else -%}
-        {% set attr = attr|merge({class: (attr.class|default('') ~ ' uk-checkbox')|trim}) %}
-        {{- form_label(form, null, { widget: parent() }) -}}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' uk-checkbox')|trim}) %}
+        {{- form_label(form, null, {'widget': parent()}) -}}
     {%- endif %}
 {%- endblock checkbox_widget %}
 
 {% block radio_widget -%}
     {%- set parent_label_class = parent_label_class|default(label_attr.class|default('')) -%}
     {% if 'radio-inline' in parent_label_class %}
-        {{- form_label(form, null, { widget: parent() }) -}}
+        {{- form_label(form, null, {'widget': parent()}) -}}
     {% else -%}
         {% set attr = attr|merge({class: (attr.class|default('') ~ ' uk-radio')|trim}) %}
-        {{- form_label(form, null, { widget: parent() }) -}}
+        {{- form_label(form, null, {'widget': parent()}) -}}
     {%- endif %}
 {%- endblock radio_widget %}
 
 {%- block range_widget -%}
-    {% set attr = attr|merge({class: (attr.class|default('') ~ ' uk-range')|trim}) %}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' uk-range')|trim}) %}
     {{- parent() -}}
 {%- endblock range_widget %}
 
 {# Labels #}
 
 {% block form_label -%}
-    {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' uk-form-label')|trim}) -%}
+    {%- set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' uk-form-label')|trim}) -%}
     {{- parent() -}}
 {%- endblock form_label %}
 
 {% block choice_label -%}
     {# remove the checkbox-inline and radio-inline class, it's only useful for embed labels #}
-    {%- set label_attr = label_attr|merge({class: label_attr.class|default('')|replace({'checkbox-inline': '', 'radio-inline': ''})|trim}) -%}
+    {%- set label_attr = label_attr|merge({'class': label_attr.class|default('')|replace({'checkbox-inline': '', 'radio-inline': ''})|trim}) -%}
     {{- block('form_label') -}}
 {% endblock %}
 
@@ -212,10 +212,10 @@
     {# Do not display the label if widget is not defined in order to prevent double label rendering #}
     {% if widget is defined %}
         {% if required %}
-            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
         {% endif %}
         {% if parent_label_class is defined %}
-            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' ' ~ parent_label_class)|trim}) %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' ' ~ parent_label_class)|trim}) %}
         {% endif %}
         {% if label is not same as(false) and label is empty %}
             {%- if label_format is not empty -%}
@@ -236,7 +236,7 @@
 {# Rows #}
 
 {% block form_row -%}
-    {%- set row_attr = row_attr|merge({ class: (row_attr.class|default('') ~ ' uk-margin')|trim }) -%}
+    {%- set row_attr = row_attr|merge({'class': (row_attr.class|default('') ~ ' uk-margin')|trim}) -%}
 
     <div class="uk-form-controls {{ row_attr.class }} {% if (not compound or force_error|default(false)) and not valid %} uk-form-danger{% endif %}">
         {{- form_label(form) -}}

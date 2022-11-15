@@ -35,5 +35,5 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   },
 
-  ignorePatterns: ['assets/js/utils/validation/*'],
+  ignorePatterns: ['assets/js/validation/*'],
 };

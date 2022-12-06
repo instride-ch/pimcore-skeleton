@@ -19,18 +19,18 @@
   "require": {
     "php": ">=8.0",
     "dachcom-digital/emailizr": "^2.0",
-    "dachcom-digital/seo": "^2.0",
+    "dachcom-digital/seo": "^2.1",
     "dachcom-digital/toolbox": "^4.0",
     "pimcore/pimcore": "~10.5.0",
-    "symfony/webpack-encore-bundle": "^1.0",
+    "symfony/webpack-encore-bundle": "^1.16",
     "w-vision/pimcore-monitor-bundle": "^1.0"
   },
   "require-dev": {
     "deployer/deployer": "^7.0",
-    "phpstan/phpstan": "^1.0",
-    "phpstan/phpstan-symfony": "^1.0",
+    "phpstan/phpstan": "^1.9",
+    "phpstan/phpstan-symfony": "^1.2",
     "roave/security-advisories": "dev-latest",
-    "symplify/easy-coding-standard": "^10.0"
+    "symplify/easy-coding-standard": "^10.3"
   },
   "autoload": {
     "psr-4": {

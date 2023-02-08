@@ -26,11 +26,11 @@
     "w-vision/pimcore-monitor-bundle": "^1.0"
   },
   "require-dev": {
-    "deployer/deployer": "^7.0",
+    "deployer/deployer": "^7.1",
     "phpstan/phpstan": "^1.9",
     "phpstan/phpstan-symfony": "^1.2",
     "roave/security-advisories": "dev-latest",
-    "symplify/easy-coding-standard": "^10.3"
+    "symplify/easy-coding-standard": "^11.2"
   },
   "autoload": {
     "psr-4": {

@@ -177,7 +177,7 @@
     {% if 'radio-inline' in parent_label_class %}
         {{- form_label(form, null, {'widget': parent()}) -}}
     {% else -%}
-        {% set attr = attr|merge({class: (attr.class|default('') ~ ' uk-radio')|trim}) %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' uk-radio')|trim}) %}
         {{- form_label(form, null, {'widget': parent()}) -}}
     {%- endif %}
 {%- endblock radio_widget %}

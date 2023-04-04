@@ -283,6 +283,19 @@ RewriteRule ^ %{ENV:BASE}/index.php [L]
 # | Security settings                                                  |
 # ----------------------------------------------------------------------
 
-# Content Security Policy (see https://content-security-policy.com/ for more information and examples)
-# Default: Allow everything but only from the same origin
-Header set Content-Security-Policy "default-src 'self';"
+<IfModule mod_headers.c>
+
+    Header set X-Content-Type-Options nosniff
+    Header set X-Frame-Options SAMEORIGIN
+    Header always unset x-powered-by
+
+    # Content Security Policy (see https://content-security-policy.com/ for more information and examples)
+    Header set Content-Security-Policy "default-src 'self';"
+
+    # HTST
+    Header set Strict-Transport-Security "max-age=2592000; includeSubDomains;" # 2592000 = 30 days
+    # Preload feature (see https://hstspreload.org/) -> https://hstspreload.org/#deployment-recommendations
+#    Header set Strict-Transport-Security "max-age=300; includeSubDomains;"
+#    Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+</IfModule>

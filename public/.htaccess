@@ -278,3 +278,11 @@ RewriteRule ^ %{ENV:BASE}/index.php [L]
             text/css text/html text/plain text/x-component text/xml text/javascript
     </IfModule>
 </IfModule>
+
+# ----------------------------------------------------------------------
+# | Security settings                                                  |
+# ----------------------------------------------------------------------
+
+# Content Security Policy (see https://content-security-policy.com/ for more information and examples)
+# Default: Allow everything but only from the same origin
+Header set Content-Security-Policy "default-src 'self';"

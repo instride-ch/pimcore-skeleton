@@ -293,9 +293,10 @@ RewriteRule ^ %{ENV:BASE}/index.php [L]
     Header set Content-Security-Policy "default-src 'self';"
 
     # HTST
-    Header set Strict-Transport-Security "max-age=2592000; includeSubDomains;" # 2592000 = 30 days
+    Header set Strict-Transport-Security "max-age=300; includeSubDomains"
     # Preload feature (see https://hstspreload.org/) -> https://hstspreload.org/#deployment-recommendations
-#    Header set Strict-Transport-Security "max-age=300; includeSubDomains;"
+#    Header set Strict-Transport-Security "max-age=604800; includeSubDomains"
+#    Header set Strict-Transport-Security "max-age=2592000; includeSubDomains"
 #    Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 
 </IfModule>

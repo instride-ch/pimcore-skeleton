@@ -1,7 +1,5 @@
 # see https://pimcore.com/docs/pimcore/current/Development_Documentation/Best_Practice/Security_Concept.html#page_Content-Security-Policy
 #   and https://content-security-policy.com/#directive for more information
-# IMPORTANT: Please note enabling CSP headers for admin interface will make DataObject WYSIWYG editor menu unresponsive
-#   as CKeditor 4 does not completely support it.
 pimcore_admin:
     admin_csp_header:
         enabled: true

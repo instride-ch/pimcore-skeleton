@@ -1,0 +1,5 @@
+# see https://pimcore.com/docs/pimcore/current/Development_Documentation/Best_Practice/Security_Concept.html#page_Content-Security-Policy
+#   and https://content-security-policy.com/#directive for more information
+pimcore_admin:
+    admin_csp_header:
+        enabled: true

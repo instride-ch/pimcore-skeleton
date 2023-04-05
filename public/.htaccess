@@ -278,3 +278,25 @@ RewriteRule ^ %{ENV:BASE}/index.php [L]
             text/css text/html text/plain text/x-component text/xml text/javascript
     </IfModule>
 </IfModule>
+
+# ----------------------------------------------------------------------
+# | Security settings                                                  |
+# ----------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+
+    Header set X-Content-Type-Options nosniff
+    Header set X-Frame-Options SAMEORIGIN
+    Header always unset x-powered-by
+
+    # Content Security Policy (see https://content-security-policy.com/ for more information and examples)
+    Header set Content-Security-Policy "default-src 'self';"
+
+    # HTST
+    Header set Strict-Transport-Security "max-age=300; includeSubDomains"
+    # Preload feature (see https://hstspreload.org/) -> https://hstspreload.org/#deployment-recommendations
+#    Header set Strict-Transport-Security "max-age=604800; includeSubDomains"
+#    Header set Strict-Transport-Security "max-age=2592000; includeSubDomains"
+#    Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+</IfModule>

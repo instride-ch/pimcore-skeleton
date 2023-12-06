@@ -2,31 +2,28 @@
   "entrypoints": {
     "js/app": {
       "js": [
-        "https://localhost:8080/build/runtime.js",
-        "https://localhost:8080/build/vendors-node_modules_webpack-dev-server_client_index_js_protocol_wss_3A_hostname_localhost_po-f9e312.js",
-        "https://localhost:8080/build/vendors-node_modules_uikit_dist_js_uikit-icons_js-node_modules_uikit_src_js_api_boot_js-node_-a60542.js",
-        "https://localhost:8080/build/js/app.js"
+        "/build/runtime.7e5b0f55.js",
+        "/build/333.7d82be70.js",
+        "/build/js/app.a02b6229.js"
       ],
       "css": [
-        "https://localhost:8080/build/js/app.css"
+        "/build/js/app.cbac780a.css"
       ]
     },
     "css/email": {
       "js": [
-        "https://localhost:8080/build/runtime.js",
-        "https://localhost:8080/build/vendors-node_modules_webpack-dev-server_client_index_js_protocol_wss_3A_hostname_localhost_po-f9e312.js"
+        "/build/runtime.7e5b0f55.js"
       ],
       "css": [
-        "https://localhost:8080/build/css/email.css"
+        "/build/css/email.b75b10c3.css"
       ]
     },
     "css/editmode": {
       "js": [
-        "https://localhost:8080/build/runtime.js",
-        "https://localhost:8080/build/vendors-node_modules_webpack-dev-server_client_index_js_protocol_wss_3A_hostname_localhost_po-f9e312.js"
+        "/build/runtime.7e5b0f55.js"
       ],
       "css": [
-        "https://localhost:8080/build/css/editmode.css"
+        "/build/css/editmode.31d6cfe0.css"
       ]
     }
   }

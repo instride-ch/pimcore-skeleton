@@ -50,3 +50,4 @@
 /deployer.phar
 /install-deploy.php
 /supervisord.conf
+/supervisord.pid

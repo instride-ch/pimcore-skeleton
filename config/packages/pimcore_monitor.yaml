@@ -2,3 +2,4 @@ pimcore_monitor:
     report:
         api_key: '%env(PIMCORE_MONITORING_API_KEY)%'
         default_endpoint: '%env(PIMCORE_MONITORING_ENDPOINT)%'
+        instance_environment: '%env(PIMCORE_MONITORING_ENVIRONMENT)%'

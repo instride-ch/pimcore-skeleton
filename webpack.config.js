@@ -37,6 +37,7 @@ Encore
     corejs: 3,
   })
   .configureDefinePlugin((options) => {
+    options.LOG = false;
     options.VERSION = JSON.stringify(version);
   })
   .addAliases({ 'uikit-util': `${paths.vendor}/uikit/src/js/util` })

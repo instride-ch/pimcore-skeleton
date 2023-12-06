@@ -1,35 +1,42 @@
 version: '3.8'
 services:
     redis:
-        image: redis:alpine
+        image: 'redis:alpine'
         container_name: 'pimcore-skeleton-redis'
 
     db:
-        image: mariadb:10.5
+        image: 'mariadb:10.5'
         container_name: 'pimcore-skeleton-mariadb'
         working_dir: '/application'
-        command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-format=Barracuda, --innodb-large-prefix=1, --innodb-file-per-table=1, --lower-case-table-names=1]
+        command:
+            - 'mysqld'
+            - '--character-set-server=utf8mb4'
+            - '--collation-server=utf8mb4_unicode_ci'
+            - '--innodb-file-format=Barracuda'
+            - '--innodb-large-prefix=1'
+            - '--innodb-file-per-table=1'
+            - '--lower-case-table-names=1'
         volumes:
             - 'pimcore-skeleton-database:/var/lib/mysql'
         environment:
-            MYSQL_ROOT_PASSWORD: ROOT
-            MYSQL_DATABASE: pimcore
-            MYSQL_USER: pimcore
-            MYSQL_PASSWORD: pimcore
+            MYSQL_ROOT_PASSWORD: 'ROOT'
+            MYSQL_DATABASE: 'pimcore'
+            MYSQL_USER: 'pimcore'
+            MYSQL_PASSWORD: 'pimcore'
 
     adminer:
-        image: adminer
+        image: 'adminer'
         container_name: 'pimcore-skeleton-adminer'
-        restart: always
+        restart: 'always'
         volumes:
             - '.docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/uploads.ini'
         ports:
             - '2001:8080'
         links:
-            - db:db
+            - 'db:db'
 
     apache:
-        image: httpd:2.4
+        image: 'httpd:2.4'
         container_name: 'pimcore-skeleton-apache'
         ports:
             - '80:80'
@@ -41,13 +48,13 @@ services:
             - '/etc/ssl/dev.local+4.pem:/usr/local/apache2/conf/server.crt'
             - '/etc/ssl/dev.local+4-key.pem:/usr/local/apache2/conf/server.key'
         links:
-            - php
+            - 'php'
         depends_on:
-            - db
-            - redis
+            - 'db'
+            - 'redis'
 
     php:
-        image: pimcore/pimcore:PHP8.1-fpm
+        image: 'pimcore/pimcore:PHP8.1-fpm'
         container_name: 'pimcore-skeleton-php'
         volumes:
             - '~/.composer:/root/composer'
@@ -58,17 +65,17 @@ services:
             COMPOSER_HOME: '/var/www/html'
             PHP_IDE_CONFIG: 'serverName=localhost'
         depends_on:
-            - db
-            - redis
+            - 'db'
+            - 'redis'
 
     supervisord:
-        image: pimcore/pimcore:PHP8.1-supervisord
+        image: 'pimcore/pimcore:PHP8.1-supervisord'
         container_name: 'pimcore-skeleton-supervisord'
         volumes:
             - '.:/var/www/html:cached'
             - '.docker/supervisord.conf:/etc/supervisor/conf.d/pimcore.conf:ro'
         depends_on:
-            - db
+            - 'db'
 
 volumes:
     pimcore-skeleton-database:

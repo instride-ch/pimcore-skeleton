@@ -17,20 +17,19 @@
     "sort-packages": true
   },
   "require": {
-    "php": ">=8.0",
+    "php": ">=8.1",
     "dachcom-digital/emailizr": "^2.0",
-    "dachcom-digital/seo": "^2.1",
-    "dachcom-digital/toolbox": "^4.0",
-    "pimcore/pimcore": "~10.5.0",
-    "symfony/webpack-encore-bundle": "^1.16",
-    "w-vision/pimcore-monitor-bundle": "^1.0"
+    "dachcom-digital/seo": "^2.2",
+    "dachcom-digital/toolbox": "^4.1",
+    "pimcore/pimcore": "~10.6.0",
+    "symfony/webpack-encore-bundle": "^2.1",
+    "w-vision/pimcore-monitor-bundle": "^2.0"
   },
   "require-dev": {
-    "deployer/deployer": "^7.1",
-    "phpstan/phpstan": "^1.9",
-    "phpstan/phpstan-symfony": "^1.2",
-    "roave/security-advisories": "dev-latest",
-    "symplify/easy-coding-standard": "^11.2"
+    "deployer/deployer": "^7.3",
+    "phpstan/phpstan": "^1.10",
+    "phpstan/phpstan-symfony": "^1.3",
+    "symplify/easy-coding-standard": "^12.0"
   },
   "autoload": {
     "psr-4": {

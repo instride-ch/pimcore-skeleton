@@ -1,0 +1,3 @@
+my_custom_admin_entry_point:
+    path: /your-custom-admin-login
+    controller: Pimcore\Bundle\CoreBundle\Controller\PublicServicesController::customAdminEntryPointAction

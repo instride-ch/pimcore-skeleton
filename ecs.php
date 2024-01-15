@@ -214,8 +214,7 @@ return static function (ECSConfig $ecsConfig): void {
     ]);
 
     // D. Options
-    $parameters = $ecsConfig->parameters();
-    $parameters->set(Option::CACHE_DIRECTORY, 'var/cache/ecs');
+    $ecsConfig->cacheDirectory('var/cache/ecs');
     $ecsConfig->skip([
         VoidReturnFixer::class => [
             __DIR__ . '/src/Model/**/*',

@@ -17,7 +17,7 @@
     "ecs:fix": "php vendor/bin/ecs check --fix",
     "icons:custom": "cd node_modules/uikit && yarn && yarn icons --custom ../../assets/custom/icons",
     "lint": "eslint --ext .js assets/",
-    "phpstan": "php -d memory_limit=4G vendor/bin/phpstan analyse -c phpstan.neon src -l 3",
+    "phpstan": "php -d memory_limit=4G vendor/bin/phpstan analyse -c phpstan.neon src -l 5",
     "ssh": "php vendor/bin/dep ssh",
     "watch": "encore dev --watch"
   },
@@ -28,7 +28,7 @@
     "@fullhuman/postcss-purgecss": "^5.0",
     "@symfony/webpack-encore": "^4.5",
     "autoprefixer": "^10.4",
-    "eslint": "^8.55",
+    "eslint": "^8.56",
     "eslint-config-airbnb-base": "^15.0",
     "eslint-plugin-import": "^2.29",
     "eslint-webpack-plugin": "^4.0",
@@ -47,7 +47,7 @@
     "webpack-cli": "^5.1"
   },
   "dependencies": {
-    "core-js": "^3.34",
+    "core-js": "^3.35",
     "foundation-emails": "^2.4",
     "uikit": "^3.17"
   },

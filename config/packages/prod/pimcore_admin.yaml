@@ -1,2 +1,2 @@
 pimcore_admin:
-    custom_admin_path_identifier: pimcore-portal-login
+    custom_admin_path_identifier: pimcore-admin-login

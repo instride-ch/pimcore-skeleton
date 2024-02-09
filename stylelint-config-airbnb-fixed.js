@@ -9,11 +9,7 @@ module.exports = {
   ],
   rules: {
     // Base rules
-    indentation: 2,
-    'number-leading-zero': 'never',
-    'string-quotes': 'double',
     'selector-max-id': 0,
-    'selector-list-comma-newline-after': 'always',
     'rule-empty-line-before': [
       'always',
       { ignore: ['after-comment'] },
@@ -22,9 +18,6 @@ module.exports = {
       'always',
       { except: ['first-nested'] },
     ],
-    'block-opening-brace-space-before': 'always',
-    'declaration-colon-space-after': 'always',
-    'declaration-colon-space-before': 'never',
     'declaration-block-single-line-max-declarations': 1,
     // This line fixes the usage with Stylelint v14.
     'declaration-property-value-disallowed-list': { '/^border/': ['none'] },

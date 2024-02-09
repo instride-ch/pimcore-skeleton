@@ -19,7 +19,7 @@ sudo nano /etc/hosts
 **Create a new Project**
 
 ```
-composer create-project w-vision/pimcore-skeleton:10.5
+composer create-project instride/pimcore-skeleton:10.6
 ```
 
 **Start and connect to Docker container**
@@ -49,6 +49,6 @@ yarn install && yarn dev
 
 ## Copyright
 
-w-vision AG, Sandgruebestrasse 4, 6210 Sursee, Switzerland  
-https://w-vision.ch, support@w-vision.ch  
-Copyright © 2022 w-vision AG. All rights reserved.
+instride AG, Sandgruebestrasse 4, 6210 Sursee, Switzerland  
+https://instride.ch, connect@instride.ch  
+Copyright © 2024 instride AG. All rights reserved.

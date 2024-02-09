@@ -3,23 +3,16 @@ module.exports = {
 
   env: {
     browser: true,
-    commonjs: true,
-    es6: true,
+    es2023: true,
     node: true,
   },
 
-  parser: '@babel/eslint-parser',
-
   parserOptions: {
-    ecmaVersion: 8,
     sourceType: 'module',
     requireConfigFile: false,
   },
 
-  extends: [
-    'eslint:recommended',
-    'airbnb-base',
-  ],
+  extends: ['eslint:recommended'],
 
   globals: {
     Class: true,
@@ -30,10 +23,20 @@ module.exports = {
     VERSION: true,
   },
 
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-  },
+  ignorePatterns: ['**/public/**/*', 'assets/js/validation/*'],
 
-  ignorePatterns: ['assets/js/validation/*'],
+  overrides: [
+    {
+      files: '*.js',
+      parser: '@babel/eslint-parser',
+      extends: [
+        'eslint:recommended',
+        'airbnb-base',
+      ],
+      rules: {
+        'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+      },
+    },
+  ],
 };

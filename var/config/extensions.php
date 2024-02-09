@@ -3,9 +3,9 @@
 return [
     "bundle" => [
         "EmailizrBundle\\EmailizrBundle" => TRUE,
+        "Instride\\Bundle\\PimcoreMonitorBundle\\PimcoreMonitorBundle" => TRUE,
         "SeoBundle\\SeoBundle" => TRUE,
         "ToolboxBundle\\ToolboxBundle" => TRUE,
-        "Wvision\\Bundle\\PimcoreMonitorBundle\\PimcoreMonitorBundle" => TRUE
     ],
     "areabrick" => [
         "accordion" => FALSE,

@@ -1,15 +1,15 @@
 {
-  "name": "w-vision/pimcore-skeleton",
+  "name": "instride/pimcore-skeleton",
   "type": "project",
-  "description": "The Pimcore skeleton for projects at w-vision.",
-  "homepage": "https://w-vision.ch/",
+  "description": "The Pimcore skeleton for projects at instride.",
+  "homepage": "https://instride.ch",
   "license": "proprietary",
   "authors": [
     {
-      "name": "w-vision AG",
-      "email": "support@w-vision.ch",
-      "homepage": "https://w-vision.ch/",
-      "role": "Web Development Agency"
+      "name": "instride AG",
+      "email": "connect@instride.ch",
+      "homepage": "https://instride.ch",
+      "role": "Digital Agency"
     }
   ],
   "config": {
@@ -21,9 +21,9 @@
     "dachcom-digital/emailizr": "^2.0",
     "dachcom-digital/seo": "^2.2",
     "dachcom-digital/toolbox": "^4.1",
+    "instride/pimcore-monitor": "^2.0",
     "pimcore/pimcore": "~10.6.0",
-    "symfony/webpack-encore-bundle": "^2.1",
-    "w-vision/pimcore-monitor-bundle": "^2.0"
+    "symfony/webpack-encore-bundle": "^2.1"
   },
   "require-dev": {
     "deployer/deployer": "^7.3",
@@ -54,6 +54,10 @@
       "Pimcore\\Composer::clearCache",
       "Pimcore\\Composer::installAssets"
     ]
+  },
+  "conflict": {
+    "league/csv": ">=9.10.0",
+    "symfony/symfony": "*"
   },
   "minimum-stability": "dev",
   "prefer-stable": true

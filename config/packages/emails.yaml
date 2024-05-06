@@ -2,13 +2,13 @@ pimcore:
     email:
         sender:
             name: 'PLEASE_CHANGE_ME'
-            email: '<company_email_address>'
+            email: '<email_address>'
         return:
             name: 'PLEASE_CHANGE_ME'
-            email: '<company_email_address>'
+            email: '<email_address>'
 
 framework:
     mailer:
         transports:
-            main: '%env(MAILER_DSN_MAIN)%'
-            pimcore_newsletter: '%env(MAILER_DSN_NEWSLETTER)%'
+            main: '%mailer_dsn_main%'
+            pimcore_newsletter: '%mailer_dsn_newsletter%'

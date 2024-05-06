@@ -2,9 +2,12 @@ includes:
     - '%currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/extension.neon'
 
 parameters:
-    level: 3
+    level: 5
     reportUnmatchedIgnoredErrors: false
     scanFiles:
         - '%currentWorkingDirectory%/vendor/pimcore/pimcore/lib/helper-functions.php'
     symfony:
         container_xml_path: '%currentWorkingDirectory%/var/cache/dev/App_KernelDevDebugContainer.xml'
+    excludePaths:
+        - 'src/Model/DataObject/*.php'
+    ignoreErrors: []

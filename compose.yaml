@@ -2,17 +2,25 @@ services:
     redis:
         image: 'redis:alpine'
         container_name: 'pimcore-skeleton-redis'
+        command:
+            - 'redis-server'
+            - '--maxmemory'
+            - '128mb'
+            - '--maxmemory-policy'
+            - 'volatile-lru'
+            - '--save'
+            - '""'
+        volumes:
+            - 'pimcore-skeleton-redis-data:/data'
 
     db:
-        image: 'mariadb:10.5'
+        image: 'mariadb:10.11'
         container_name: 'pimcore-skeleton-mariadb'
         working_dir: '/application'
         command:
             - 'mysqld'
             - '--character-set-server=utf8mb4'
-            - '--collation-server=utf8mb4_unicode_ci'
-            - '--innodb-file-format=Barracuda'
-            - '--innodb-large-prefix=1'
+            - '--collation-server=utf8mb4_general_ci'
             - '--innodb-file-per-table=1'
             - '--lower-case-table-names=1'
         volumes:
@@ -35,7 +43,7 @@ services:
             - 'db:db'
 
     apache:
-        image: 'httpd:2.4'
+        image: 'httpd:latest'
         container_name: 'pimcore-skeleton-apache'
         ports:
             - '80:80'
@@ -53,7 +61,7 @@ services:
             - 'redis'
 
     php:
-        image: 'pimcore/pimcore:PHP8.1-fpm'
+        image: 'pimcore/pimcore:php8.2-debug-latest'
         container_name: 'pimcore-skeleton-php'
         volumes:
             - '~/.composer:/root/composer'
@@ -68,7 +76,7 @@ services:
             - 'redis'
 
     supervisord:
-        image: 'pimcore/pimcore:PHP8.1-supervisord'
+        image: 'pimcore/pimcore:php8.2-supervisord-latest'
         container_name: 'pimcore-skeleton-supervisord'
         volumes:
             - '.:/var/www/html:cached'
@@ -76,6 +84,22 @@ services:
         depends_on:
             - 'db'
 
+    mailpit:
+        image: 'axllent/mailpit'
+        container_name: 'pimcore-skeleton-mailpit'
+        restart: 'unless-stopped'
+        volumes:
+            - 'pimcore-skeleton-mailpit-data:/data'
+        ports:
+            - '8025:8025'
+        environment:
+            MP_MAX_MESSAGES: 5000
+            MP_DATA_FILE: '/data/mailpit.db'
+            MP_SMTP_AUTH_ACCEPT_ANY: 1
+            MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
 volumes:
     pimcore-skeleton-database:
+    pimcore-skeleton-redis-data:
     pimcore-skeleton-tmp-storage:
+    pimcore-skeleton-mailpit-data:

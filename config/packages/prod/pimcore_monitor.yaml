@@ -1,6 +1,0 @@
-pimcore_monitor:
-    checks:
-        hosting_size:
-            warning_threshold: 48318382080
-            critical_threshold: 53687091200
-            path: '%kernel.project_dir%/../..'

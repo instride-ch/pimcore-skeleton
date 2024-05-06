@@ -1,6 +1,17 @@
 imports:
     - { resource: 'services/*.yaml' }
-    - { resource: 'parameters.yaml' }
+
+parameters:
+    secret: 'ThisTokenIsNotSoSecretChangeItImmediately'
+
+    framework_trusted_hosts: '%env(TRUSTED_HOSTS)%'
+
+    mailer_dsn_main: '%env(MAILER_DSN_MAIN)%'
+    mailer_dsn_newsletter: '%env(MAILER_DSN_NEWSLETTER)%'
+
+    monitor_api_key: '%env(PIMCORE_MONITORING_API_KEY)%'
+    monitor_report_endpoint: '%env(PIMCORE_MONITORING_ENDPOINT)%'
+    monitor_instance_environment: '%env(PIMCORE_MONITORING_ENVIRONMENT)%'
 
 services:
     # default configuration for services in *this* file
@@ -13,20 +24,10 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-    #
-    # CONTROLLERS
-    #
-
-    # auto-register all controllers as services
+    # ---------------------------------------------------------
+    # Register all controllers of App as services
+    # ---------------------------------------------------------
     App\Controller\:
         resource: '../src/Controller'
         public: true
         tags: ['controller.service_arguments']
-
-    # Disable the FrontendJsListener of the Toolbox Bundle
-    ToolboxBundle\EventListener\Frontend\FrontendJsListener:
-        public: true
-        calls:
-            - disable: []
-        tags:
-            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse, priority: 0 }

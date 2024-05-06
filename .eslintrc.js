@@ -23,7 +23,7 @@ module.exports = {
     VERSION: true,
   },
 
-  ignorePatterns: ['**/public/**/*', 'assets/js/validation/*'],
+  ignorePatterns: ['**/public/**/*'],
 
   overrides: [
     {

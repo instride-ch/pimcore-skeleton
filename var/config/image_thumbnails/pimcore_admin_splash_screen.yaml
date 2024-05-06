@@ -1,0 +1,28 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    pimcore_admin_splash_screen:
+                        items:
+                            -
+                                method: cover
+                                arguments:
+                                    width: 1200
+                                    height: 800
+                                    positioning: center
+                                    forceResize: true
+                        medias: {  }
+                        name: pimcore_admin_splash_screen
+                        description: 'Thumbnail config for Pimcore login screen.'
+                        group: Pimcore
+                        format: SOURCE
+                        quality: 85
+                        highResolution: null
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1715008430
+                        creationDate: 1715008370
+                        preserveAnimation: false

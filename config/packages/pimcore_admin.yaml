@@ -3,3 +3,7 @@
 pimcore_admin:
     admin_csp_header:
         enabled: true
+
+when@prod:
+    pimcore_admin:
+        custom_admin_path_identifier: 'pimcore-administrator-login'

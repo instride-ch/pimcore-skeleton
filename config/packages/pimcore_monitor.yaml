@@ -1,5 +1,13 @@
 pimcore_monitor:
     report:
-        api_key: '%env(PIMCORE_MONITORING_API_KEY)%'
-        default_endpoint: '%env(PIMCORE_MONITORING_ENDPOINT)%'
-        instance_environment: '%env(PIMCORE_MONITORING_ENVIRONMENT)%'
+        api_key: '%monitor_api_key%'
+        default_endpoint: '%monitor_report_endpoint%'
+        instance_environment: '%monitor_instance_environment%'
+
+when@prod:
+    pimcore_monitor:
+        checks:
+            hosting_size:
+                warning_threshold: 48318382080
+                critical_threshold: 53687091200
+                path: '%kernel.project_dir%/../..'

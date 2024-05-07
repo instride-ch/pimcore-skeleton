@@ -1,7 +1,7 @@
+name: 'pimcore-skeleton'
 services:
     redis:
         image: 'redis:alpine'
-        container_name: 'pimcore-skeleton-redis'
         command:
             - 'redis-server'
             - '--maxmemory'
@@ -11,11 +11,10 @@ services:
             - '--save'
             - '""'
         volumes:
-            - 'pimcore-skeleton-redis-data:/data'
+            - 'redis-data:/data'
 
     db:
-        image: 'mariadb:10.11'
-        container_name: 'pimcore-skeleton-mariadb'
+        image: 'mariadb:10.7'
         working_dir: '/application'
         command:
             - 'mysqld'
@@ -24,7 +23,7 @@ services:
             - '--innodb-file-per-table=1'
             - '--lower-case-table-names=1'
         volumes:
-            - 'pimcore-skeleton-database:/var/lib/mysql'
+            - 'database:/var/lib/mysql'
         environment:
             MYSQL_ROOT_PASSWORD: 'ROOT'
             MYSQL_DATABASE: 'pimcore'
@@ -33,7 +32,6 @@ services:
 
     adminer:
         image: 'adminer'
-        container_name: 'pimcore-skeleton-adminer'
         restart: 'always'
         volumes:
             - '.docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/uploads.ini'
@@ -44,7 +42,6 @@ services:
 
     apache:
         image: 'httpd:latest'
-        container_name: 'pimcore-skeleton-apache'
         ports:
             - '80:80'
             - '443:443'
@@ -62,22 +59,27 @@ services:
 
     php:
         image: 'pimcore/pimcore:php8.2-debug-latest'
-        container_name: 'pimcore-skeleton-php'
         volumes:
             - '~/.composer:/root/composer'
             - '.:/var/www/html:cached'
-            - 'pimcore-skeleton-tmp-storage:/tmp:cached'
+            - 'tmp-storage:/tmp:cached'
             - '.docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini'
         environment:
             COMPOSER_HOME: '/var/www/html'
             PHP_IDE_CONFIG: 'serverName=localhost'
+            PIMCORE_INSTALL_ADMIN_USERNAME: 'admin'
+            PIMCORE_INSTALL_ADMIN_PASSWORD: 'admin'
+            PIMCORE_INSTALL_MYSQL_HOST_SOCKET: 'db'
+            PIMCORE_INSTALL_MYSQL_PORT: 3306
+            PIMCORE_INSTALL_MYSQL_USERNAME: 'pimcore'
+            PIMCORE_INSTALL_MYSQL_PASSWORD: 'pimcore'
+            PIMCORE_INSTALL_MYSQL_DATABASE: 'pimcore'
         depends_on:
             - 'db'
             - 'redis'
 
     supervisord:
         image: 'pimcore/pimcore:php8.2-supervisord-latest'
-        container_name: 'pimcore-skeleton-supervisord'
         volumes:
             - '.:/var/www/html:cached'
             - '.docker/supervisord.conf:/etc/supervisor/conf.d/pimcore.conf:ro'
@@ -86,10 +88,9 @@ services:
 
     mailpit:
         image: 'axllent/mailpit'
-        container_name: 'pimcore-skeleton-mailpit'
         restart: 'unless-stopped'
         volumes:
-            - 'pimcore-skeleton-mailpit-data:/data'
+            - 'mailpit-data:/data'
         ports:
             - '8025:8025'
         environment:
@@ -99,7 +100,7 @@ services:
             MP_SMTP_AUTH_ALLOW_INSECURE: 1
 
 volumes:
-    pimcore-skeleton-database:
-    pimcore-skeleton-redis-data:
-    pimcore-skeleton-tmp-storage:
-    pimcore-skeleton-mailpit-data:
+    database:
+    redis-data:
+    tmp-storage:
+    mailpit-data:

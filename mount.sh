@@ -21,6 +21,5 @@ docker compose exec php php bin/console pimcore:bundle:install SeoBundle
 docker compose exec php php bin/console pimcore:bundle:install ToolboxBundle
 docker compose down
 docker compose up -d
-chmod 600 ./.deployer/id_deployer
 yarn install
-yarn dev
+yarn build

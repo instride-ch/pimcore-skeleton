@@ -1,14 +1,21 @@
 <?php
 
+use Instride\Bundle\PimcoreMonitorBundle\PimcoreMonitorBundle;
+use Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle;
+use Pimcore\Bundle\SeoBundle\PimcoreSeoBundle;
+use Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle;
+use Pimcore\Bundle\TinymceBundle\PimcoreTinymceBundle;
+use SeoBundle\SeoBundle;
+use Symfony\WebpackEncoreBundle\WebpackEncoreBundle;
+use ToolboxBundle\ToolboxBundle;
+
 return [
-    Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle::class => ['all' => true],
-    Pimcore\Bundle\SeoBundle\PimcoreSeoBundle::class => ['all' => true],
-    Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle::class => ['all' => true],
-    Pimcore\Bundle\TinymceBundle\PimcoreTinymceBundle::class => ['all' => true],
-    Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
-    Pimcore\Bundle\AdminBundle\PimcoreAdminBundle::class => ['all' => true],
-    Instride\Bundle\PimcoreMonitorBundle\PimcoreMonitorBundle::class => ['all' => true],
-    SeoBundle\SeoBundle::class => ['all' => true],
-    ToolboxBundle\ToolboxBundle::class => ['all' => true],
-    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+    PimcoreApplicationLoggerBundle::class => ['all' => true],
+    PimcoreSeoBundle::class => ['all' => true],
+    PimcoreSimpleBackendSearchBundle::class => ['all' => true],
+    PimcoreTinymceBundle::class => ['all' => true],
+    PimcoreMonitorBundle::class => ['all' => true],
+    SeoBundle::class => ['all' => true],
+    ToolboxBundle::class => ['all' => true],
+    WebpackEncoreBundle::class => ['all' => true],
 ];

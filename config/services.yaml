@@ -2,7 +2,7 @@ imports:
     - { resource: 'services/*.yaml' }
 
 parameters:
-    secret: 'ThisTokenIsNotSoSecretChangeItImmediately'
+    secret: 'BucWPFgVld2OD2ISpiwrIBmKzyZb+UOFXV3OqmZBQ4g='
 
     framework_trusted_hosts: '%env(TRUSTED_HOSTS)%'
 

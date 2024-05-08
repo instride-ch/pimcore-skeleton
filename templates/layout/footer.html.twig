@@ -1,13 +1,11 @@
-{% set name = pimcore_website_config('name') %}
-
 <div class="uk-position-relative uk-section uk-section-default uk-section-xsmall uk-position-z-index">
     <div class="uk-container uk-container-large">
         <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
             <div class="uk-width-expand@s">
-                <img width="145" height="37" src="{{ asset('build/images/logo.svg') }}" alt="{{ name }}">
+                <img width="145" height="37" src="{{ asset('build/images/logo.svg') }}" alt="Logo Pimcore">
             </div>
             <div class="uk-width-auto">
-                <p>&copy; {{ 'now'|date('Y') }} {{ name }}. All rights reserved. Powered by Pimcore.</p>
+                <p>&copy; {{ 'now'|date('Y') }} instride AG. All rights reserved. Powered by Pimcore.</p>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@
                 </style>
             {% endblock %}
         </head>
-        {% emailizr_inky %}
+        {% apply inky_to_html %}
             <body>
             {% if app.request.get('description') is not empty %}
                 <span class="preheader">{{ app.request.get('description')|trans }}</span>
@@ -37,7 +37,7 @@
                 <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
             {% endblock %}
             </body>
-        {% end_emailizr_inky %}
+        {% endapply %}
         </html>
     {% end_emailizr_inline_style %}
 {% endapply %}

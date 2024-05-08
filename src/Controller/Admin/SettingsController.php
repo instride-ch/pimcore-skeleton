@@ -33,12 +33,12 @@ class SettingsController extends FrontendController
     public function displayCustomImageAction(array $websiteConfig, KernelInterface $kernel): BinaryFileResponse
     {
         $images = [
-            'pcx.svg',
+            'pc11.svg',
             'pimconaut-ecommerce.svg',
-            'pimconaut-world.svg',
             'pimconaut-engineer.svg',
             'pimconaut-moon.svg',
             'pimconaut-rocket.svg',
+            'pimconaut-world.svg',
         ];
         $folder = $websiteConfig['admin_login_image_folder'] ?? null;
 

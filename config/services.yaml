@@ -1,10 +1,10 @@
 imports:
+    - { resource: 'local/' }
     - { resource: 'services/*.yaml' }
 
 parameters:
-    secret: 'BucWPFgVld2OD2ISpiwrIBmKzyZb+UOFXV3OqmZBQ4g='
-
-    framework_trusted_hosts: '%env(TRUSTED_HOSTS)%'
+    secret: 'ThisTokenIsNotSoSecretChangeItImmediately'
+    pimcore_executable_php: '%env(PIMCORE_EXECUTABLE_PHP)%'
 
     mailer_dsn_main: '%env(MAILER_DSN_MAIN)%'
     mailer_dsn_newsletter: '%env(MAILER_DSN_NEWSLETTER)%'

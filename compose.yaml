@@ -14,7 +14,7 @@ services:
             - 'redis-data:/data'
 
     db:
-        image: 'mariadb:10.7'
+        image: 'mariadb:10.11'
         working_dir: '/application'
         command:
             - 'mysqld'
@@ -58,7 +58,7 @@ services:
             - 'redis'
 
     php:
-        image: 'pimcore/pimcore:php8.2-debug-latest'
+        image: 'pimcore/pimcore:PHP8.2-fpm-debug'
         volumes:
             - '~/.composer:/root/composer'
             - '.:/var/www/html:cached'

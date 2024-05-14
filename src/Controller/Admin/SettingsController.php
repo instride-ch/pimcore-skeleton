@@ -20,8 +20,7 @@ use Pimcore\Model\Asset\Folder;
 use Pimcore\Model\Asset\Image;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
-use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/admin/settings')]
 class SettingsController extends FrontendController
@@ -30,7 +29,7 @@ class SettingsController extends FrontendController
      * @param array<string, mixed> $websiteConfig
      */
     #[Route(path: '/display-custom-image', name: 'pimcore_settings_display_custom_image')]
-    public function displayCustomImageAction(array $websiteConfig, KernelInterface $kernel): BinaryFileResponse
+    public function displayCustomImageAction(array $websiteConfig): BinaryFileResponse
     {
         $images = [
             'pc11.svg',
@@ -50,24 +49,20 @@ class SettingsController extends FrontendController
             }
         }
 
+        $projectDir = $this->getParameter('kernel.project_dir');
         $image = $images[\array_rand($images)];
+        $filePath = \sprintf(
+            '%s/public/bundles/pimcoreadmin/img/login/%s',
+            $projectDir,
+            $image
+        );
 
         if ($image instanceof Image) {
             try {
                 $filePath = $image->getThumbnail('pimcore_admin_splash_screen')->getLocalFile();
             } catch (\Exception) {
-                $filePath = \sprintf(
-                    '%s/public/bundles/pimcoreadmin/img/login/%s',
-                    $kernel->getProjectDir(),
-                    $image
-                );
+                // Do nothing
             }
-        } else {
-            $filePath = \sprintf(
-                '%s/public/bundles/pimcoreadmin/img/login/%s',
-                $kernel->getProjectDir(),
-                $image
-            );
         }
 
         return $this->file($filePath, null, ResponseHeaderBag::DISPOSITION_INLINE);

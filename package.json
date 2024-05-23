@@ -13,8 +13,8 @@
   },
   "scripts": {
     "build": "encore production --progress",
-    "deploy:staging": "php vendor/bin/dep deploy stage=staging",
-    "deploy:production": "php vendor/bin/dep deploy stage=production",
+    "deploy:stg": "php vendor/bin/dep deploy stage=stg",
+    "deploy:prd": "php vendor/bin/dep deploy stage=prd",
     "dev": "encore dev",
     "dev-server": "encore dev-server --host skeleton.dev.local",
     "ecs": "php vendor/bin/ecs check",

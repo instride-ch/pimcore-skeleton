@@ -21,7 +21,7 @@
   },
   "require": {
     "php": ">=8.2",
-    "dachcom-digital/emailizr": "^3.0",
+    "dachcom-digital/emailizr": "~3.0.0",
     "dachcom-digital/seo": "^3.0",
     "dachcom-digital/toolbox": "^5.0",
     "instride/pimcore-monitor": "^3.0",

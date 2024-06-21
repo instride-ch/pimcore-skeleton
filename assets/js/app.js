@@ -7,6 +7,10 @@ import '../scss/app.scss';
 // Import components
 import Example from './components/example';
 
+// Import Fonts
+import '@fontsource/open-sans/400.css';
+import '@fontsource/open-sans/700.css';
+
 const app = () => {
   // Make UIkit accessible via browser console
   global.UIkit = UIkit;

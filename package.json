@@ -36,27 +36,28 @@
     "eslint": "^8.57",
     "eslint-config-airbnb-base": "^15.0",
     "eslint-plugin-import": "^2.29",
-    "eslint-webpack-plugin": "^4.1",
+    "eslint-webpack-plugin": "^4.2",
     "file-loader": "^6.2",
     "husky": "^9.0",
     "lint-staged": "^15.2",
     "postcss": "^8.4",
     "postcss-loader": "^8.1",
     "raw-loader": "^4.0",
-    "sass-embedded": "^1.76",
+    "sass-embedded": "^1.77",
     "sass-loader": "^14.2",
-    "stylelint": "^16.5",
+    "stylelint": "^16.6",
     "stylelint-config-standard-scss": "^13.1",
     "stylelint-order": "^6.0",
     "stylelint-scss": "^6.3",
     "stylelint-webpack-plugin": "^5.0",
-    "webpack": "^5.91",
+    "webpack": "^5.92",
     "webpack-cli": "^5.1"
   },
   "dependencies": {
+    "@fontsource/open-sans": "^5.0",
     "core-js": "^3.37",
     "foundation-emails": "^2.4",
-    "uikit": "^3.20"
+    "uikit": "^3.21"
   },
   "browserslist": [
     "defaults",

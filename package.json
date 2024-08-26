@@ -27,9 +27,9 @@
     "watch": "encore dev --watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.24",
-    "@babel/eslint-parser": "^7.24",
-    "@babel/preset-env": "^7.24",
+    "@babel/core": "^7.25",
+    "@babel/eslint-parser": "^7.25",
+    "@babel/preset-env": "^7.25",
     "@fullhuman/postcss-purgecss": "^6.0",
     "@symfony/webpack-encore": "^4.6",
     "autoprefixer": "^10.4",
@@ -38,30 +38,29 @@
     "eslint-plugin-import": "^2.29",
     "eslint-webpack-plugin": "^4.2",
     "file-loader": "^6.2",
-    "husky": "^9.0",
+    "husky": "^9.1",
     "lint-staged": "^15.2",
     "postcss": "^8.4",
     "postcss-loader": "^8.1",
     "raw-loader": "^4.0",
     "sass-embedded": "^1.77",
-    "sass-loader": "^14.2",
-    "stylelint": "^16.6",
+    "sass-loader": "^16.0",
+    "stylelint": "^16.8",
     "stylelint-config-standard-scss": "^13.1",
     "stylelint-order": "^6.0",
-    "stylelint-scss": "^6.3",
+    "stylelint-scss": "^6.5",
     "stylelint-webpack-plugin": "^5.0",
-    "webpack": "^5.92",
+    "webpack": "^5.94",
     "webpack-cli": "^5.1"
   },
   "dependencies": {
     "@fontsource/open-sans": "^5.0",
-    "core-js": "^3.37",
+    "core-js": "^3.38",
     "foundation-emails": "^2.4",
     "uikit": "^3.21"
   },
   "browserslist": [
     "defaults",
-    "not IE 11",
     "not op_mini all"
   ]
 }

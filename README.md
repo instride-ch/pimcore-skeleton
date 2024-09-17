@@ -19,7 +19,7 @@ sudo nano /etc/hosts
 **Create a new Project**
 
 ```bash
-composer create-project instride/pimcore-skeleton:11.2
+composer create-project instride/pimcore-skeleton:11.3
 ```
 
 **Start and connect to Docker container**

@@ -16,4 +16,9 @@ class DefaultController extends FrontendController
             'version' => Version::getVersion(),
         ]);
     }
+
+    public function legalsAction(): Response
+    {
+        return $this->render('default/legals.html.twig');
+    }
 }

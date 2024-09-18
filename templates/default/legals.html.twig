@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="https://api.instride.ch/imprint/v1/instride.js" defer></script>
+{% endblock %}
+
+{% block content %}
+    <section class="uk-section uk-section-default">
+        <div class="uk-container">
+            <h1>Umsetzung</h1>
+            <div id="instride-imprint"></div>
+        </div>
+    </section>
+{% endblock %}

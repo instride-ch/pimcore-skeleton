@@ -1,4 +1,5 @@
 const Encore = require('@symfony/webpack-encore');
+const EslintPlugin = require('eslint-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const fs = require('fs');
 const { resolve } = require('path');
@@ -27,7 +28,6 @@ Encore
 
   // JavaScript
   .enableSingleRuntimeChunk()
-  .enableEslintPlugin()
   .splitEntryChunks()
   .configureBabel(() => {}, {
     includeNodeModules: [
@@ -41,6 +41,7 @@ Encore
     options.VERSION = JSON.stringify(version);
   })
   .addAliases({ 'uikit-util': `${paths.vendor}/uikit/src/js/util` })
+  .addPlugin(new EslintPlugin())
 
   // CSS
   .enableSassLoader((options) => {

@@ -7,9 +7,10 @@
   "homepage": "https://instride.ch",
   "license": "UNLICENSED",
   "private": true,
+  "type": "module",
   "lint-staged": {
-    "*.{js}": "eslint --fix",
-    "*.{css,scss}": "stylelint --fix"
+    "assets/js/**/*.js": "eslint --fix",
+    "assets/scss/**/*.{css,scss}": "stylelint --fix"
   },
   "scripts": {
     "build": "encore production --progress",
@@ -31,11 +32,11 @@
     "@babel/eslint-parser": "^7.25",
     "@babel/preset-env": "^7.25",
     "@fullhuman/postcss-purgecss": "^6.0",
-    "@symfony/webpack-encore": "^4.7",
+    "@symfony/webpack-encore": "^5.0",
     "autoprefixer": "^10.4",
-    "eslint": "^8.57",
+    "eslint": "^9.11",
     "eslint-config-airbnb-base": "^15.0",
-    "eslint-plugin-import": "^2.30",
+    "eslint-plugin-import": "^2.31",
     "eslint-webpack-plugin": "^4.2",
     "file-loader": "^6.2",
     "husky": "^9.1",
@@ -43,15 +44,16 @@
     "postcss": "^8.4",
     "postcss-loader": "^8.1",
     "raw-loader": "^4.0",
-    "sass-embedded": "^1.78",
+    "sass-embedded": "^1.79",
     "sass-loader": "^16.0",
     "stylelint": "^16.9",
     "stylelint-config-standard-scss": "^13.1",
     "stylelint-order": "^6.0",
-    "stylelint-scss": "^6.6",
+    "stylelint-scss": "^6.7",
     "stylelint-webpack-plugin": "^5.0",
-    "webpack": "^5.94",
-    "webpack-cli": "^5.1"
+    "webpack": "^5.95",
+    "webpack-cli": "^5.1",
+    "webpack-dev-server": "^5.1"
   },
   "dependencies": {
     "@fontsource/open-sans": "^5.1",

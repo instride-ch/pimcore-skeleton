@@ -3,11 +3,11 @@
     "js/app": {
       "js": [
         "/build/runtime.59016c0e.js",
-        "/build/145.ce5a7084.js",
-        "/build/js/app.05f5615b.js"
+        "/build/145.e71dc10d.js",
+        "/build/js/app.278b110a.js"
       ],
       "css": [
-        "/build/js/app.ffce457c.css"
+        "/build/js/app.bfa79374.css"
       ]
     },
     "css/email": {
@@ -23,7 +23,7 @@
         "/build/runtime.59016c0e.js"
       ],
       "css": [
-        "/build/css/editmode.31d6cfe0.css"
+        "/build/css/editmode.690923de.css"
       ]
     }
   }

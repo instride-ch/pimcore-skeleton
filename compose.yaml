@@ -44,13 +44,11 @@ services:
         image: 'httpd:latest'
         ports:
             - '80:80'
-            - '443:443'
+        labels:
+            - 'dev.orbstack.domains=skeleton.orb.local'
         volumes:
             - '.:/usr/local/apache2/htdocs:cached'
             - '.docker/apache2/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro'
-            - '.docker/apache2/httpd-ssl.conf:/usr/local/apache2/conf/extra/httpd-ssl.conf:ro'
-            - '/etc/ssl/dev.local+4.pem:/usr/local/apache2/conf/server.crt'
-            - '/etc/ssl/dev.local+4-key.pem:/usr/local/apache2/conf/server.key'
         links:
             - 'php'
         depends_on:

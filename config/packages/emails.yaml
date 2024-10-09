@@ -1,14 +1,14 @@
 pimcore:
-    email:
-        sender:
-            name: 'PLEASE_CHANGE_ME'
-            email: '<email_address>'
-        return:
-            name: 'PLEASE_CHANGE_ME'
-            email: '<email_address>'
+  email:
+    sender:
+      name: "PLEASE_CHANGE_ME"
+      email: "<email_address>"
+    return:
+      name: "PLEASE_CHANGE_ME"
+      email: "<email_address>"
 
 framework:
-    mailer:
-        transports:
-            main: '%mailer_dsn_main%'
-            pimcore_newsletter: '%mailer_dsn_newsletter%'
+  mailer:
+    transports:
+      main: "%mailer_dsn_main%"
+      pimcore_newsletter: "%mailer_dsn_newsletter%"

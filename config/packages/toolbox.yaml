@@ -1,48 +1,48 @@
 toolbox:
-    theme:
-        layout: 'UIkit3'
-        calculators:
-            column_calculator: ToolboxBundle\Calculator\UIkit3\ColumnCalculator
-            slide_calculator: ToolboxBundle\Calculator\UIkit3\SlideColumnCalculator
-        wrapper:
-            image: ~
-            gallery: ~
-            slideColumns: ~
-            teaser: ~
-            columns:
-                - { tag: 'div', class: 'uk-grid' }
-        grid:
-            grid_size: 12
-            column_store:
-                11: '1/1'
-                12: '1/2'
-                13: '1/3'
-                14: '1/4'
-                15: '1/5'
-                16: '1/6'
-                23: '2/3'
-                25: '2/5'
-                34: '3/4'
-                35: '3/5'
-                45: '4/5'
-                56: '5/6'
-            breakpoints:
-                -   identifier: 's'
-                    name: 'Breakpoint: S'
-                    description: 'Viewports wider than 640px'
-                -   identifier: 'm'
-                    name: 'Breakpoint: M'
-                    description: 'Viewports wider than 960px'
-                -   identifier: 'l'
-                    name: 'Breakpoint: L'
-                    description: 'Viewports wider than 1200px'
-                -   identifier: 'xl'
-                    name: 'Breakpoint: XL'
-                    description: 'Viewports wider than 1600px'
+  theme:
+    layout: "UIkit3"
+    calculators:
+      column_calculator: ToolboxBundle\Calculator\UIkit3\ColumnCalculator
+      slide_calculator: ToolboxBundle\Calculator\UIkit3\SlideColumnCalculator
+    wrapper:
+      image: ~
+      gallery: ~
+      slideColumns: ~
+      teaser: ~
+      columns:
+        - { tag: "div", class: "uk-grid" }
+    grid:
+      grid_size: 12
+      column_store:
+        11: "1/1"
+        12: "1/2"
+        13: "1/3"
+        14: "1/4"
+        15: "1/5"
+        16: "1/6"
+        23: "2/3"
+        25: "2/5"
+        34: "3/4"
+        35: "3/5"
+        45: "4/5"
+        56: "5/6"
+      breakpoints:
+        - identifier: "s"
+          name: "Breakpoint: S"
+          description: "Viewports wider than 640px"
+        - identifier: "m"
+          name: "Breakpoint: M"
+          description: "Viewports wider than 960px"
+        - identifier: "l"
+          name: "Breakpoint: L"
+          description: "Viewports wider than 1200px"
+        - identifier: "xl"
+          name: "Breakpoint: XL"
+          description: "Viewports wider than 1600px"
 
-    area_block_configuration:
-        groups: ~
+  area_block_configuration:
+    groups: ~
 
-    areablock_restriction:
-        default_section:
-            allowed: ~
+  areablock_restriction:
+    default_section:
+      allowed: ~

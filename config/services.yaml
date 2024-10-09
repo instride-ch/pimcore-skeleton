@@ -1,33 +1,33 @@
 imports:
-    - { resource: 'local/' }
-    - { resource: 'services/*.yaml' }
+  - { resource: "local/" }
+  - { resource: "services/*.yaml" }
 
 parameters:
-    secret: 'ThisTokenIsNotSoSecretChangeItImmediately'
-    pimcore_executable_php: '%env(PIMCORE_EXECUTABLE_PHP)%'
+  secret: "izWVNcTkRS3wi3ZKbK7EUO54sCls/flW+1arXxRX0+I="
+  pimcore_executable_php: "%env(PIMCORE_EXECUTABLE_PHP)%"
 
-    mailer_dsn_main: '%env(MAILER_DSN_MAIN)%'
-    mailer_dsn_newsletter: '%env(MAILER_DSN_NEWSLETTER)%'
+  mailer_dsn_main: "%env(MAILER_DSN_MAIN)%"
+  mailer_dsn_newsletter: "%env(MAILER_DSN_NEWSLETTER)%"
 
-    monitor_api_key: '%env(PIMCORE_MONITORING_API_KEY)%'
-    monitor_report_endpoint: '%env(PIMCORE_MONITORING_ENDPOINT)%'
-    monitor_instance_environment: '%env(PIMCORE_MONITORING_ENVIRONMENT)%'
+  monitor_api_key: "%env(PIMCORE_MONITORING_API_KEY)%"
+  monitor_report_endpoint: "%env(PIMCORE_MONITORING_ENDPOINT)%"
+  monitor_instance_environment: "%env(PIMCORE_MONITORING_ENVIRONMENT)%"
 
 services:
-    # default configuration for services in *this* file
-    _defaults:
-        # automatically injects dependencies in your services
-        autowire: true
-        # automatically registers your services as commands, event subscribers, etc.
-        autoconfigure: true
-        # this means you cannot fetch services directly from the container via $container->get()
-        # if you need to do this, you can override this setting on individual services
-        public: false
+  # default configuration for services in *this* file
+  _defaults:
+    # automatically injects dependencies in your services
+    autowire: true
+    # automatically registers your services as commands, event subscribers, etc.
+    autoconfigure: true
+    # this means you cannot fetch services directly from the container via $container->get()
+    # if you need to do this, you can override this setting on individual services
+    public: false
 
-    # ---------------------------------------------------------
-    # Register all controllers of App as services
-    # ---------------------------------------------------------
-    App\Controller\:
-        resource: '../src/Controller'
-        public: true
-        tags: ['controller.service_arguments']
+  # ---------------------------------------------------------
+  # Register all controllers of App as services
+  # ---------------------------------------------------------
+  App\Controller\:
+    resource: "../src/Controller"
+    public: true
+    tags: ["controller.service_arguments"]

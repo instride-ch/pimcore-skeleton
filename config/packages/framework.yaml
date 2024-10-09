@@ -1,2 +1,2 @@
 framework:
-    trusted_hosts: '%env(TRUSTED_HOSTS)%'
+  trusted_hosts: "%env(TRUSTED_HOSTS)%"

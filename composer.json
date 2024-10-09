@@ -59,6 +59,7 @@
     ]
   },
   "conflict": {
+    "knplabs/knp-paginator-bundle": "6.6.0",
     "symfony/symfony": "*"
   },
   "extra": {

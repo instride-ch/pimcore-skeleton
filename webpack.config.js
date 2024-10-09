@@ -1,60 +1,56 @@
-const Encore = require('@symfony/webpack-encore');
-const EslintPlugin = require('eslint-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const fs = require('fs');
-const { resolve } = require('path');
-const { version } = require('uikit/package.json');
+import Encore from "@symfony/webpack-encore";
+import fs from "fs";
+import path from "path";
+import uikit from "uikit/package.json" with { type: "json" };
 
 const paths = {
-  output: resolve(__dirname, './public/build/'),
-  pattern: /\.(jpe?g|png|gif|svg|webp)$/i,
-  public: 'build',
-  source: resolve(__dirname, './assets'),
-  vendor: resolve(__dirname, './node_modules'),
+  public: "/build",
+  source: path.resolve(import.meta.dirname, "assets"),
+  output: path.resolve(import.meta.dirname, "public/build"),
 };
 
 Encore
   // Set output and public paths
-  .setOutputPath(`${paths.output}/`)
-  .setPublicPath(`/${paths.public}`)
+  .setOutputPath(paths.output)
+  .setPublicPath(paths.public)
 
   // Clean output before build
   .cleanupOutputBeforeBuild()
 
   // Entries
-  .addEntry('js/app', `${paths.source}/js/app.js`)
-  .addStyleEntry('css/email', `${paths.source}/scss/email.scss`)
-  .addStyleEntry('css/editmode', `${paths.source}/scss/editmode.scss`)
+  .addEntry("js/app", `${paths.source}/js/app.js`)
+  .addStyleEntry("css/email", `${paths.source}/styles/email.scss`)
+  .addStyleEntry("css/editmode", `${paths.source}/styles/editmode.css`)
 
   // JavaScript
   .enableSingleRuntimeChunk()
   .splitEntryChunks()
   .configureBabel(() => {}, {
-    includeNodeModules: [
-      'uikit',
-    ],
-    useBuiltIns: 'usage',
+    useBuiltIns: "usage",
     corejs: 3,
   })
   .configureDefinePlugin((options) => {
     options.LOG = false;
-    options.VERSION = JSON.stringify(version);
+    options.VERSION = JSON.stringify(uikit.version);
   })
-  .addAliases({ 'uikit-util': `${paths.vendor}/uikit/src/js/util` })
-  .addPlugin(new EslintPlugin())
+  .addAliases({
+    "uikit-util": "uikit/src/js/util/index.js",
+  })
 
   // CSS
-  .enableSassLoader((options) => {
-    options.sassOptions.quietDeps = true;
-  }, { resolveUrlLoader: false })
+  .enableSassLoader(
+    (options) => {
+      options.sassOptions.quietDeps = true;
+    },
+    { resolveUrlLoader: false },
+  )
   .enablePostCssLoader()
-  .addPlugin(new StyleLintPlugin())
 
-  // Copy and optimize images
+  // Copy images
   .copyFiles({
     from: `${paths.source}/images`,
-    to: '[path][name].[hash:8].[ext]',
-    pattern: paths.pattern,
+    to: "[path][name].[hash:8].[ext]",
+    pattern: /\.(jpe?g|png|gif|svg|webp)$/i,
     context: paths.source,
   })
 
@@ -64,39 +60,34 @@ Encore
 
   // Advanced config options
   .configureDevServerOptions((options) => {
-    options.allowedHosts = 'all';
-    options.server = {
-      type: 'https',
-      options: {
-        cert: '/etc/ssl/dev.local+4.pem',
-        key: '/etc/ssl/dev.local+4-key.pem',
-      },
-    };
+    options.allowedHosts = "all";
+    options.server = { type: "https" };
   })
   .configureWatchOptions((options) => {
     options.poll = true;
-    options.ignored = `${paths.vendor}/`;
   })
-  .configureImageRule({}, (rule) => {
-    rule.exclude = [
-      `${paths.vendor}/uikit`,
-      `${paths.source}/custom/icons`,
-    ];
-  })
+  .configureImageRule(
+    {
+      filename: "images/[name].[hash:8][ext]",
+    },
+    (rule) => {
+      rule.exclude = [`${paths.source}/custom/icons`];
+    },
+  )
   .addRule({
-    loader: 'raw-loader',
+    loader: "raw-loader",
     test: /\.svg$/,
-    include: [
-      `${paths.vendor}/uikit`,
-      `${paths.source}/custom/icons`,
-    ],
+    include: [`${paths.source}/custom/icons`],
   })
   .addPlugin({
     apply: (compiler) => {
-      compiler.hooks.afterEmit.tap('AfterEmitPlugin', () => {
-        fs.writeFileSync(`${paths.output}/environment.json`, `{"environment": "${Encore.isProduction() ? 'prod' : 'dev'}"}`);
+      compiler.hooks.afterEmit.tap("AfterEmitPlugin", () => {
+        fs.writeFileSync(
+          `${paths.output}/environment.json`,
+          `{"environment": "${Encore.isProduction() ? "prod" : "dev"}"}`,
+        );
       });
     },
   });
 
-module.exports = Encore.getWebpackConfig();
+export default Encore.getWebpackConfig();

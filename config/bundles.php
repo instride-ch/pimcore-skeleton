@@ -7,7 +7,6 @@ use Pimcore\Bundle\SeoBundle\PimcoreSeoBundle;
 use Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle;
 use Pimcore\Bundle\TinymceBundle\PimcoreTinymceBundle;
 use SeoBundle\SeoBundle;
-use Symfony\WebpackEncoreBundle\WebpackEncoreBundle;
 use ToolboxBundle\ToolboxBundle;
 
 return [
@@ -19,5 +18,4 @@ return [
     PimcoreTinymceBundle::class => ['all' => true],
     SeoBundle::class => ['all' => true],
     ToolboxBundle::class => ['all' => true],
-    WebpackEncoreBundle::class => ['all' => true],
 ];

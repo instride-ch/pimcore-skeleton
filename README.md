@@ -2,24 +2,10 @@
 
 ## Local Development
 
-**Create valid HTTPS certificates**
-
-```bash
-mkcert -install
-sudo mkcert -cert-file /etc/ssl/dev.local+4.pem -key-file /etc/ssl/dev.local+4-key.pem dev.local "*.dev.local" localhost 127.0.0.1 ::1
-sudo chown <username>:staff /etc/ssl/dev.local+4.pem /etc/ssl/dev.local+4-key.pem
-```
-
-Don't forget to add your local domain to your hosts file:
-```bash
-sudo nano /etc/hosts
-127.0.0.1 your-domain.dev.local
-```
-
 **Create a new Project**
 
 ```bash
-composer create-project instride/pimcore-skeleton:11.3
+composer create-project instride/pimcore-skeleton:11.4
 ```
 
 **Start and connect to Docker container**
@@ -39,7 +25,7 @@ php vendor/bin/pimcore-install --no-interaction
 Open a new terminal and run the following command locally.
 
 ```bash
-yarn install && yarn dev
+yarn install && yarn run dev
 ```
 
 ## Copyright

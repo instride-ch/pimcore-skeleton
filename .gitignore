@@ -44,10 +44,14 @@
 # PhpStorm / IDEA
 /.idea/
 
-# Node / Webpack
-/node_modules/
-/yarn-debug.log
-/yarn-error.log
+# Yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
+
+# Symfony Asset Mapper
+/assets/vendor/
 
 # Project Setup
 /deployer.phar

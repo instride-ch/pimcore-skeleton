@@ -1,5 +1,5 @@
-import Class from 'uikit/src/js/mixin/class';
-import '../../scss/components/example.scss';
+import Class from "uikit/src/js/mixin/class.js";
+import "../../styles/components/_example.scss";
 
 function Line(opts, ctx, tick, baseRad, dieX, dieY) {
   this.opts = opts;
@@ -31,7 +31,7 @@ export default {
       sparkChance: 0.1,
       sparkDist: 10,
       sparkSize: 2,
-      color: 'hsl(hue,100%,light%)',
+      color: "hsl(hue,100%,light%)",
       baseLight: 50,
       addedLight: 10, // [50-10,50+10]
       shadowToTimePropMult: 6,
@@ -46,12 +46,12 @@ export default {
 
   connected() {
     this.c = this.$el;
-    this.ctx = this.c.getContext('2d');
+    this.ctx = this.c.getContext("2d");
 
     this.c.width = this.w;
     this.c.height = this.h;
 
-    this.ctx.fillStyle = 'black';
+    this.ctx.fillStyle = "black";
     this.ctx.fillRect(0, 0, this.w, this.h);
 
     this.dieX = this.w / 2 / this.opts.len;
@@ -59,12 +59,14 @@ export default {
 
     this.loop();
 
-    console.warn('⚠️ Don\'t forget to remove this component as it only serves as an example!');
+    console.warn(
+      "⚠️ Don't forget to remove this component as it only serves as an example!",
+    );
   },
 
   events: [
     {
-      name: 'resize',
+      name: "resize",
 
       el() {
         return window;
@@ -76,7 +78,7 @@ export default {
 
         this.c.width = this.w;
         this.c.height = this.h;
-        this.ctx.fillStyle = 'black';
+        this.ctx.fillStyle = "black";
         this.ctx.fillRect(0, 0, this.w, this.h);
 
         this.opts.cx = this.w / 2;
@@ -93,15 +95,28 @@ export default {
       window.requestAnimationFrame(this.loop);
       this.tick += 1;
 
-      this.ctx.globalCompositeOperation = 'source-over';
+      this.ctx.globalCompositeOperation = "source-over";
       this.ctx.shadowBlur = 0;
-      this.ctx.fillStyle = 'rgba(0,0,0,alp)'.replace('alp', this.opts.repaintAlpha);
+      this.ctx.fillStyle = "rgba(0,0,0,alp)".replace(
+        "alp",
+        this.opts.repaintAlpha,
+      );
       this.ctx.fillRect(0, 0, this.w, this.h);
-      this.ctx.globalCompositeOperation = 'lighter';
+      this.ctx.globalCompositeOperation = "lighter";
 
-      if (this.lines.length < this.opts.count && Math.random() < this.opts.spawnChance) {
+      if (
+        this.lines.length < this.opts.count &&
+        Math.random() < this.opts.spawnChance
+      ) {
         this.lines.push(
-          new Line(this.opts, this.ctx, this.tick, this.baseRad, this.dieX, this.dieY),
+          new Line(
+            this.opts,
+            this.ctx,
+            this.tick,
+            this.baseRad,
+            this.dieX,
+            this.dieY,
+          ),
         );
       }
 
@@ -120,11 +135,11 @@ Line.prototype.reset = function reset() {
 
   this.rad = 0;
 
-  this.lightInputMultiplier = this.opts.baseLightInputMultiplier
-    + this.opts.addedLightInputMultiplier
-    * Math.random();
+  this.lightInputMultiplier =
+    this.opts.baseLightInputMultiplier +
+    this.opts.addedLightInputMultiplier * Math.random();
 
-  this.color = this.opts.color.replace('hue', this.tick * this.opts.hueChange);
+  this.color = this.opts.color.replace("hue", this.tick * this.opts.hueChange);
   this.cumulativeTime = 0;
 
   this.beginPhase();
@@ -135,14 +150,20 @@ Line.prototype.beginPhase = function beginPhase() {
   this.y += this.addedY;
 
   this.time = 0;
-  this.targetTime = (this.opts.baseTime + this.opts.addedTime * Math.random()) || 0;
+  this.targetTime =
+    this.opts.baseTime + this.opts.addedTime * Math.random() || 0;
 
   this.rad += this.baseRad * (Math.random() < 0.5 ? 1 : -1);
   this.addedX = Math.cos(this.rad);
   this.addedY = Math.sin(this.rad);
 
-  if (Math.random() < this.opts.dieChance
-    || this.x > this.dieX || this.x < -this.dieX || this.y > this.dieY || this.y < -this.dieY) {
+  if (
+    Math.random() < this.opts.dieChance ||
+    this.x > this.dieX ||
+    this.x < -this.dieX ||
+    this.y > this.dieY ||
+    this.y < -this.dieY
+  ) {
     this.reset();
   }
 };
@@ -161,7 +182,12 @@ Line.prototype.step = function step() {
   const y = this.addedY * wave;
 
   this.ctx.shadowBlur = prop * this.opts.shadowToTimePropMult;
-  this.ctx.fillStyle = this.color.replace('light', this.opts.baseLight + this.opts.addedLight * Math.sin(this.cumulativeTime * this.lightInputMultiplier));
+  this.ctx.fillStyle = this.color.replace(
+    "light",
+    this.opts.baseLight +
+      this.opts.addedLight *
+        Math.sin(this.cumulativeTime * this.lightInputMultiplier),
+  );
   this.ctx.shadowColor = this.ctx.fillStyle;
   this.ctx.fillRect(
     this.opts.cx + (this.x + x) * this.opts.len,
@@ -172,10 +198,14 @@ Line.prototype.step = function step() {
 
   if (Math.random() < this.opts.sparkChance) {
     this.ctx.fillRect(
-      this.opts.cx + (this.x + x) * this.opts.len + Math.random()
-      * this.opts.sparkDist * (Math.random() < 0.5 ? 1 : -1) - this.opts.sparkSize / 2,
-      this.opts.cy + (this.y + y) * this.opts.len + Math.random()
-      * this.opts.sparkDist * (Math.random() < 0.5 ? 1 : -1) - this.opts.sparkSize / 2,
+      this.opts.cx +
+        (this.x + x) * this.opts.len +
+        Math.random() * this.opts.sparkDist * (Math.random() < 0.5 ? 1 : -1) -
+        this.opts.sparkSize / 2,
+      this.opts.cy +
+        (this.y + y) * this.opts.len +
+        Math.random() * this.opts.sparkDist * (Math.random() < 0.5 ? 1 : -1) -
+        this.opts.sparkSize / 2,
       this.opts.sparkSize,
       this.opts.sparkSize,
     );

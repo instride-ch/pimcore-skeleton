@@ -1,0 +1,4 @@
+/* Hide script element in grids */
+.uk-grid script {
+  display: none !important;
+}

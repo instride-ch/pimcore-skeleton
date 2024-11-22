@@ -56,7 +56,7 @@ services:
       - "redis"
 
   php:
-    image: "pimcore/pimcore:PHP8.2-fpm-debug"
+    image: "pimcore/pimcore:php8.3-debug-latest"
     volumes:
       - "~/.composer:/root/composer"
       - ".:/var/www/html:cached"
@@ -77,7 +77,7 @@ services:
       - "redis"
 
   supervisord:
-    image: "pimcore/pimcore:php8.2-supervisord-latest"
+    image: "pimcore/pimcore:php8.3-supervisord-latest"
     volumes:
       - ".:/var/www/html:cached"
       - ".docker/supervisord.conf:/etc/supervisor/conf.d/pimcore.conf:ro"

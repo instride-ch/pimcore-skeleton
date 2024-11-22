@@ -1,10 +1,10 @@
 import autoprefixer from "autoprefixer";
-import purgecss from "@fullhuman/postcss-purgecss";
+import { purgeCSSPlugin } from "@fullhuman/postcss-purgecss";
 
 export default {
   plugins: [
     autoprefixer,
-    purgecss({
+    purgeCSSPlugin({
       content: ["./templates/**/*.html.twig"],
       // Add other selectors to "safelist", which need to be included in the final CSS file.
       // More info see: https://purgecss.com/safelisting.html

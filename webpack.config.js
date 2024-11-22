@@ -41,6 +41,7 @@ Encore
   .enableSassLoader(
     (options) => {
       options.sassOptions.quietDeps = true;
+      options.sassOptions.silenceDeprecations = ["import"];
     },
     { resolveUrlLoader: false },
   )

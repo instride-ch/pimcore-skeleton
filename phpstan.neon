@@ -1,13 +1,14 @@
 includes:
+  - '%currentWorkingDirectory%/vendor/phpstan/phpstan-deprecation-rules/rules.neon'
   - '%currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/extension.neon'
 
 parameters:
-  level: 5
+  level: 6
   reportUnmatchedIgnoredErrors: false
   scanFiles:
     - '%currentWorkingDirectory%/vendor/pimcore/pimcore/lib/helper-functions.php'
   symfony:
-    container_xml_path: '%currentWorkingDirectory%/var/cache/dev/App_KernelDevDebugContainer.xml'
+    containerXmlPath: '%currentWorkingDirectory%/var/cache/dev/App_KernelDevDebugContainer.xml'
   excludePaths:
-    - 'src/Model/DataObject/*.php'
+    - 'src/Model/DataObject/*.php' (?)
   ignoreErrors: []

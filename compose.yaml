@@ -56,7 +56,7 @@ services:
       - "redis"
 
   php:
-    image: "pimcore/pimcore:php8.3-debug-latest"
+    build: ".docker/php"
     volumes:
       - "~/.composer:/root/composer"
       - ".:/var/www/html:cached"
